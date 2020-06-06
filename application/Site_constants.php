@@ -16,7 +16,7 @@ errorMsg::get_protocol() or errorMsg::Show('Protocol Not Define');
 defined('SITE_NAME') or define('SITE_NAME', 'twstechnology/Zofa');
 
 /** Site Url : `$_SERVER['HTTP_HOST']` */
-defined('SITE_URL') or define('SITE_URL', errorMsg::get_protocol() . $_SERVER['HTTP_HOST'] . '/zofain/');
+defined('SITE_URL') or define('SITE_URL', errorMsg::get_protocol() . $_SERVER['HTTP_HOST'] . '/zofa/');
 
 defined('PASSWORD_SALT') or define('PASSWORD_SALT', md5(SITE_NAME . '-TwsTechies'));
 

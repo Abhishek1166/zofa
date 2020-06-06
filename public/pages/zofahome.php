@@ -1,8 +1,9 @@
 <!-- ========================  Header content ======================== -->
 <?php
-echo '<pre>';
-print_r($data);
+/* echo '<pre>';
+print_r($data['Blogs']);
 echo '</pre>';
+die; */
 ?>
 <section class="header-content">
 
@@ -853,6 +854,9 @@ echo '</pre>';
 
 <!-- ========================  Instagram ======================== -->
 
+
+
+
 <section class="instagram">
 
     <!-- === instagram header === -->
@@ -863,7 +867,9 @@ echo '</pre>';
                 <div class="col-md-offset-2 col-md-8 text-center">
                     <h2 class="h2 title">Follow us <i class="fa fa-instagram fa-2x"></i> Instagram </h2>
                     <div class="text">
-                        <p>@InstaFurnitureFactory</p>
+                        <p>
+                            <?php echo $data['instagram'] ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -874,22 +880,22 @@ echo '</pre>';
 
     <div class="gallery clearfix">
         <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-1.jpg" alt="Alternate Text" />
+            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-11.jpg" alt="Alternate Text" />
         </a>
         <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-2.jpg" alt="Alternate Text" />
+            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-21.jpg" alt="Alternate Text" />
         </a>
         <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-3.jpg" alt="Alternate Text" />
+            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-31.jpg" alt="Alternate Text" />
         </a>
         <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-4.jpg" alt="Alternate Text" />
+            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-41.jpg" alt="Alternate Text" />
         </a>
         <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-5.jpg" alt="Alternate Text" />
+            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-52.jpg" alt="Alternate Text" />
         </a>
         <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-6.jpg" alt="Alternate Text" />
+            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-61.jpg" alt="Alternate Text" />
         </a>
 
     </div>

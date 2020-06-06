@@ -85,9 +85,13 @@ class Page extends CI_Controller
 	// 
 	function zofahome()
 	{
+
+
+		//print_r($site);
 		// $data['Property'] = $this->ProductsModel->get_featured_property();
 		$data['Sliders'] 	= get_data_from('sliders');
 		$data['Blogs']    	= get_data_from('posts');
+		$data['instagram'] = $this->SettingsModel->get_option('social_instagram');
 
 		// show_debug($data['Property']);
 		// show_debug($data['Blogs']);
