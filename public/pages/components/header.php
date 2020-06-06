@@ -172,7 +172,11 @@
                                                         <ul>
                                                             <li class="label">Pages</li>
                                                             <li><a href="about.html">About us</a></li>
-                                                            <li><a href="contact1.php">Contact</a></li>
+
+                                                            <!-- changes -->
+                                                            <li class="<?php is_page_active('contact') ?>">
+                                                                <a href="<?php echo SITE_URL ?>contact">Contact</a> </li>
+                                                            <!-- changes -->
                                                             <li><a href="login.html">Login & Register <span class="label label-warning">New</span></a></li>
                                                         </ul>
                                                         <ul>
