@@ -38,9 +38,17 @@
 				<div class="col-sm-4 col-md-2">
 					<h5>Our company</h5>
 					<ul>
-						<li><a href="#">About</a></li>
-						<li><a href="#">News</a></li>
-						<li><a href="#">Contact</a></li>
+						<li class="<?php is_page_active('about_us') ?>">
+							<a href="<?php echo SITE_URL ?>about-us">ABOUT US</a>
+						</li>
+
+
+						<!-- <li><a href="#">News</a></li> -->
+
+
+						<li class="<?php is_page_active('contact') ?>">
+							<a href="<?php echo SITE_URL ?>contact">CONTACT US</a>
+						</li>
 					</ul>
 				</div>
 				<div class="col-sm-12 col-md-6">

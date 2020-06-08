@@ -1,4 +1,4 @@
-﻿<section class="main-header" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/gallery-2.jpg)">
+﻿<section class="main-header" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/contacttop.jpg)">
     <header>
         <div class="container text-center">
             <h2 class="h2 title">Contact</h2>
@@ -16,7 +16,7 @@
 
     <!-- === Goolge map === -->
 
-    <div id="map"></div>
+    <div id="map"><iframe src="<?= $data['site_map'] ?>" width="1300" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
 
     <div class="container">
 
@@ -78,8 +78,9 @@
                                     <a class="btn btn-clean open-form" data-text-open="Contact us via form" data-text-close="Close form">Contact us via form</a>
 
                                     <div class="contact-form clearfix">
+
                                         <?php show_alert(); ?>
-                                        <form id="myform" name="sendmail" action=<?php echo SITE_URL ?>contact" method="post">
+                                        <form action="<?php echo SITE_URL ?>contact" name="sendmail" method="post" id="myForm">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -126,7 +127,7 @@
                                         <strong>Sales</strong>
                                         <span>
                                             <strong>T</strong> <?= $data['site_mobile'] ?> <br />
-                                            <strong>F</strong> <?= $data['site_mobile'] ?>
+                                            <!-- <strong>F</strong> <?= $data['site_mobile'] ?> -->
                                         </span>
                                     </figcaption>
                                 </figure>

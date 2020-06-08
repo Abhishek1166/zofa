@@ -331,7 +331,7 @@ class Page extends CI_Controller
 	{
 
 		$data['testimonial'] = get_data_from('testimonials');
-		$this->view('about', $data);
+		$this->view('about-us', $data);
 	}
 
 
