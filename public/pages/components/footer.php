@@ -1,3 +1,9 @@
+<?php
+/* echo '<pre>';
+		print_r($data);
+		echo '<pre>';
+		die; */
+?>
 <footer>
 	<div class="container">
 
@@ -6,12 +12,14 @@
 			<div class="row">
 				<div class="col-sm-8">
 					<h2>Visit our showroom</h2>
-					<p>200 12th Ave, New York, NY 10001, USA</p>
+					<p><?= $data['Site']['site_address'] ?></p>
 					<p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
 				</div>
 				<div class="col-sm-4 text-center">
 					<a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
-					<div class="call-us h4"><span class="icon icon-phone-handset"></span> 333.278.06622</div>
+
+
+					<div class="call-us h4"><span class="icon icon-phone-handset"></span> <?= $data['Site']['site_mobile'] ?></div>
 				</div>
 			</div>
 		</div>
@@ -23,8 +31,12 @@
 					<h5>Browse by</h5>
 					<ul>
 						<li><a href="#">Brand</a></li>
-						<li><a href="#">Product</a></li>
-						<li><a href="#">Category</a></li>
+
+
+						<li class="<?php is_page_active('list_products') ?>">
+
+							<a href="<?php echo SITE_URL ?>list_products>Product</a></li>
+						<li><a href=" #">Category</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-4 col-md-2">

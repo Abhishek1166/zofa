@@ -410,13 +410,13 @@
 
 <!-- ========================  Blog Dark ======================== -->
 
-<section class="blog blog-block">
+<!-- <section class="blog blog-block"> -->
 
-    <div class="container">
+<!-- <div class="container">
 
-        <!-- === blog header === -->
+        - === blog header === -->
 
-        <!-- <header>
+<!-- <header>
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 text-center">
                     <h2 class="title">Interior ideas</h2>
@@ -427,11 +427,11 @@
             </div>
         </header> -->
 
-        <div class="row">
+<!-- <div class="row"> -->
 
-            <!-- === blog item === -->
+<!-- === blog item === -->
 
-            <!-- <div class="col-sm-4">
+<!-- <div class="col-sm-4">
                 <article>
                     <a href="article.html">
                         <div class="image">
@@ -453,9 +453,9 @@
                 </article>
             </div> -->
 
-            <!-- === blog item === -->
+<!-- === blog item === -->
 
-            <!-- <div class="col-sm-4">
+<!-- <div class="col-sm-4">
                 <article>
                     <a href="article.html">
                         <div class="image">
@@ -477,9 +477,9 @@
                 </article>
             </div> -->
 
-            <!-- === blog item === -->
+<!-- === blog item === -->
 
-            <!-- <div class="col-sm-4">
+<!-- <div class="col-sm-4">
                 <article>
                     <a href="article.html">
                         <div class="image">
@@ -501,16 +501,16 @@
                 </article>
             </div> -->
 
-        </div>
-        <!--/row-->
-        <!--button more-->
-        <!-- <div class="wrapper-more">
+<!-- </div> -->
+<!--/row-->
+<!--button more-->
+<!-- <div class="wrapper-more">
             <a href="ideas.html" class="btn btn-main">View all posts</a>
         </div> -->
 
-    </div>
-    <!--/container-->
-</section>
+<!-- </div> -->
+<!--/container-->
+<!-- </section> -->
 
 
 <!-- ======================== Quotes ======================== -->
@@ -608,17 +608,7 @@
 
 
 </div>
-<div style="height: 250px;width:250px;background-color:white;">
-    <figure>
-        <figcaption>
-            <imgsrc= <span><i class="icon icon-rocket"></i></span>
-                <span>
-                    <strong>Fast delivery</strong>
-                    <small>We're shipping all over the world</small>
-                </span>
-        </figcaption>
-    </figure>
-</div>
+
 
 
 <!--/quote-carousel-->

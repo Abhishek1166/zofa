@@ -16,16 +16,19 @@
 					</div>
 
 					<div class="col-md-6">
-						<select class="selectpicker form-control" name="category" data-live-search="true" title=" Select Post Category ">
-							<?php if (is($category, 'array')) :
-								foreach ($category as $value) : ?>
-									<option value="<?php is($value->id, 'show'); ?>">
-										<?php is($value->title, 'showCapital'); ?>
-									</option>
-								<?php endforeach; ?>
-							<?php else : ?>
-								<input type="hidden" name="category" value="'000'">
-							<?php endif; ?>
+						<select class="selectpicker form-control tagging" name="post_type" data-live-search="true" title=" Select Category ">
+
+
+							<option>blog</option>
+							<option>interior design</option>
+
+
+
+
+
+
+
+
 						</select>
 					</div>
 				</div>

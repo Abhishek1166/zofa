@@ -65,7 +65,7 @@ class Page extends CI_Controller
 
 		file_exists($path) and $this->load->view('pages/components/header', compact('site', 'slider', 'city'));
 		file_exists($path) and $this->load->view('pages/' . $Pages, compact('data'));
-		file_exists($path) and $this->load->view('pages/components/footer');
+		file_exists($path) and $this->load->view('pages/components/footer',);
 	}
 
 
@@ -91,11 +91,32 @@ class Page extends CI_Controller
 		// $data['Property'] = $this->ProductsModel->get_featured_property();
 		$data['Sliders'] 	= get_data_from('sliders');
 		$data['Blogs']    	= get_data_from('posts');
+		$data['Gallery'] 	= $this->GalleryModel->all([
+			'fields'     => ['image, img_group, status'],
+			'conditions' => [
+				'img_group' => 'home_page',
+				'status' => '1',
+			],
+			'datatype'   => 'json',
+			'paging' => ['page' => 1, 'limit' => 10]
+		]);
 		$data['instagram'] = $this->SettingsModel->get_option('social_instagram');
 
 		// show_debug($data['Property']);
-		// show_debug($data['Blogs']);
+		// print_r($data['Gallery']);
+		// die;
+
+		$data['Site'] = [
+			'site_name'    => $this->SettingsModel->get_option('site_name'),
+			'site_mobile'  => $this->SettingsModel->get_option('site_mobile'),
+			'site_mail'    => $this->SettingsModel->get_option('site_mail'),
+			'site_address' => $this->SettingsModel->get_option('site_address'),
+			'site_map'     => $this->SettingsModel->get_option('site_map'),
+		];
+
+
 		return $this->view('zofahome', $data);
+		return $this->view('footer');
 	}
 	// 
 
@@ -443,6 +464,7 @@ class Page extends CI_Controller
 		];
 
 		$this->view('contact', $data);
+		$this->view('footer');
 	}
 
 

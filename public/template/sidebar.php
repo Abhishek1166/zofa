@@ -50,10 +50,7 @@
 				<?php if (user_can('project_list') or user_can('property_list')) : ?>
 					<!-- Properties -->
 					<li class="menu menu-heading">
-						<div class="heading">
-							<?php echo ICONS['dot']; ?>
-							<span>Properties</span>
-						</div>
+
 					</li>
 
 					<?php if (user_can('project_list')) : ?>
@@ -61,23 +58,15 @@
 						<li class="menu">
 							<a href="<?php echo SITE_URL; ?>list/projects " aria-expanded="false" class="dropdown-toggle">
 								<div class="">
-									<?php echo ICONS['project']; ?>
-									<span>Projects</span>
+
 								</div>
 							</a>
 						</li>
 					<?php endif; ?>
 
 					<?php if (user_can('property_list')) : ?>
-						<!-- Proerties -->
-						<li class="menu">
-							<a href="<?php echo SITE_URL; ?>list/properties " aria-expanded="false" class="dropdown-toggle">
-								<div class="">
-									<?php echo ICONS['property']; ?>
-									<span>Properties</span>
-								</div>
-							</a>
-						</li>
+
+
 					<?php endif; ?>
 				<?php endif; ?>
 
@@ -236,25 +225,7 @@
 
 					<?php if (user_can('user-role_list')) : ?>
 						<!-- User Roles & Modules -->
-						<li class="menu">
-							<a href="#role" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-								<div class="">
-									<?php echo ICONS['userrole']; ?>
-									<span>User Roles & Modules</span>
-								</div>
-								<div>
-									<?php echo ICONS['right']; ?>
-								</div>
-							</a>
-							<ul class="collapse submenu list-unstyled" id="role" data-parent="#mainMenu">
-								<li>
-									<a href="<?php echo SITE_URL; ?>list/roles">User Group Roles</a>
-								</li>
-								<li>
-									<a href="<?php echo SITE_URL; ?>list/assign-users">Assign User Roles</a>
-								</li>
-							</ul>
-						</li>
+
 					<?php endif; ?>
 
 					<?php if (user_can('gallery_list') or user_can('testimonial_list') or user_can('slider_list')) : ?>
@@ -392,7 +363,7 @@
 					<?php if (user_can('setting_list')) : ?>
 						<!-- Settings -->
 						<li class="menu">
-							<a href="<?php echo SITE_URL;?>list/settings" aria-expanded="false" class="dropdown-toggle">
+							<a href="<?php echo SITE_URL; ?>list/settings" aria-expanded="false" class="dropdown-toggle">
 								<div class="">
 									<?php echo ICONS['setting']; ?>
 									<span>Setting</span>

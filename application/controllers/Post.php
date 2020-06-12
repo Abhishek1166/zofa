@@ -39,12 +39,14 @@ class Post extends CI_Controller
 		user_can('post_add') or show_404();
 
 		if ($this->input->post('addPost')) {
-
+			// print_r($_REQUEST);
+			// die;
 			flash_message(
 				'add/post',
 				$this->input->post('title')
-					and $this->input->post('category')
+					and $this->input->post('post_type')
 					and $this->input->post('description'),
+
 				'unsuccess',
 				'Something Went Wrong',
 				'Look like Form Not Fill Properly, Please Fill & Try Again.'
@@ -54,6 +56,7 @@ class Post extends CI_Controller
 			$description = $this->input->post('description');
 			$category    = $this->input->post('category');
 			$pin         = $this->input->post('postCheck');
+			$post        = $this->input->post('post_type');
 
 			$slug = str_clean($this->input->post('title'), [' ', '-', '_'], 'slug');
 			$slug_exists = $this->PostsModel->first(['slug' => $slug]);
@@ -82,6 +85,8 @@ class Post extends CI_Controller
 				'is_pinned'                 => $pin,
 				'created_by'                => $_SESSION['USER_ID'],
 				'modified_by'               => $_SESSION['USER_ID'],
+				'post_type'                 => $post
+
 			]);
 
 			flash_message(
@@ -195,6 +200,7 @@ class Post extends CI_Controller
 			$description    = $this->input->post('description');
 			$category       = $this->input->post('category');
 			$pin            = $this->input->post('postCheck');
+			$post            = $this->input->post('post_type');
 
 			$slug = str_clean($this->input->post('title'), [' ', '-', '_'], 'slug');
 			$slug_exists = $this->PostsModel->first(['slug' => $slug]);
@@ -216,7 +222,9 @@ class Post extends CI_Controller
 				'title'                     => $title,
 				'description'               => $description,
 				'category_id'               => $category,
-				'is_pinned'                 => $pin
+				'is_pinned'                 => $pin,
+				'post_type'                 => $post
+
 			], ['id' => $id]);
 
 			flash_message(

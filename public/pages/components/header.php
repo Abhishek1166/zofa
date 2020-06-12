@@ -123,120 +123,57 @@
 
                             <!-- Multi-content dropdown -->
 
-                            <li>
-                                <a href="#">sofa <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
-                                <div class="navbar-dropdown navbar-dropdown-single">
-                                    <div class="navbar-box">
-
-                                        <!-- box-2 (without 'box-1', box-2 will be displayed as full width)-->
-
-                                        <div class="box-2">
-                                            <div class="box clearfix">
-                                                <ul>
-                                                    <li class="label">Shop</li>
-                                                    <li><a href="products-grid.html">Products grid</a></li>
-                                                    <li><a href="products-list.html">Products list</a></li>
-                                                    <li><a href="category.html">Products intro</a></li>
-                                                    <li><a href="products-topbar.html">Products topbar</a></li>
-                                                    <li><a href="product.html">Product overview</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li class="label">Shop Isotope</li>
-                                                    <li><a href="products-grid-isotope.html">Products filters <span class="label label-warning">New</span></a></li>
-                                                    <li><a href="products-topbar-isotope.html">Products topbar <span class="label label-warning">New</span></a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li class="label">Checkout</li>
-                                                    <li><a href="checkout-1.html">Checkout - Cart items</a></li>
-                                                    <li><a href="checkout-2.html">Checkout - Delivery</a></li>
-                                                    <li><a href="checkout-3.html">Checkout - Payment</a></li>
-                                                    <li><a href="checkout-4.html">Checkout - Receipt</a></li>
-                                                </ul>
-                                            </div>
-                                            <!--/box-->
-                                        </div>
-                                        <!--/box-2-->
-                                    </div>
-                                    <!--/navbar-box-->
-                                </div>
-                                <!--/navbar-dropdown-->
-                            </li>
-
                             <!-- Single dropdown-->
+                            <?PHP $categories = get_data_from('categories');
+                            //print_r($categories);
 
-                            <li>
-                                <a href="#">dinning <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
-                                <div class="navbar-dropdown navbar-dropdown-single">
-                                    <div class="navbar-box">
+                            foreach ($categories as $category) {
+                            ?>
+                                <li>
 
-                                        <!-- box-2 (without 'box-1', box-2 will be displayed as full width)-->
+                                    <a href="#"><?= $category->title ?><span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                    <!-- <div class="navbar-dropdown navbar-dropdown-single">
+                                        <div class="navbar-box">
 
-                                        <div class="box-2">
-                                            <div class="box clearfix">
-                                                <ul>
-                                                    <li class="label">Shop</li>
-                                                    <li><a href="products-grid.html">Products grid</a></li>
-                                                    <li><a href="products-list.html">Products list</a></li>
-                                                    <li><a href="category.html">Products intro</a></li>
-                                                    <li><a href="products-topbar.html">Products topbar</a></li>
-                                                    <li><a href="product.html">Product overview</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li class="label">Shop Isotope</li>
-                                                    <li><a href="products-grid-isotope.html">Products filters <span class="label label-warning">New</span></a></li>
-                                                    <li><a href="products-topbar-isotope.html">Products topbar <span class="label label-warning">New</span></a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li class="label">Checkout</li>
-                                                    <li><a href="checkout-1.html">Checkout - Cart items</a></li>
-                                                    <li><a href="checkout-2.html">Checkout - Delivery</a></li>
-                                                    <li><a href="checkout-3.html">Checkout - Payment</a></li>
-                                                    <li><a href="checkout-4.html">Checkout - Receipt</a></li>
-                                                </ul>
+
+                                            <div class="box-2">
+                                                <div class="box clearfix">
+                                                    <ul>
+                                                        <li class="label">Shop</li>
+                                                        <li><a href="products-grid.html">GDFGDFG</a></li>
+                                                        <li><a href="products-list.html">Products list</a></li>
+                                                        <li><a href="category.html">Products intro</a></li>
+                                                        <li><a href="products-topbar.html">Products topbar</a></li>
+                                                        <li><a href="product.html">Product overview</a></li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li class="label">Shop Isotope</li>
+                                                        <li><a href="products-grid-isotope.html">Products filters <span class="label label-warning">New</span></a></li>
+                                                        <li><a href="products-topbar-isotope.html">Products topbar <span class="label label-warning">New</span></a></li>
+                                                    </ul>
+                                                    <ul>
+                                                        <li class="label">Checkout</li>
+                                                        <li><a href="checkout-1.html">Checkout - Cart items</a></li>
+                                                        <li><a href="checkout-2.html">Checkout - Delivery</a></li>
+                                                        <li><a href="checkout-3.html">Checkout - Payment</a></li>
+                                                        <li><a href="checkout-4.html">Checkout - Receipt</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <!--/box-->
                                         </div>
-                                        <!--/box-2-->
-                                    </div>
-                                    <!--/navbar-box-->
-                                </div>
-                                <!--/navbar-dropdown-->
-                            </li>
+                                    </div> -->
+                                </li>
+                            <?php } ?>
 
                             <!-- Furniture icons in dropdown-->
 
                             <li>
-                                <a href="#">Bedroom <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                <!-- <a href="#">Bedroom <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a> -->
                                 <div class="navbar-dropdown navbar-dropdown-single">
                                     <div class="navbar-box">
 
                                         <!-- box-2 (without 'box-1', box-2 will be displayed as full width)-->
 
-                                        <div class="box-2">
-                                            <div class="box clearfix">
-                                                <ul>
-                                                    <li class="label">Shop</li>
-                                                    <li><a href="products-grid.html">Products grid</a></li>
-                                                    <li><a href="products-list.html">Products list</a></li>
-                                                    <li><a href="category.html">Products intro</a></li>
-                                                    <li><a href="products-topbar.html">Products topbar</a></li>
-                                                    <li><a href="product.html">Product overview</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li class="label">Shop Isotope</li>
-                                                    <li><a href="products-grid-isotope.html">Products filters <span class="label label-warning">New</span></a></li>
-                                                    <li><a href="products-topbar-isotope.html">Products topbar <span class="label label-warning">New</span></a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li class="label">Checkout</li>
-                                                    <li><a href="checkout-1.html">Checkout - Cart items</a></li>
-                                                    <li><a href="checkout-2.html">Checkout - Delivery</a></li>
-                                                    <li><a href="checkout-3.html">Checkout - Payment</a></li>
-                                                    <li><a href="checkout-4.html">Checkout - Receipt</a></li>
-                                                </ul>
-                                            </div>
-                                            <!--/box-->
-                                        </div>
                                         <!--/box-2-->
                                     </div>
                                     <!--/navbar-box-->
@@ -247,7 +184,7 @@
                             <!-- Mega menu dropdown -->
 
                             <li>
-                                <a href="#">outdoor <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                <!-- <a href="#">outdoor <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a> -->
                                 <div class="navbar-dropdown navbar-dropdown-single">
                                     <div class="navbar-box">
 
@@ -288,7 +225,7 @@
                             <!-- Simple menu link-->
 
                             <li>
-                                <a href="#">office <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                <!-- <a href="#">office <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a> -->
                                 <div class="navbar-dropdown navbar-dropdown-single">
                                     <div class="navbar-box">
 
@@ -327,7 +264,7 @@
                             </li>
 
                             <li>
-                                <a href="#">Brands <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                <!-- <a href="#">Brands <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a> -->
                                 <div class="navbar-dropdown navbar-dropdown-single">
                                     <div class="navbar-box">
 

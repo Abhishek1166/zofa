@@ -23,7 +23,7 @@ die; */
                                 layout. Google fonts integration
                             </div>
                             <div class="animated" data-animation="fadeInUp">
-                                <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-main"><i class="icon icon-cart"></i> Buy this template</a>
+                                <a href="https://www.twstechnology.com/" target="_blank" class="btn btn-main"><i class="icon icon-cart"></i> Buy this template</a>
                             </div>
                         </div>
                     </div>
@@ -712,7 +712,7 @@ die; */
                             <img src="<?php echo SITE_URL; ?>assets/img/zofa/idea1.jpg" alt="" />
                         </div>
                         <div class="entry entry-block">
-                            <div class="date">28 Mart 2017</div>
+                            <div class="date">28 Mar 2017</div>
                             <div class="title">
                                 <h2 class="h3">Creating the Perfect Gallery Wall </h2>
                             </div>
@@ -877,28 +877,47 @@ die; */
     </header>
 
     <!-- === instagram gallery === -->
+    <?php
+    // echo '<pre>';
+    // print_r($data);
+    // echo '<pre>';
+    ?><div class="gallery clearfix">
+        <?php if (!empty($data['Gallery'])) {
+            foreach ($data['Gallery'] as $Galleri) {
+        ?>
 
-    <div class="gallery clearfix">
-        <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-11.jpg" alt="Alternate Text" />
-        </a>
-        <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-21.jpg" alt="Alternate Text" />
-        </a>
-        <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-31.jpg" alt="Alternate Text" />
-        </a>
-        <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-41.jpg" alt="Alternate Text" />
-        </a>
-        <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-52.jpg" alt="Alternate Text" />
-        </a>
-        <a class="item" href="#">
-            <img src="<?php echo SITE_URL; ?>assets/img/zofa/square-61.jpg" alt="Alternate Text" />
-        </a>
+                <a class="item" href="#">
+                    <img src="<?php echo $Galleri->image ?>" alt="Alternate Text" />
+                </a>
 
-    </div>
+        <?php
+            }
+        } ?></div>
+    <!-- <div class="gallery clearfix">
+
+            <a class="item" href="#">
+                <img src="" alt="Alternate Text" />
+            </a>
+
+            <a class="item" href="#">
+
+
+                <img src="assets/img/zofa/square-21.jpg" alt="Alternate Text" />
+            </a>
+            <a class="item" href="#">
+                <img src="assets/img/zofa/square-31.jpg" alt="Alternate Text" />
+            </a>
+            <a class="item" href="#">
+                <img src="assets/img/zofa/square-41.jpg" alt="Alternate Text" />
+            </a>
+            <a class="item" href="#">
+                <img src="assets/img/zofa/square-52.jpg" alt="Alternate Text" />
+            </a>
+            <a class="item" href="#">
+                <img src="assets/img/zofa/square-61.jpg" alt="Alternate Text" />
+            </a>
+
+        </div> -->
     <!--/gallery-->
 
 </section>
