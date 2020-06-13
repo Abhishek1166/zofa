@@ -65,6 +65,7 @@ $route['project/(:any)']        = 'page/project/$1';
 $route['blog/(:any)']           = 'page/blog/$1';
 $route['property/(:any)']       = 'page/property/$1';
 $route['about-us']              = 'page/about_us';
+$route['products1']            =  'page/products_1';
 $route['gallery']               = 'page/gallery';
 $route['blogs']                 = 'page/blogs';
 $route['contact']               = 'page/contact_us';

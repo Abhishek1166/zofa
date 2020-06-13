@@ -119,7 +119,7 @@
                         </div>
 
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="zofahome">Home</a></li>
 
                             <!-- Multi-content dropdown -->
 

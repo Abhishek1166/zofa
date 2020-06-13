@@ -1,60 +1,18 @@
-﻿<!-- 
-    
- -->
+﻿<!-- ========================  Main header ======================== -->
 
-<!-- Mobile Web-app fullscreen -->
-<!-- 
-        
-     -->
-
-<!-- Meta tags -->
-<!-- <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico"> -->
-
-<!--Title-->
-<!-- <title>Product overview | Mobel - Furniture Website Template</title> -->
-
-<!--CSS styles-->
-<!-- <link rel="stylesheet" media="all" href="css/bootstrap.css" />
-    <link rel="stylesheet" media="all" href="css/animate.css" />
-    <link rel="stylesheet" media="all" href="css/font-awesome.css" />
-    <link rel="stylesheet" media="all" href="css/furniture-icons.css" />
-    <link rel="stylesheet" media="all" href="css/linear-icons.css" />
-    <link rel="stylesheet" media="all" href="css/magnific-popup.css" />
-    <link rel="stylesheet" media="all" href="css/owl.carousel.css" />
-    <link rel="stylesheet" media="all" href="css/ion-range-slider.css" />
-    <link rel="stylesheet" media="all" href="css/theme.css" /> -->
-
-<!--Google fonts-->
-<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&amp;subset=latin-ext" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"> -->
-
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-
-
-<!-- ========================  Main header ======================== -->
-
-<!-- <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
-    <header>
-        <div class="container">
-            <h1 class="h2 title">Sofa Laura</h1>
-            <ol class="breadcrumb breadcrumb-inverted">
-                <li><a href="index.html"><span class="icon icon-home"></span></a></li>
-                <li><a href="category.html">Product Category</a></li>
-                <li><a href="products-grid.html">Product Sub-category</a></li>
-                <li><a class="active" href="product.html">Product overview</a></li>
-            </ol>
-        </div>
-    </header>
-</section> -->
+<section class="main-header" style="background-image:url(assets/img/zofa/aboutuswork.jpg)">
+    <!-- <header> -->
+    <div class="container">
+        <h1 class="h2 title">Sofa Laura</h1>
+        <!-- <ol class="breadcrumb breadcrumb-inverted">
+            <li><a href="index.html"><span class="icon icon-home"></span></a></li>
+            <li><a href="category.html">Product Category</a></li>
+            <li><a href="products-grid.html">Product Sub-category</a></li>
+            <li><a class="active" href="product.html">Product overview</a></li>
+        </ol> -->
+    </div>
+    <!-- </header> -->
+</section>
 
 <!-- ========================  Product ======================== -->
 
@@ -88,8 +46,8 @@
                             <!-- === info-box === -->
 
                             <div class="info-box">
-                                <span><strong>Maifacturer</strong></span>
-                                <span>Brand name</span>
+                                <span><strong>Manufacturer</strong></span>
+                                <span>Zofa </span>
                             </div>
 
                             <!-- === info-box === -->
@@ -109,7 +67,7 @@
 
                             <hr />
 
-                            <div class="info-box info-box-addto added">
+                            <!-- <div class="info-box info-box-addto added">
                                 <span><strong>Favourites</strong></span>
                                 <span>
                                     <i class="add"><i class="fa fa-heart-o"></i> Add to favorites</i>
@@ -131,7 +89,7 @@
                                     <i class="add"><i class="fa fa-star-o"></i> Add to Collection</i>
                                     <i class="added"><i class="fa fa-star"></i> Remove from Collection</i>
                                 </span>
-                            </div>
+                            </div> -->
 
                             <hr />
 
@@ -174,17 +132,33 @@
 
                     <!-- === add to cart === -->
 
-                    <button type="submit" class="btn btn-buy" data-text="Buy"></button>
+                    <!-- <button type="submit" class="btn btn-buy" data-text="Buy"></button> -->
 
 
                     <!-- === product gallery === -->
 
                     <div class="owl-product-gallery open-popup-gallery">
-                        <a href="assets/images/product-1.png"><img src="assets/images/product-1.png" alt="" height="500" /></a>
-                        <a href="assets/images/product-2.png"><img src="assets/images/product-2.png" alt="" height="500" /></a>
-                        <a href="assets/images/product-3.png"><img src="assets/images/product-3.png" alt="" height="500" /></a>
-                        <a href="assets/images/product-4.png"><img src="assets/images/product-4.png" alt="" height="500" /></a>
+
+                        <?php
+                        if (!empty($data['Product'])) {
+                            foreach ($data['Product'] as $prod) {
+                        ?>
+
+                                <a href="assets/images/p1.jpg"><img src="<?php echo $prod->image; ?>" alt="" height="500" /></a>
+                                <!-- <a href="assets/images/product-2.png"><img src="assets/images/product-2.png" alt="" height="500" /></a>
+                                <a href="assets/images/product-3.png"><img src="assets/images/product-3.png" alt="" height="500" /></a>
+                                <a href="assets/images/product-4.png"><img src="assets/images/product-4.png" alt="" height="500" /></a> -->
+                        <?php
+                            }
+                        }
+                        ?>
+
+
                     </div>
+
+
+
+
                 </div>
 
             </div>
@@ -267,78 +241,87 @@
                                         <!-- === product-item === -->
 
                                         <div class="col-md-6 col-xs-6">
-                                            <article>
-                                                <div class="figure-grid">
-                                                    <div class="image">
-                                                        <a href="#productid1" class="mfp-open">
-                                                            <img src="assets/images/product-1.png" alt="" width="360" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="text">
-                                                        <h4 class="title"><a href="product.html">Green corner</a></h4>
-                                                        <sup>Designer collection</sup>
-                                                        <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                                                    </div>
-                                                </div>
-                                            </article>
+                                            <?php
+                                            if (!empty($data['Product'])) {
+                                                foreach ($data['Product'] as $prod) {
+                                            ?>
+                                                    <article>
+                                                        <div class="figure-grid">
+                                                            <div class="image">
+                                                                <a href="#productid1" class="mfp-open">
+                                                                    <img src="<?php echo $prod->image; ?>" alt="" width="360" />
+                                                                </a>
+                                                            </div>
+                                                            <div class="text">
+                                                                <h4 class="title"><a href="product.html">Green corner</a></h4>
+                                                                <sup>Designer collection</sup>
+                                                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                                                            </div>
+                                                        </div>
+                                                    </article>
                                         </div>
+                                <?php
+                                                }
+                                            }
+                                ?>
 
-                                        <!-- === product-item === -->
+                                <!-- === product-item === -->
 
-                                        <div class="col-md-6 col-xs-6">
-                                            <article>
-                                                <div class="figure-grid">
-                                                    <div class="image">
-                                                        <a href="#productid1" class="mfp-open">
-                                                            <img src="assets/images/product-2.png" alt="" width="360" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="text">
-                                                        <h4 class="title"><a href="product.html">Laura</a></h4>
-                                                        <sup>Designer collection</sup>
-                                                        <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                                                    </div>
-                                                </div>
-                                            </article>
+                                <!-- <div class="col-md-6 col-xs-6">
+                                    <article>
+                                        <div class="figure-grid">
+                                            <div class="image">
+                                                <a href="#productid1" class="mfp-open">
+                                                    <img src="assets/images/product-2.png" alt="" width="360" />
+                                                </a>
+                                            </div>
+                                            <div class="text">
+                                                <h4 class="title"><a href="product.html">Laura</a></h4>
+                                                <sup>Designer collection</sup>
+                                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                                            </div>
                                         </div>
+                                    </article>
+                                </div> -->
 
-                                        <!-- === product-item === -->
+                                <!-- === product-item === -->
 
-                                        <div class="col-md-6 col-xs-6">
-                                            <article>
-                                                <div class="figure-grid">
-                                                    <div class="image">
-                                                        <a href="#productid1" class="mfp-open">
-                                                            <img src="assets/images/product-3.png" alt="" width="360" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="text">
-                                                        <h4 class="title"><a href="product.html">Nude</a></h4>
-                                                        <sup>Designer collection</sup>
-                                                        <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                                                    </div>
-                                                </div>
-                                            </article>
+                                <!-- <div class="col-md-6 col-xs-6">
+                                    <article>
+                                        <div class="figure-grid">
+                                            <div class="image">
+                                                <a href="#productid1" class="mfp-open">
+                                                    <img src="assets/images/product-3.png" alt="" width="360" />
+                                                </a>
+                                            </div>
+                                            <div class="text">
+                                                <h4 class="title"><a href="product.html">Nude</a></h4>
+                                                <sup>Designer collection</sup>
+                                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                                            </div>
                                         </div>
+                                    </article>
+                                </div> -->
 
-                                        <!-- === product-item === -->
+                                <!-- === product-item === -->
 
-                                        <div class="col-md-6 col-xs-6">
-                                            <article>
-                                                <div class="figure-grid">
-                                                    <div class="image">
-                                                        <a href="#productid1" class="mfp-open">
-                                                            <img src="assets/images/product-4.png" alt="" width="360" />
-                                                        </a>
-                                                    </div>
-                                                    <div class="text">
-                                                        <h4 class="title"><a href="product.html">Aurora</a></h4>
-                                                        <sup>Designer collection</sup>
-                                                        <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                                                    </div>
+                                <!-- <div class="col-md-6 col-xs-6">
+                                        <article>
+                                            <div class="figure-grid">
+                                                <div class="image">
+                                                    <a href="#productid1" class="mfp-open">
+                                                        <img src="assets/images/product-4.png" alt="" width="360" />
+                                                    </a>
                                                 </div>
-                                            </article>
-                                        </div>
+                                                <div class="text">
+                                                    <h4 class="title"><a href="product.html">Aurora</a></h4>
+                                                    <sup>Designer collection</sup>
+                                                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                                                </div>
+                                            </div>
+                                        </article>
+
+                                    </div> -->
 
                                     </div>
                                     <!--/row-->
@@ -449,8 +432,8 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- rate -->
-                                                <div class="rate-box">
+                                                <!-- rate  Design-->
+                                                <!-- <div class="rate-box">
                                                     <strong>Design</strong>
                                                     <div class="rating">
                                                         <i class="fa fa-star active"></i>
@@ -492,10 +475,10 @@
                                                         <i class="fa fa-star"></i>
                                                         <span>1</span>
                                                     </div>
-                                                </div>
+                                                </div> -->
 
-                                                <!-- rate -->
-                                                <div class="rate-box">
+                                                <!-- rate gernal -->
+                                                <!-- <div class="rate-box">
                                                     <strong>General</strong>
                                                     <div class="rating">
                                                         <i class="fa fa-star"></i>
@@ -537,7 +520,7 @@
                                                         <i class="fa fa-star"></i>
                                                         <span>1</span>
                                                     </div>
-                                                </div>
+                                                </div> -->
 
                                             </div>
                                             <div class="comment-wrapper">
@@ -785,92 +768,11 @@
 
 <!-- ================== Footer  ================== -->
 
-<footer>
-    <div class="container">
+<!--  -->
 
-        <!--footer showroom-->
-        <div class="footer-showroom">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h2>Visit our showroom</h2>
-                    <p>200 12th Ave, New York, NY 10001, USA</p>
-                    <p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
-                    <div class="call-us h4"><span class="icon icon-phone-handset"></span> 333.278.06622</div>
-                </div>
-            </div>
-        </div>
-
-        <!--footer links-->
-        <div class="footer-links">
-            <div class="row">
-                <div class="col-sm-4 col-md-2">
-                    <h5>Browse by</h5>
-                    <ul>
-                        <li><a href="#">Brand</a></li>
-                        <li><a href="#">Product</a></li>
-                        <li><a href="#">Category</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-2">
-                    <h5>Recources</h5>
-                    <ul>
-                        <li><a href="#">Design</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Sales</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-4 col-md-2">
-                    <h5>Our company</h5>
-                    <ul>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-sm-12 col-md-6">
-                    <h5>Sign up for our newsletter</h5>
-                    <p><i>Add your email address to sign up for our monthly emails and to receive promotional offers.</i></p>
-                    <div class="form-group form-newsletter">
-                        <input class="form-control" type="text" name="email" value="" placeholder="Email address" />
-                        <input type="submit" class="btn btn-clean btn-sm" value="Subscribe" />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--footer social-->
-
-        <!-- <div class="footer-social">
-            <div class="row">
-                <div class="col-sm-6">
-                    <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"><i class="fa fa-download"></i> Download Mobel</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
-                </div>
-                <div class="col-sm-6 links">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-</div> -->
-        <!--/wrapper-->
+<!--footer links-->
 
 
-        <!--JS files-->
-        <!-- <script src="js/jquery.min.js"></script>
-<script src="js/jquery.bootstrap.js"></script>
-<script src="js/jquery.magnific-popup.js"></script>
-<script src="js/jquery.owl.carousel.js"></script>
-<script src="js/jquery.ion.rangeSlider.js"></script>
-<script src="js/jquery.isotope.pkgd.js"></script>
-<script src="js/main.js"></script> -->
+
+
+</div>

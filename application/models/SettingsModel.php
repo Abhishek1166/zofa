@@ -31,6 +31,7 @@ class SettingsModel extends CI_Model
 		$data['instagram']    = $this->get_option('social_instagram');
 		$data['twitter']      = $this->get_option('social_twitter');
 		$data['youtube']      = $this->get_option('social_youtube');
+		$data['site_address']     = $this->get_option('site_address');
 		return $data;
 	}
 }

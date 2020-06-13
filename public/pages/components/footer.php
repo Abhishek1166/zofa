@@ -1,8 +1,8 @@
 <?php
-/* echo '<pre>';
-		print_r($data);
-		echo '<pre>';
-		die; */
+// echo '<pre>';
+// print_r($site);
+// echo '</pre>';
+// die;
 ?>
 <footer>
 	<div class="container">
@@ -12,14 +12,14 @@
 			<div class="row">
 				<div class="col-sm-8">
 					<h2>Visit our showroom</h2>
-					<p><?= $data['Site']['site_address'] ?></p>
+					<p><?= $site['site_address'] ?></p>
 					<p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
 				</div>
 				<div class="col-sm-4 text-center">
-					<a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
+					<a href="contact" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
 
 
-					<div class="call-us h4"><span class="icon icon-phone-handset"></span> <?= $data['Site']['site_mobile'] ?></div>
+					<div class="call-us h4"><span class="icon icon-phone-handset"></span> <?= $site['site_mobile'] ?></div>
 				</div>
 			</div>
 		</div>
@@ -30,12 +30,14 @@
 				<div class="col-sm-4 col-md-2">
 					<h5>Browse by</h5>
 					<ul>
-						<li><a href="#">Brand</a></li>
+						<!-- <li><a href="#">Brand</a></li> -->
 
 
-						<li class="<?php is_page_active('list_products') ?>">
+						<li class="<?php is_page_active('products1') ?>">
+							<a href="<?php echo SITE_URL ?>products1">Products</a>
+						</li>
 
-							<a href="<?php echo SITE_URL ?>list_products>Product</a></li>
+
 						<li><a href=" #">Category</a></li>
 					</ul>
 				</div>
@@ -51,15 +53,15 @@
 					<h5>Our company</h5>
 					<ul>
 						<li class="<?php is_page_active('about_us') ?>">
-							<a href="<?php echo SITE_URL ?>about-us">ABOUT US</a>
+							<a href="<?php echo SITE_URL ?>about-us">About us</a>
 						</li>
 
 
-						<!-- <li><a href="#">News</a></li> -->
+						<li><a href="#">News</a></li>
 
 
 						<li class="<?php is_page_active('contact') ?>">
-							<a href="<?php echo SITE_URL ?>contact">CONTACT US</a>
+							<a href="<?php echo SITE_URL ?>contact">Contact</a>
 						</li>
 					</ul>
 				</div>

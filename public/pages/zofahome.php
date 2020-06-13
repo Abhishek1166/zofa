@@ -1,9 +1,9 @@
 <!-- ========================  Header content ======================== -->
 <?php
-/* echo '<pre>';
-print_r($data['Blogs']);
-echo '</pre>';
-die; */
+// echo '<pre>';
+// print_r($data['Product']);
+// echo '</pre>';
+// die;
 ?>
 <section class="header-content">
 
@@ -249,192 +249,49 @@ die; */
         <div class="row">
 
             <!-- === product-item === -->
+            <?php
+            if (!empty($data['Product'])) {
+                foreach ($data['Product'] as $prod) {
+            ?>
 
-            <div class="col-md-4 col-xs-6">
+                    <div class="col-md-4 col-xs-6">
+                        <article>
+                            <div class="info">
+                                <span class="add-favorite">
+                                    <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list">
+                                        <i class="icon icon-heart"></i></a>
+                                </span>
+                                <span>
+                                    <a href="#productid1" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                                </span>
+                            </div>
+                            <div class="btn btn-add">
+                                <i class="icon icon-cart"></i>
+                            </div>
+                            <div class="figure-grid">
+                                <div class="image">
+                                    <a href="products1">
+                                        <img src="<?php echo $prod->image; ?>" alt="" width="360" />
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2 class="title h4"><a href="product.html">Laura</a></h2>
+                                    <sub>$ 3999,-</sub>
+                                    <sup>$ 3499,-</sup>
+                                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-                <article>
-                    <div class="info">
-                        <span class="add-favorite added">
-                            <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="<?php echo SITE_URL; ?>assets/img/zofa/product-1.png" alt="" width="360" />
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h2 class="title h4"><a href="product.html">Green corner</a></h2>
-                            <sub>$ 1499,-</sub>
-                            <sup>$ 1099,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <!-- === product-item === -->
-
-            <div class="col-md-4 col-xs-6">
-                <article>
-                    <div class="info">
-                        <span class="add-favorite">
-                            <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="<?php echo SITE_URL; ?>assets/img/zofa/product-2.png" alt="" width="360" />
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h2 class="title h4"><a href="product.html">Laura</a></h2>
-                            <sub>$ 3999,-</sub>
-                            <sup>$ 3499,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <!-- === product-item === -->
-
-            <div class="col-md-4 col-xs-6">
-                <article>
-                    <div class="info">
-                        <span class="add-favorite">
-                            <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <span class="label label-warning">New</span>
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="<?php echo SITE_URL; ?>assets/img/zofa/product-3.png" alt="" width="360" />
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h2 class="title h4"><a href="product.html">Nude</a></h2>
-                            <sup>$ 2999,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <!-- === product-item === -->
-
-            <div class="col-md-4 col-xs-6">
-                <article>
-                    <div class="info">
-                        <span class="add-favorite">
-                            <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="<?php echo SITE_URL; ?>assets/img/zofa/product-4.png" alt="" width="360" />
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h2 class="title h4"><a href="product.html">Aurora</a></h2>
-                            <sup>$ 299,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <!-- === product-item === -->
-
-            <div class="col-md-4 col-xs-6">
-                <article>
-                    <div class="info">
-                        <span class="add-favorite added">
-                            <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <span class="label label-info">-50%</span>
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="<?php echo SITE_URL; ?>assets/img/zofa/product-5.png" alt="" width="360" />
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h2 class="title h4"><a href="product.html">Dining set</a></h2>
-                            <sub>$ 1999,-</sub>
-                            <sup>$ 1499,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <!-- === product-item === -->
-
-            <div class="col-md-4 col-xs-6">
-                <article>
-                    <div class="info">
-                        <span class="add-favorite">
-                            <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                        </span>
-                        <span>
-                            <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                        </span>
-                    </div>
-                    <div class="btn btn-add">
-                        <i class="icon icon-cart"></i>
-                    </div>
-                    <div class="figure-grid">
-                        <div class="image">
-                            <a href="#productid1" class="mfp-open">
-                                <img src="<?php echo SITE_URL; ?>assets/img/zofa/product-6.png" alt="" width="360" />
-                            </a>
-                        </div>
-                        <div class="text">
-                            <h2 class="title h4"><a href="product.html">Seat chair</a></h2>
-                            <sup>$ 896,-</sup>
-                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
+            <?php
+                }
+            }
+            ?>
 
         </div>
+
+
         <!--/row-->
         <!-- === button more === -->
 
@@ -680,11 +537,22 @@ die; */
 
             <!-- === blog item === -->
 
+
+            <?php
+
+            if (!empty($data["ideas"])) {
+                foreach ($data['ideas'] as $idea) {
+                }
+            }
+            ?>
+
+
+
             <div class="col-sm-4">
                 <article>
                     <a href="#">
                         <div class="image">
-                            <img src="<?php echo SITE_URL; ?>assets/img/zofa/idea1.jpg" alt="" />
+                            <img src="<?= $idea->post_image ?>" alt="" />
                         </div>
                         <div class="entry entry-block">
                             <div class="date">28 Mart 2017</div>
@@ -893,31 +761,6 @@ die; */
         <?php
             }
         } ?></div>
-    <!-- <div class="gallery clearfix">
 
-            <a class="item" href="#">
-                <img src="" alt="Alternate Text" />
-            </a>
-
-            <a class="item" href="#">
-
-
-                <img src="assets/img/zofa/square-21.jpg" alt="Alternate Text" />
-            </a>
-            <a class="item" href="#">
-                <img src="assets/img/zofa/square-31.jpg" alt="Alternate Text" />
-            </a>
-            <a class="item" href="#">
-                <img src="assets/img/zofa/square-41.jpg" alt="Alternate Text" />
-            </a>
-            <a class="item" href="#">
-                <img src="assets/img/zofa/square-52.jpg" alt="Alternate Text" />
-            </a>
-            <a class="item" href="#">
-                <img src="assets/img/zofa/square-61.jpg" alt="Alternate Text" />
-            </a>
-
-        </div> -->
-    <!--/gallery-->
 
 </section>
