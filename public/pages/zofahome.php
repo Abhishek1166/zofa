@@ -270,7 +270,7 @@
                             </div>
                             <div class="figure-grid">
                                 <div class="image">
-                                    <a href="products1">
+                                    <a href="<?php echo SITE_URL . 'products1/' . $prod->id ?>">
                                         <img src="<?php echo $prod->image; ?>" alt="" width="360" />
                                     </a>
                                 </div>

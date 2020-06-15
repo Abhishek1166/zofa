@@ -65,7 +65,7 @@ $route['project/(:any)']        = 'page/project/$1';
 $route['blog/(:any)']           = 'page/blog/$1';
 $route['property/(:any)']       = 'page/property/$1';
 $route['about-us']              = 'page/about_us';
-$route['products1']            =  'page/products_1';
+$route['products1/(:any)']            =  'page/products_1/$1';
 $route['gallery']               = 'page/gallery';
 $route['blogs']                 = 'page/blogs';
 $route['contact']               = 'page/contact_us';
@@ -74,6 +74,8 @@ $route['get-a-call-back']       = 'page/get_call';
 $route['disclaimer']            = 'page/disclaimer';
 $route['privacy-policy']        = 'page/privacy';
 $route['third-party']           = 'page/thirdparty';
+$route['productsgrid']           = 'page/productsgrid';
+$route['order']           = 'page/order';
 
 
 /** Dashboard */

@@ -1,9 +1,14 @@
 ﻿<!-- ========================  Main header ======================== -->
-
-<section class="main-header" style="background-image:url(assets/img/zofa/aboutuswork.jpg)">
+<?php
+// echo '<pre>';
+// print_r($data['Products']);
+// echo '</pre>';
+// die;
+?>
+<section class="main-header" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/sl1.jpg)">
     <!-- <header> -->
     <div class="container">
-        <h1 class="h2 title">Sofa Laura</h1>
+        <h1 class="h2 title">Products</h1>
         <!-- <ol class="breadcrumb breadcrumb-inverted">
             <li><a href="index.html"><span class="icon icon-home"></span></a></li>
             <li><a href="category.html">Product Category</a></li>
@@ -137,27 +142,27 @@
 
                     <!-- === product gallery === -->
 
-                    <div class="owl-product-gallery open-popup-gallery">
+                    <div class="owl-product-gallery">
 
                         <?php
-                        if (!empty($data['Product'])) {
-                            foreach ($data['Product'] as $prod) {
+                        if (!empty($data['single_product'])) {
+
                         ?>
 
-                                <a href="assets/images/p1.jpg"><img src="<?php echo $prod->image; ?>" alt="" height="500" /></a>
-                                <!-- <a href="assets/images/product-2.png"><img src="assets/images/product-2.png" alt="" height="500" /></a>
+                            <a href="#"><img src="<?php echo $data['single_product']['image'] ?>" alt="" height="500" /></a>
+                            <!-- <a href="assets/images/product-2.png"><img src="assets/images/product-2.png" alt="" height="500" /></a>
                                 <a href="assets/images/product-3.png"><img src="assets/images/product-3.png" alt="" height="500" /></a>
                                 <a href="assets/images/product-4.png"><img src="assets/images/product-4.png" alt="" height="500" /></a> -->
                         <?php
-                            }
                         }
+
                         ?>
 
 
                     </div>
 
-
-
+                    <br>
+                    <button type="button"><a href="order">Order</a></button>
 
                 </div>
 
@@ -173,101 +178,94 @@
 
                 <!-- === product-designer === -->
 
-                <div class="col-md-4">
+                <!-- <div class="col-md-4">
+
                     <div class="designer">
+
                         <div class="box">
-                            <div class="image">
-                                <img src="assets/images/user-1.jpg" alt="Alternate Text" />
-                            </div>
-                            <div class="name">
-                                <div class="h3 title">John Doe <small>Arhitect</small></div>
-                                <hr />
-                                <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> johndoe@mail.com</a></p>
-                                <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> +002255858</a></p>
-                                <p>
-                                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-user"></i></a>
-                                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-printer"></i></a>
-                                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-layers"></i></a>
-                                </p>
-                            </div>
-                            <!--/name-->
+
+                            
+                        </div> -->
+
+
+                <!--/box-->
+                <!-- <div class="btn btn-add">
+                            <i class="fab fa-product-hunt"></i>
                         </div>
-                        <!--/box-->
-                        <div class="btn btn-add">
-                            <i class="icon icon-phone-handset"></i>
-                        </div>
-                    </div>
-                    <!--/designer-->
-                </div>
-                <!--/col-md-4-->
-                <!-- === nav-tabs === -->
+                    </div> -->
 
-                <div class="col-md-8">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active">
-                            <a href="#designer" aria-controls="designer" role="tab" data-toggle="tab">
-                                <i class="icon icon-user"></i>
-                                <span>Collection</span>
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#design" aria-controls="design" role="tab" data-toggle="tab">
-                                <i class="icon icon-sort-alpha-asc"></i>
-                                <span>Specification</span>
-                            </a>
-                        </li>
-                        <li role="presentation">
-                            <a href="#rating" aria-controls="rating" role="tab" data-toggle="tab">
-                                <i class="icon icon-thumbs-up"></i>
-                                <span>Rating</span>
-                            </a>
-                        </li>
-                    </ul>
 
-                    <!-- === tab-panes === -->
+                <!--/designer-->
+            </div>
+            <!--/col-md-4-->
+            <!-- === nav-tabs === -->
 
-                    <div class="tab-content">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#designer" aria-controls="designer" role="tab" data-toggle="tab">
+                            <i class="icon icon-user"></i>
+                            <span>Collection</span>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#design" aria-controls="design" role="tab" data-toggle="tab">
+                            <i class="icon icon-sort-alpha-asc"></i>
+                            <span>Specification</span>
+                        </a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#rating" aria-controls="rating" role="tab" data-toggle="tab">
+                            <i class="icon icon-thumbs-up"></i>
+                            <span>Rating</span>
+                        </a>
+                    </li>
+                </ul>
 
-                        <div role="tabpanel" class="tab-pane active" id="designer">
-                            <div class="content">
+                <!-- === tab-panes === -->
 
-                                <!-- === designer collection title === -->
+                <div class="tab-content">
 
-                                <h3>Designers collection</h3>
+                    <div role="tabpanel" class="tab-pane active" id="designer">
+                        <div class="content">
 
-                                <div class="products">
-                                    <div class="row">
+                            <!-- === designer collection title === -->
 
-                                        <!-- === product-item === -->
+                            <h3>Designers collection</h3>
 
-                                        <div class="col-md-6 col-xs-6">
-                                            <?php
-                                            if (!empty($data['Product'])) {
-                                                foreach ($data['Product'] as $prod) {
-                                            ?>
-                                                    <article>
-                                                        <div class="figure-grid">
-                                                            <div class="image">
-                                                                <a href="#productid1" class="mfp-open">
-                                                                    <img src="<?php echo $prod->image; ?>" alt="" width="360" />
-                                                                </a>
-                                                            </div>
-                                                            <div class="text">
-                                                                <h4 class="title"><a href="product.html">Green corner</a></h4>
-                                                                <sup>Designer collection</sup>
-                                                                <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
-                                                            </div>
+                            <div class="products">
+                                <div class="row">
+
+                                    <!-- === product-item === -->
+                                    <?php
+                                    if (!empty($data['Products'])) {
+                                        foreach ($data['Products'] as $prod) {
+                                    ?>
+                                            <div class="col-md-4 col-xs-6">
+
+                                                <article>
+                                                    <div class="figure-grid">
+                                                        <div class="image">
+                                                            <!-- <a href="productid1" class="mfp-open"> -->
+                                                            <img src="<?= $prod->image ?>" alt="" />
+                                                            </a>
                                                         </div>
-                                                    </article>
-                                        </div>
-                                <?php
-                                                }
-                                            }
-                                ?>
+                                                        <div class="text">
+                                                            <h4 class="title"><a href="#">Green corner</a></h4>
+                                                            <sup>Designer collection</sup>
+                                                            <!-- <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span> -->
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
 
-                                <!-- === product-item === -->
+                                    <!-- === product-item === -->
 
-                                <!-- <div class="col-md-6 col-xs-6">
+                                    <!-- <div class="col-md-6 col-xs-6">
                                     <article>
                                         <div class="figure-grid">
                                             <div class="image">
@@ -284,9 +282,9 @@
                                     </article>
                                 </div> -->
 
-                                <!-- === product-item === -->
+                                    <!-- === product-item === -->
 
-                                <!-- <div class="col-md-6 col-xs-6">
+                                    <!-- <div class="col-md-6 col-xs-6">
                                     <article>
                                         <div class="figure-grid">
                                             <div class="image">
@@ -303,9 +301,9 @@
                                     </article>
                                 </div> -->
 
-                                <!-- === product-item === -->
+                                    <!-- === product-item === -->
 
-                                <!-- <div class="col-md-6 col-xs-6">
+                                    <!-- <div class="col-md-6 col-xs-6">
                                         <article>
                                             <div class="figure-grid">
                                                 <div class="image">
@@ -323,117 +321,124 @@
 
                                     </div> -->
 
-                                    </div>
-                                    <!--/row-->
-                                </div>
-                                <!--/products-->
-                            </div>
-                            <!--/content-->
-                        </div>
-                        <!--/tab-pane-->
-                        <!-- ============ tab #2 ============ -->
-
-                        <div role="tabpanel" class="tab-pane" id="design">
-                            <div class="content">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <h3>Dimensions</h3>
-                                        <p>
-                                            <img class="full-image" src="assets/images/specs.png" alt="Alternate Text" width="350" />
-                                        </p>
-                                        <hr />
-                                        <p>
-                                            <img class="full-image" src="assets/images/specs.png" alt="Alternate Text" width="350" />
-                                        </p>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <h3>Product Specification</h3>
-                                        <p>
-                                            Sofa Laura is a casual, contemporary collection that your family is sure to love.
-                                            The plush pillows and soft sloped arms create the ultimate combination for relaxation and comfort.
-                                        </p>
-                                        <p>
-                                            The collection is tailored with rounded padded arms, box-welted seat cushions, and loose back cushions.
-                                            Comfort is provided by high density seat cushions supported with a hardwood frame construction.
-                                            This collection is built for comfort and style!
-                                        </p>
-                                        <p>
-                                            Sofa is fun and elegant with beauty and style that will stay cutting-edge trendy through the years.
-                                            It is completely padded, including the back and outside arms - combining comfort and value to make rewarding relaxatio.
-                                        </p>
-                                    </div>
-
                                 </div>
                                 <!--/row-->
                             </div>
-                            <!--/content-->
+                            <!--/products-->
                         </div>
-                        <!--/tab-pane-->
-                        <!-- ============ tab #3 ============ -->
+                        <!--/content-->
+                    </div>
+                    <!--/tab-pane-->
+                    <!-- ============ tab #2 ============ -->
+                    <?php
+                    // if (!empty($data['Product'])) {
+                    // foreach ($data['Product'] as $prod) {
+                    ?>
+                    <div role="tabpanel" class="tab-pane" id="design">
+                        <div class="content">
+                            <div class="row">
+                                <!-- <div class="col-md-4">
+                                        <h3>Dimensions</h3>
+                                        <p>
+                                                <img class="full-image" src="" alt="Alternate Text" width="350" />
+                                            </p>
+                                            <hr />
+                                            <p>
+                                                <img class="full-image" src="" alt="Alternate Text" width="350" />
+                                            </p>
+                                    </div> -->
+                                <div class="col-md-8">
+                                    <h3>Product Specification</h3>
+                                    <p style="text-align:justify">
+                                        Sofa Laura is a casual, contemporary collection that your family is sure to love.
+                                        The plush pillows and soft sloped arms create the ultimate combination for relaxation and comfort.
+                                    </p>
+                                    <p style="text-align:justify">
+                                        The collection is tailored with rounded padded arms, box-welted seat cushions, and loose back cushions.
+                                        Comfort is provided by high density seat cushions supported with a hardwood frame construction.
+                                        This collection is built for comfort and style!
+                                    </p>
+                                    <p style="text-align:justify">
+                                        Sofa is fun and elegant with beauty and style that will stay cutting-edge trendy through the years.
+                                        It is completely padded, including the back and outside arms - combining comfort and value to make rewarding relaxatio.
+                                    </p>
+                                </div>
 
-                        <div role="tabpanel" class="tab-pane" id="rating">
+                            </div>
+                            <!--/row-->
+                        </div>
+                        <!--/content-->
+                    </div>
+                    <?php
+                    // }
+                    // }
+                    ?>
+                    <!--/tab-pane-->
+                    <!-- ============ tab #3 ============ -->
 
-                            <!-- ============ ratings ============ -->
+                    <div role=" tabpanel" class="tab-pane" id="rating">
 
-                            <div class="content">
-                                <h3>Rating</h3>
+                        <!-- ============ ratings ============ -->
 
-                                <div class="row">
+                        <div class="content">
+                            <h3>Rating</h3>
 
-                                    <!-- === comments === -->
+                            <div class="row">
 
-                                    <div class="col-md-12">
-                                        <div class="comments">
+                                <!-- === comments === -->
 
-                                            <!-- === rating === -->
+                                <div class="col-md-12">
+                                    <div class="comments">
 
-                                            <div class="rating clearfix">
-                                                <div class="rate-box">
-                                                    <strong>Quality</strong>
-                                                    <div class="rating">
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span>3</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span>5</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span>0</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span>2</span>
-                                                    </div>
-                                                    <div class="rating">
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star active"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <span>1</span>
-                                                    </div>
+                                        <!-- === rating === -->
+
+                                        <div class="rating clearfix">
+                                            <div class="rate-box">
+                                                <strong>Quality</strong>
+                                                <div class="rating">
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <span>3</span>
                                                 </div>
+                                                <div class="rating">
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <span>5</span>
+                                                </div>
+                                                <div class="rating">
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <span>0</span>
+                                                </div>
+                                                <div class="rating">
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <span>2</span>
+                                                </div>
+                                                <div class="rating">
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <span>1</span>
+                                                </div>
+                                            </div>
 
-                                                <!-- rate  Design-->
-                                                <!-- <div class="rate-box">
+                                            <!-- rate  Design-->
+                                            <!-- <div class="rate-box">
                                                     <strong>Design</strong>
                                                     <div class="rating">
                                                         <i class="fa fa-star active"></i>
@@ -477,8 +482,8 @@
                                                     </div>
                                                 </div> -->
 
-                                                <!-- rate gernal -->
-                                                <!-- <div class="rate-box">
+                                            <!-- rate gernal -->
+                                            <!-- <div class="rate-box">
                                                     <strong>General</strong>
                                                     <div class="rating">
                                                         <i class="fa fa-star"></i>
@@ -522,32 +527,32 @@
                                                     </div>
                                                 </div> -->
 
-                                            </div>
-                                            <div class="comment-wrapper">
+                                            <!-- </div> -->
+                                            <!-- <div class="comment-wrapper"> -->
 
-                                                <!-- === comment === -->
+                                            <!-- === comment === -->
 
-                                                <div class="comment-block">
-                                                    <div class="comment-user">
-                                                        <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
-                                                        <div>
-                                                            <h5>
-                                                                <span>John Doe</span>
-                                                                <span class="pull-right">
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                </span>
-                                                                <small>03.05.2017</small>
-                                                            </h5>
+                                            <!-- <div class="comment-block">
+                                                        <div class="comment-user">
+                                                            <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
+                                                            <div>
+                                                                <h5>
+                                                                    <span>John Doe</span>
+                                                                    <span class="pull-right">
+                                                                        <i class="fa fa-star active"></i>
+                                                                        <i class="fa fa-star active"></i>
+                                                                        <i class="fa fa-star active"></i>
+                                                                        <i class="fa fa-star active"></i>
+                                                                        <i class="fa fa-star"></i>
+                                                                    </span>
+                                                                    <small>03.05.2017</small>
+                                                                </h5>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <!-- comment description -->
+                                                        <!- comment description -->
 
-                                                    <div class="comment-desc">
+                                            <!-- <div class="comment-desc">
                                                         <p>
                                                             In vestibulum tellus ut nunc accumsan eleifend. Donec mattis cursus ligula, id
                                                             iaculis dui feugiat nec. Etiam ut ante sed neque lacinia volutpat. Maecenas
@@ -556,75 +561,74 @@
                                                             accumsan, sem sit amet euismod ullamcorper, justo sapien cursus nisl, nec
                                                             gravida
                                                         </p>
-                                                    </div>
+                                                    </div> -->
 
-                                                    <!-- comment reply -->
+                                            <!-- comment reply -->
 
-                                                    <div class="comment-block">
-                                                        <div class="comment-user">
-                                                            <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
-                                                            <div>
-                                                                <h5>Administrator<small>08.05.2017</small></h5>
-                                                            </div>
-                                                        </div>
-                                                        <div class="comment-desc">
-                                                            <p>
-                                                                Curabitur sit amet elit quis tellus tincidunt efficitur. Cras lobortis id
-                                                                elit eu vehicula. Sed porttitor nulla vitae nisl varius luctus. Quisque
-                                                                a enim nisl. Maecenas facilisis, felis sed blandit scelerisque, sapien
-                                                                nisl egestas diam, nec blandit diam ipsum eget dolor. Maecenas ultricies
-                                                                tempus nibh, sit amet facilisis mauris vulputate in.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <!--/reply-->
-                                                </div>
+                                            <!-- <div class="comment-block">
+                                                            <div class="comment-user">
+                                                                <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
+                                                                <div>
+                                                                    <h5>Administrator<small>08.05.2017</small></h5>
+                                                                </div>
+                                                            </div> -->
+                                            <!-- <div class="comment-desc">
+                                                                <p>
+                                                                    Curabitur sit amet elit quis tellus tincidunt efficitur. Cras lobortis id
+                                                                    elit eu vehicula. Sed porttitor nulla vitae nisl varius luctus. Quisque
+                                                                    a enim nisl. Maecenas facilisis, felis sed blandit scelerisque, sapien
+                                                                    nisl egestas diam, nec blandit diam ipsum eget dolor. Maecenas ultricies
+                                                                    tempus nibh, sit amet facilisis mauris vulputate in.
+                                                                </p>
+                                                            </div> -->
+                                            <!-- </div> -->
+                                            <!--/reply-->
+                                            <!-- </div> -->
+                                            <!-- === comment === -->
 
-                                                <!-- === comment === -->
-
-                                                <div class="comment-block">
-                                                    <div class="comment-user">
-                                                        <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
-                                                        <div>
-                                                            <h5>
-                                                                <span>John Doe</span>
-                                                                <span class="pull-right">
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star active"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                </span>
-                                                                <small>03.05.2017</small>
-                                                            </h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comment-desc">
-                                                        <p>
-                                                            Cras lobortis id elit eu vehicula. Sed porttitor nulla vitae nisl varius luctus.
-                                                            Quisque a enim nisl. Maecenas facilisis, felis sed blandit scelerisque, sapien
-                                                            nisl egestas diam, nec blandit diam ipsum eget dolor. In vestibulum tellus
-                                                            ut nunc accumsan eleifend. Donec mattis cursus ligula, id iaculis dui feugiat
-                                                            nec. Etiam ut ante sed neque lacinia volutpat. Maecenas ultricies tempus
-                                                            nibh, sit amet facilisis mauris vulputate in. Phasellus tempor justo et mollis
-                                                            facilisis. Donec placerat at nulla sed suscipit. Praesent accumsan, sem sit
-                                                            amet euismod ullamcorper, justo sapien cursus nisl, nec gravida
-                                                        </p>
+                                            <!-- <div class="comment-block">
+                                                <div class="comment-user">
+                                                    <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
+                                                    <div>
+                                                        <h5>
+                                                            <span>John Doe</span>
+                                                            <span class="pull-right">
+                                                                <i class="fa fa-star active"></i>
+                                                                <i class="fa fa-star active"></i>
+                                                                <i class="fa fa-star active"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </span>
+                                                            <small>03.05.2017</small>
+                                                        </h5>
                                                     </div>
                                                 </div>
+                                                <div class="comment-desc">
+                                                    <p>
+                                                        Cras lobortis id elit eu vehicula. Sed porttitor nulla vitae nisl varius luctus.
+                                                        Quisque a enim nisl. Maecenas facilisis, felis sed blandit scelerisque, sapien
+                                                        nisl egestas diam, nec blandit diam ipsum eget dolor. In vestibulum tellus
+                                                        ut nunc accumsan eleifend. Donec mattis cursus ligula, id iaculis dui feugiat
+                                                        nec. Etiam ut ante sed neque lacinia volutpat. Maecenas ultricies tempus
+                                                        nibh, sit amet facilisis mauris vulputate in. Phasellus tempor justo et mollis
+                                                        facilisis. Donec placerat at nulla sed suscipit. Praesent accumsan, sem sit
+                                                        amet euismod ullamcorper, justo sapien cursus nisl, nec gravida
+                                                    </p>
+                                                </div>
+                                            </div> -->
 
-                                            </div>
+                                            <!-- </div> -->
                                             <!--/comment-wrapper-->
 
-                                            <div class="comment-header">
+                                            <!-- <div class="comment-header">
                                                 <a href="#" class="btn btn-clean-dark">12 comments</a>
-                                            </div>
+                                            </div> -->
                                             <!--/comment-header-->
                                             <!-- === add comment === -->
 
                                             <div class="comment-add">
 
-                                                <div class="comment-reply-message">
+                                                <div class="comment-reply-message"><br><br><br><br><br><br><br><br><br><br><br>
                                                     <div class="h3 title">Leave a Reply </div>
                                                     <p>Your email address will not be published.</p>
                                                 </div>
@@ -660,6 +664,7 @@
                     </div>
                     <!--/tab-content-->
                 </div>
+
             </div>
             <!--/row-->
         </div>
@@ -766,11 +771,7 @@
 <!--popup-main-->
 
 
-<!-- ================== Footer  ================== -->
 
-<!--  -->
-
-<!--footer links-->
 
 
 

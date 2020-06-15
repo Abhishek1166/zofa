@@ -33,8 +33,12 @@
 						<!-- <li><a href="#">Brand</a></li> -->
 
 
-						<li class="<?php is_page_active('products1') ?>">
+						<li>
 							<a href="<?php echo SITE_URL ?>products1">Products</a>
+						</li>
+
+						<li>
+							<a href="<?php echo SITE_URL ?>productsgrid">productsgrid</a>
 						</li>
 
 
@@ -52,7 +56,7 @@
 				<div class="col-sm-4 col-md-2">
 					<h5>Our company</h5>
 					<ul>
-						<li class="<?php is_page_active('about_us') ?>">
+						<li>
 							<a href="<?php echo SITE_URL ?>about-us">About us</a>
 						</li>
 
@@ -60,7 +64,7 @@
 						<li><a href="#">News</a></li>
 
 
-						<li class="<?php is_page_active('contact') ?>">
+						<li>
 							<a href="<?php echo SITE_URL ?>contact">Contact</a>
 						</li>
 					</ul>

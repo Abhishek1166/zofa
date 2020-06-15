@@ -15,11 +15,16 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
+
     <!--Title-->
     <title>Mobel - Furniture Website Template</title>
 
     <!--CSS styles-->
     <link rel="stylesheet" media="all" href="<?php echo SITE_URL; ?>assets/css/fe/zofa/bootstrap.css" />
+
+    <!--   -->
+
+
     <link rel="stylesheet" media="all" href="<?php echo SITE_URL; ?>assets/css/fe/zofa/animate.css" />
     <link rel="stylesheet" media="all" href="<?php echo SITE_URL; ?>assets/css/fe/zofa/font-awesome.css" />
     <link rel="stylesheet" media="all" href="<?php echo SITE_URL; ?>assets/css/fe/zofa/furniture-icons.css" />
