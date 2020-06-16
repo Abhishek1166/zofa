@@ -161,7 +161,7 @@ class Page extends CI_Controller
 
 
 		$data['single_product'] = $this->ProductsModel->first([
-			'feilds'     => ['id', 'title', 'regular_price', 'sell_price', 'image'],
+			'feilds'     => ['id', 'title', 'regular_price', 'sell_price', 'image', 'srt_description'],
 			'conditions' => [
 				'id' => $id,
 				'status' => '1',

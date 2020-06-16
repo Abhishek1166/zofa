@@ -33,9 +33,9 @@
 						<!-- <li><a href="#">Brand</a></li> -->
 
 
-						<li>
-							<a href="<?php echo SITE_URL ?>products1">Products</a>
-						</li>
+						<!-- <li>
+							<a href="products1">Products</a>
+						</li> -->
 
 						<li>
 							<a href="<?php echo SITE_URL ?>productsgrid">productsgrid</a>
