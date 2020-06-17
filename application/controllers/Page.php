@@ -172,6 +172,44 @@ class Page extends CI_Controller
 		]);
 
 
+
+		if ($this->input->post('submit')) {
+
+			flash_message(
+				'products',
+				$this->input->post('Firstname')
+					and $this->input->post('Lastname')
+					and $this->input->post('Email')
+					and $this->input->post('Mobile'),
+				'unsuccess',
+				'Something Went Wrong',
+				'Look like Form Not Fill Properly, Please Fill & Try Again.'
+			);
+		}
+
+
+		flash_message(
+			'',
+			filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL),
+			'unsuccess',
+			'Something Went Wrong',
+			'Oops, You Misstyped Your E-mail Address, Please Type Valid E-mail Address.'
+		);
+		$ordr = $this->OrdrModel->save([
+			'Firstname'      => $this->input->post('first_name'),
+			'Lastname'          => $this->inout->post('last_name'),
+			'Mobile'    => $this->input->post('mobile'),
+			'Email'         => str_clean($this->input->post('email'), ['@', '.', '-', '_']),
+
+		]);
+
+		flash_message(
+			'products',
+			$product,
+			'unsuccess',
+			"Something Went Wrong"
+		);
+
 		return $this->view('products', $data);
 	}
 

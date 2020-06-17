@@ -163,7 +163,7 @@ class Order extends CI_Controller
 
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar');
-		$this->load->view('order/add', compact('products', 'users'));
+		$this->load->view('ordr/add');
 		$this->load->view('template/footer');
 	}
 

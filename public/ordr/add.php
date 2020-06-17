@@ -4,36 +4,36 @@
 		<div class="widget-content widget-content-area br-6 shadow">
 			<form class="p-3" method="POST" enctype="multipart/form-data">
 				<div class="row">
-					<div class="col-md-12">
+					<!-- <div class="col-md-12">
 						<div class="form-group">
 							<label>Products</label>
 							<select class="form-control withoutTagging" multiple="multiple" data-tags="true" data-placeholder="Select Products" name="product[]">
-								<?php if (is($products, 'array'))
+								 <?php /*if (is($products, 'array'))
 									foreach ($products as $value) : ?>
 									<option value="<?php is($value->id, 'show'); ?>">
 										<?php is($value->title, 'showCapital'); ?>
 									</option>
-								<?php endforeach; ?>
-							</select>
-						</div>
-					</div>
+								<?php endforeach; ?>*/
+						// 	</select>
+						// </div>
+					</div> -->
 					<!-- Customer -->
-					<div class="col-md-6">
-						<div class="form-group mb-4">
-							<select class="selectpicker form-control" name="user" data-live-search="true" title=" Select A Customer">
-								<?php if (is($users, 'array'))
-									foreach ($users as $value) : ?>
-									<option value="<?php is($value->id, 'show'); ?>">
-										<?php is($value->first_name, 'showCapital'); ?>&nbsp;
-										<?php is($value->last_name, 'showCapital'); ?>
+					// <div class="col-md-6">
+					// 	<div class="form-group mb-4">
+					// 		<select class="selectpicker form-control" name="user" data-live-search="true" title=" Select A Customer">
+					// 			<?php if (is($users, 'array'))
+					// 				foreach ($users as $value) : ?>
+					// 				<option value="<?php is($value->id, 'show'); ?>">
+					// 					<?php /*is($value->first_name, 'showCapital'); ?>&nbsp;
+					// 					<?php is($value->last_name, 'showCapital'); ?>
 									</option>
-								<?php endforeach; ?>
-							</select>
-							<small class="form-text text-muted">
-								<span class="text-danger mr-1">*</span>Required Fields
-							</small>
-						</div>
-					</div>
+								<?php endforeach; ?>*/
+							// </select>
+					// 		<small class="form-text text-muted">
+					// 			<span class="text-danger mr-1">*</span>Required Fields
+					// 		</small>
+					// 	</div>
+					// </div>
 
 					<!-- Payment Mode -->
 					<div class="col-md-6">
