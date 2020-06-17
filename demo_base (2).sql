@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2020 at 04:43 PM
+-- Generation Time: Jun 17, 2020 at 04:55 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -188,7 +188,19 @@ INSERT INTO `filter_product_category_relations` (`id`, `key_id`, `value_id`, `pr
 (149, 8, 3, 9, 9),
 (150, 9, 51, 9, 9),
 (151, 10, 48, 9, 9),
-(152, 11, 52, 9, 9);
+(152, 11, 52, 9, 9),
+(153, 6, 45, 10, 9),
+(154, 7, 50, 10, 9),
+(155, 8, 5, 10, 9),
+(156, 9, 57, 10, 9),
+(157, 10, 48, 10, 9),
+(158, 11, 52, 10, 9),
+(159, 6, 45, 11, 6),
+(160, 7, 50, 11, 6),
+(161, 8, 5, 11, 6),
+(162, 9, 58, 11, 6),
+(163, 10, 48, 11, 6),
+(164, 11, 52, 11, 6);
 
 -- --------------------------------------------------------
 
@@ -259,7 +271,9 @@ INSERT INTO `filter_values` (`id`, `filter_key_id`, `filter_value_title`, `slug`
 (53, 9, 'brown', 'brown', NULL, NULL, 1, 1, '2020-06-15 07:03:50', 1, '2020-06-15 07:03:50'),
 (54, 11, 'chair', 'chair', NULL, NULL, 1, 1, '2020-06-15 07:03:50', 1, '2020-06-15 07:03:50'),
 (55, 9, 'white', 'white', NULL, NULL, 1, 1, '2020-06-15 07:13:48', 1, '2020-06-15 07:13:48'),
-(56, 11, 'round', 'round', NULL, NULL, 1, 1, '2020-06-15 07:13:48', 1, '2020-06-15 07:13:48');
+(56, 11, 'round', 'round', NULL, NULL, 1, 1, '2020-06-15 07:13:48', 1, '2020-06-15 07:13:48'),
+(57, 9, 'Red', 'red', NULL, NULL, 1, 1, '2020-06-16 05:40:44', 1, '2020-06-16 05:40:44'),
+(58, 9, 'red', 'red', NULL, NULL, 1, 1, '2020-06-17 06:17:36', 1, '2020-06-17 06:17:36');
 
 -- --------------------------------------------------------
 
@@ -351,6 +365,30 @@ CREATE TABLE `orders` (
   `modified_by` bigint(20) DEFAULT NULL,
   `modified_date` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_group_id`, `user_id`, `coupon_id`, `product_id`, `product_quantity`, `total_discount`, `total_addition`, `total_amount`, `total_paid`, `product_received_date`, `remark`, `payment_mode`, `payment_status`, `delivery_status`, `status`, `transaction_id`, `transaction_msg`, `user_ip`, `web_token_id`, `app_token_id`, `device_type`, `browser`, `browser_version`, `os`, `mobile_device`, `created_by`, `created_date`, `modified_by`, `modified_date`) VALUES
+(1, 'ODR16892357', 0, NULL, 5, '1', 0.00, 0.00, 50000.00, 50000.00, NULL, 'dfdf', 'online', 1, 0, 1, '4001c2bb6dc503a009cd1ac2e18fd4f9', 'backend', '::1', NULL, NULL, 'web', 'Chrome', '83.0.4103.97', 'Windows 10', '', 1, '2020-06-17 11:33:53', 1, '2020-06-17 11:33:53'),
+(2, 'ODR16892357', 0, NULL, 9, '1', 0.00, 0.00, 55000.00, 55000.00, NULL, 'dfdf', 'online', 1, 0, 1, '7edb2df780023541933e47b15664a751', 'backend', '::1', NULL, NULL, 'web', 'Chrome', '83.0.4103.97', 'Windows 10', '', 1, '2020-06-17 11:33:53', 1, '2020-06-17 11:33:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ordr`
+--
+
+CREATE TABLE `ordr` (
+  `ordr_id` int(11) NOT NULL,
+  `first_name` varchar(150) NOT NULL,
+  `last_name` varchar(150) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `mobile` int(11) NOT NULL,
+  `Product_id` int(11) NOT NULL,
+  `Category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -453,7 +491,9 @@ INSERT INTO `products` (`id`, `title`, `post_type`, `category_id`, `extra_id`, `
 (6, 'Garden Chair Set', 'product', 6, '', 'garden-chair-set', 'enjoy your morning on your garden chair', 'enjoy your morning on your garden chair', '25000', '50000', 'http://localhost/zofa/uploads/product/5f0690e79403b7bfda78e10c5daf83fb.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 3, 1, '2020-06-15 07:03:50', 1, '2020-06-15 07:11:35'),
 (7, 'Study Table', 'product', 5, '', 'study-table', 'study here', 'study here', '12000', '25000', 'http://localhost/zofa/uploads/product/1a2818cfb063c0690d95e1d601a3eba3.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 3, 1, '2020-06-15 07:13:47', 1, '2020-06-15 07:25:43'),
 (8, 'demo', 'product', 9, '', 'demo-1', 'sss', 'ssss', '2000', '25000', 'http://localhost/zofa/uploads/product/9eabab55070ee885b8c7da9e4c90666e.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 3, 1, '2020-06-15 07:16:06', 1, '2020-06-15 07:26:04'),
-(9, 'pro', 'product', 9, '', 'pro', 'Comfortable for every member', 'sqsd', '20000', '55000', 'http://localhost/zofa/uploads/product/db3b9a79c6ddfea95b9f98d94425de76.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-15 07:45:01', 1, '2020-06-15 07:45:01');
+(9, 'pro', 'product', 9, '', 'pro', 'Comfortable for every member', 'sqsd', '20000', '55000', 'http://localhost/zofa/uploads/product/db3b9a79c6ddfea95b9f98d94425de76.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-15 07:45:01', 1, '2020-06-15 07:45:01'),
+(10, 'Red Sofa', 'product', 9, '', 'red-sofa', 'Comfortable for every member', 'Perfect sofa for us.', '20000', '50000', 'http://localhost/zofa/uploads/product/85ef5537805c365eb294c3d3fda91327.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-16 05:40:43', 1, '2020-06-16 05:40:43'),
+(11, 'lounge', 'product', 6, '', 'lounge', 'nice lounge', 'another product from zofa', '25000', '30000', 'http://localhost/zofa/uploads/product/3bad1098da6a4d710b958d9796b18f4b.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-17 06:17:36', 1, '2020-06-17 06:17:36');
 
 -- --------------------------------------------------------
 
@@ -472,8 +512,8 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `option_key`, `option_value`) VALUES
-(1, 'site_logo', 'https://base.dev/uploads/setting/b801da35b396b070290661b5ed6b8d05.png'),
-(2, 'site_favicon', 'https://base.dev/uploads/setting/67bdf241af1e28594765bbce59690c6d.png'),
+(1, 'site_logo', 'http://localhost/zofa/uploads/setting/589f8cd903fa4e98b9bde7c723d09df4.png'),
+(2, 'site_favicon', 'http://localhost/zofa/uploads/setting/55734d127f94d5ca44d48fe4b6615009.png'),
 (3, 'site_name', 'ZOFA FURNITURE'),
 (4, 'site_mobile', '9606640023 '),
 (5, 'site_mail', 'info@zofa.in'),
@@ -888,6 +928,13 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ordr`
+--
+ALTER TABLE `ordr`
+  ADD PRIMARY KEY (`ordr_id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- Indexes for table `posts`
 --
 ALTER TABLE `posts`
@@ -973,13 +1020,13 @@ ALTER TABLE `filters`
 -- AUTO_INCREMENT for table `filter_product_category_relations`
 --
 ALTER TABLE `filter_product_category_relations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=153;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT for table `filter_values`
 --
 ALTER TABLE `filter_values`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `gallery`
@@ -997,7 +1044,13 @@ ALTER TABLE `leads`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ordr`
+--
+ALTER TABLE `ordr`
+  MODIFY `ordr_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `posts`
@@ -1015,7 +1068,7 @@ ALTER TABLE `post_reactions`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `settings`
