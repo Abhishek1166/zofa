@@ -82,7 +82,9 @@
 
 				<?php if (is($data, 'array') and is($data['properties'])) : ?>
 					<?php foreach ($data['properties'] as $key => $value) : ?>
+
 						<!-- Flat Details -->
+
 						<div class="flattype-section">
 							<div class="flatDetail-block">
 								<img src="<?php is($value->image, 'show'); ?>" alt="<?php is($value->title, 'show'); ?>" class="img-fluid">

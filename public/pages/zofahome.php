@@ -262,7 +262,7 @@
                                         <i class="icon icon-heart"></i></a>
                                 </span>
                                 <span>
-                                    <a href="#productid1" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                                    <a href=<?php echo SITE_URL . 'products1/' . $prod->id ?>><i class="icon icon-eye"></i></a>
                                 </span>
                             </div>
                             <div class="btn btn-add">
@@ -540,10 +540,10 @@
 
             <?php
 
-            if (!empty($data["ideas"])) {
-                foreach ($data['ideas'] as $idea) {
-                }
-            }
+            // if (!empty($data["ideas"])) {
+            //     foreach ($data['ideas'] as $idea) {
+            //     }
+            // }
             ?>
 
 
@@ -552,7 +552,7 @@
                 <article>
                     <a href="#">
                         <div class="image">
-                            <img src="<?= $idea->post_image ?>" alt="" />
+                            <img src="<?php echo SITE_URL; ?>assets/img/zofa/idea1.jpg" alt="" />
                         </div>
                         <div class="entry entry-block">
                             <div class="date">28 Mart 2017</div>
@@ -732,19 +732,17 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-offset-2 col-md-8 text-center">
+                <div class="col-md-offset-2 col-+md-8 text-center">
                     <h2 class="h2 title">Follow us <i class="fa fa-instagram fa-2x"></i> Instagram </h2>
                     <div class="text">
                         <p>
-                            <?php echo $data['instagram'] ?>
-                        </p>
+                            <a href="https://www.instagram.com/zofafurniture/"> <?php echo $data['instagram'] ?></a> </p>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-
-    <!-- === instagram gallery === -->
+    <!--===instagram gallery===-->
     <?php
     // echo '<pre>';
     // print_r($data);

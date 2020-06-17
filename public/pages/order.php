@@ -1,5 +1,7 @@
 ﻿<!-- ======================== Main header ======================== -->
 
+
+
 <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
     <header>
         <div class="container text-center">
@@ -31,152 +33,118 @@
 
         <div class="clearfix">
             <div class="row">
-                <div class="col-xs-6">
+                <!-- <div class="col-xs-6">
                     <a href="checkout-1.html" class="btn btn-clean-dark"><span class="icon icon-chevron-left"></span> Back to cart</a>
-                </div>
+                </div> -->
                 <!--  -->
             </div>
         </div>
 
         <!-- ========================  Delivery ======================== -->
 
-        <div class="cart-wrapper">
+        <!-- <div class="cart-wrapper">
 
             <div class="note-block">
-                <div class="row">
+                <div class="row"> -->
 
-                    <!-- === left content === -->
+        <!-- === left content === -->
 
-                    <div class="col-md-6">
 
-                        <!-- === login-wrapper === -->
+        <div class=" col-md-6">
 
-                        <div class="login-wrapper">
+            <!-- === login-wrapper === -->
 
-                            <div class="white-block">
+            <div class="login-wrapper">
 
-                                <!--signin-->
+                <div class="white-block" style="margin-left:360px;margin-right:-400px;">
 
-                                <div class="login-block login-block-signin">
+                    <!--signin-->
 
-                                    <div class="h4">Sign in <a href="javascript:void(0);" class="btn btn-main btn-xs btn-register pull-right">create an
-                                            account</a></div>
+                    <!--  -->
+                    <!--/signin-->
+                    <!--signup-->
 
-                                    <hr />
+                    <div class="login-block login-block-signup">
 
-                                    <div class="row">
+                        <div class="h4" style="text-align:center;">Order now </div>
 
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="text" value="" class="form-control" placeholder="User ID">
-                                            </div>
-                                        </div>
+                        <hr />
 
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="password" value="" class="form-control" placeholder="Password">
-                                            </div>
-                                        </div>
+                        <div class="row">
 
-                                        <div class="col-xs-6">
-                                            <span class="checkbox">
-                                                <input type="checkbox" id="checkBoxId3">
-                                                <label for="checkBoxId3">Remember me</label>
-                                            </span>
-                                        </div>
-
-                                        <div class="col-xs-6 text-right">
-                                            <a href="#" class="btn btn-main">Login</a>
-                                        </div>
-                                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" value="" class="form-control" placeholder="First name: *">
                                 </div>
-                                <!--/signin-->
-                                <!--signup-->
-
-                                <div class="login-block login-block-signup">
-
-                                    <div class="h4">Register now <a href="javascript:void(0);" class="btn btn-main btn-xs btn-login pull-right">Log in</a></div>
-
-                                    <hr />
-
-
-
-                                    <div class="row">
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" value="" class="form-control" placeholder="First name: *">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" value="" class="form-control" placeholder="Last name: *">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-
-                                            <div class="form-group">
-                                                <input type="text" value="" class="form-control" placeholder="Company name:">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <input type="text" value="" class="form-control" placeholder="Zip code: *">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-8">
-                                            <div class="form-group">
-                                                <input type="text" value="" class="form-control" placeholder="City: *">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" value="" class="form-control" placeholder="Email: *">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" value="" class="form-control" placeholder="Phone: *">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <hr />
-                                            <span class="checkbox">
-                                                <input type="checkbox" id="checkBoxId1">
-                                                <label for="checkBoxId1">I have read and accepted the <a href="#">terms</a>, as well as read and understood our terms
-                                                    of <a href="#">business contidions</a></label>
-                                            </span>
-                                            <!-- <span class="checkbox">
-                                                <input type="checkbox" id="checkBoxId2">
-                                                <label for="checkBoxId2">Subscribe to exciting newsletters and great
-                                                    tips</label>
-                                            </span> -->
-                                            <hr />
-                                        </div>
-
-                                        <div class="col-md-12">
-                                            <a href="#" class="btn btn-main btn-block">Create account</a>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <!--/signup-->
                             </div>
-                        </div>
-                        <!--/login-wrapper-->
-                    </div>
-                    <!--/col-md-6-->
-                    <!-- === right content === -->
 
-                    <!-- <div class="col-md-6">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" value="" class="form-control" placeholder="Last name: *">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <input type="text" value="" class="form-control" placeholder="Company name:">
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" value="" class="form-control" placeholder="Zip code: *">
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <input type="text" value="" class="form-control" placeholder="City: *">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" value="" class="form-control" placeholder="Email: *">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" value="" class="form-control" placeholder="Phone: *">
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <hr />
+                                <span class="checkbox">
+                                    <input type="checkbox" id="checkBoxId1">
+                                    <label for="checkBoxId1">I have read and accepted the <a href="#">terms</a>, as well as read and understood our terms of
+                                        <a href="#">business contidions</a></label>
+                                </span>
+                                <span class="checkbox">
+                                    <input type="checkbox" id="checkBoxId2">
+
+                                </span>
+                                <hr />
+                            </div>
+
+                            <div class="col-md-12">
+                                <a href="#" class="btn btn-main btn-block">Create account</a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--/signup-->
+                </div>
+            </div>
+            <!--/login-wrapper-->
+        </div>
+
+        <!--/col-md-6-->
+        <!-- === right content === -->
+
+        <!-- <div class="col-md-6">
 
                         <div class="white-block">
 
@@ -223,16 +191,16 @@
 
                     </div> -->
 
-                </div>
-            </div>
-        </div>
+    </div>
+    </div>
+    </div>
 
-        <!-- ========================  Cart wrapper ======================== -->
+    <!-- ========================  Cart wrapper ======================== -->
 
-        <!-- <div class="cart-wrapper"> -->
-        <!--cart header -->
+    <!-- <div class="cart-wrapper"> -->
+    <!--cart header -->
 
-        <!-- <div class="cart-block cart-block-header clearfix">
+    <!-- <div class="cart-block cart-block-header clearfix">
                 <div>
                     <span>Product</span>
                 </div>
@@ -247,10 +215,10 @@
                 </div>
             </div> -->
 
-        <!--cart items-->
+    <!--cart items-->
 
-        <!-- <div class="clearfix"> -->
-        <!-- <div class="cart-block cart-block-item clearfix">
+    <!-- <div class="clearfix"> -->
+    <!-- <div class="cart-block cart-block-item clearfix">
                     <div class="image">
                         <a href="product.html"><img src="assets/images/product-1.png" alt="" /></a>
                     </div>
@@ -267,7 +235,7 @@
                     </div>
                 </div> -->
 
-        <!-- <div class="cart-block cart-block-item clearfix">
+    <!-- <div class="cart-block cart-block-item clearfix">
                     <div class="image">
                         <a href="product.html"><img src="assets/images/product-2.png" alt="" /></a>
                     </div>
@@ -284,7 +252,7 @@
                     </div>
                 </div> -->
 
-        <!-- <div class="cart-block cart-block-item clearfix">
+    <!-- <div class="cart-block cart-block-item clearfix">
                     <div class="image">
                         <a href="product.html"><img src="assets/images/product-3.png" alt="" /></a>
                     </div>
@@ -301,7 +269,7 @@
                     </div>
                 </div> -->
 
-        <!-- <div class="cart-block cart-block-item clearfix">
+    <!-- <div class="cart-block cart-block-item clearfix">
                     <div class="image">
                         <a href="product.html"><img src="assets/images/product-3.png" alt="" /></a>
                     </div>
@@ -371,7 +339,7 @@
                 <div class="col-xs-6">
                     <a href="checkout-1.html" class="btn btn-clean-dark"><span class="icon icon-chevron-left"></span> Back to cart</a>
                 </div>
-                
+
         </div> -->
     </div>
 

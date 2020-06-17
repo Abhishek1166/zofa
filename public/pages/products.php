@@ -1,7 +1,7 @@
 ﻿<!-- ========================  Main header ======================== -->
 <?php
 // echo '<pre>';
-// print_r($data['Products']);
+// print_r($data['single_product']['srt_description']);
 // echo '</pre>';
 // die;
 ?>
@@ -184,7 +184,7 @@
 
                         <div class="box">
 
-                            
+
                         </div> -->
 
 
@@ -331,13 +331,13 @@
                     <!--/tab-pane-->
                     <!-- ============ tab #2 ============ -->
                     <?php
-                    // if (!empty($data['Product'])) {
-                    // foreach ($data['Product'] as $prod) {
+                    if (!empty($data['single_product'])) {
+                        // foreach ($data['Product'] as $prod) {
                     ?>
-                    <div role="tabpanel" class="tab-pane" id="design">
-                        <div class="content">
-                            <div class="row">
-                                <!-- <div class="col-md-4">
+                        <div role="tabpanel" class="tab-pane" id="design">
+                            <div class="content">
+                                <div class="row">
+                                    <!-- <div class="col-md-4">
                                         <h3>Dimensions</h3>
                                         <p>
                                                 <img class="full-image" src="" alt="Alternate Text" width="350" />
@@ -347,27 +347,27 @@
                                                 <img class="full-image" src="" alt="Alternate Text" width="350" />
                                             </p>
                                     </div> -->
-                                <div class="col-md-8">
-                                    <h3>Product Specification</h3>
-                                    <p style="text-align:justify">
-                                        <?= $data['single_product']['srt_description'] ?>
-                                    </p>
-                                    <!-- <p style="text-align:justify">
+                                    <div class="col-md-8">
+                                        <h3>Product Specification</h3>
+                                        <p style="text-align:justify">
+                                            <?= $data['single_product']['description'] ?>
+                                        </p>
+                                        <!-- <p style="text-align:justify">
                                         $data['single_product']['image']
                                     </p> -->
-                                    <!-- <p style="text-align:justify">
+                                        <!-- <p style="text-align:justify">
                                         Sofa is fun and elegant with beauty and style that will stay cutting-edge trendy through the years.
                                         It is completely padded, including the back and outside arms - combining comfort and value to make rewarding relaxatio.
                                     </p> -->
-                                </div>
+                                    </div>
 
+                                </div>
+                                <!--/row-->
                             </div>
-                            <!--/row-->
+                            <!--/content-->
                         </div>
-                        <!--/content-->
-                    </div>
                     <?php
-                    // }
+                    }
                     // }
                     ?>
                     <!--/tab-pane-->
@@ -623,14 +623,14 @@
                                             <!--/comment-header-->
                                             <!-- === add comment === -->
 
-                                            <div class="comment-add">
+                                            <!-- <div class="comment-add">
 
-                                                <div class="comment-reply-message"><br><br><br><br><br><br><br><br><br><br><br>
+                                                <!-- <div class="comment-reply-message"><br><br><br><br><br><br><br><br><br><br><br>
                                                     <div class="h3 title">Leave a Reply </div>
                                                     <p>Your email address will not be published.</p>
-                                                </div>
+                                                </div> -->
 
-                                                <form action="#" method="post">
+                                            <!-- <form action="#" method="post">
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" name="name" value="" placeholder="Your Name" />
                                                     </div>
@@ -643,9 +643,9 @@
                                                     <div class="clearfix text-center">
                                                         <a href="#" class="btn btn-main">Add comment</a>
                                                     </div>
-                                                </form>
+                                                </form> -->
 
-                                            </div>
+                                            <!-- </div> -->
                                             <!--/comment-add-->
                                         </div>
                                         <!--/comments-->

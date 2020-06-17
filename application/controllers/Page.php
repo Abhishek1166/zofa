@@ -15,6 +15,7 @@ class Page extends CI_Controller
 			'Filter_Product_Category_RelationsModel',
 			'PostsModel',
 			'PostsModel',
+			'OrdersModel',
 			'GalleryModel'
 		]);
 	}
@@ -82,7 +83,7 @@ class Page extends CI_Controller
 		return $this->view('zofahome', $data);
 	}
 
-	// 
+	//
 	public function zofahome()
 	{
 
@@ -139,7 +140,7 @@ class Page extends CI_Controller
 		return $this->view('zofahome', $data);
 		// return $this->view('footer');
 	}
-	// 
+	//
 
 	/** Load Search & Filter Property Data
 	 * @param string $search */
@@ -161,7 +162,7 @@ class Page extends CI_Controller
 
 
 		$data['single_product'] = $this->ProductsModel->first([
-			'feilds'     => ['id', 'title', 'regular_price', 'sell_price', 'image', 'srt_description'],
+			'feilds'     => ['id', 'title', 'regular_price', 'sell_price', 'image', 'srt_description', 'description',],
 			'conditions' => [
 				'id' => $id,
 				'status' => '1',
@@ -193,244 +194,58 @@ class Page extends CI_Controller
 
 	public function order()
 	{
-		$data['orders'] = get_data_from('orders');
+		$data['orders'] 	= get_data_from('orders');
 
 		return $this->view('order', $data);
 	}
+	// {
+	// 	if ($this->input->post('orders')) {
 
+	// 		flash_message(
+	// 			'',
+	// 			$this->input->post('user_id') and
+	// 				$this->input->post('product_quantity') and
+	// 				$this->input->post('total_amount'),
+	// 			'unsccuess',
+	// 			'Look\'s Like Form is Empty',
+	// 			'Oops, User\'s Basic Details is Empty. Please Fill & Try Again'
+	// 		);
+	// 		$email = $this->input->post('user_id');
+	// 		$mobile = $this->input->post('product_quantity');
+	// 		$user_exists = $this->OrdersModel->first(['conditions' => "`user_id` = '$user_id' OR `product_quantity` = '$product_quantity'"]);
 
-	function search(string $search = null)
-	{
-		is($_POST['cat']) or $_POST['cat']  = '2';
-		is($_POST['city']) or $_POST['city'] = 'kota';
+	// 		flash_message(
+	// 			'',
+	// 			is_null($user_exists),
+	// 			'unsuccess',
+	// 			'Details are Already Exist',
+	// 			'Email or Password Already exist.'
+	// 		);
 
-		if (is($search) and !is_null($search) and is($_POST['city']) and is($_POST['cat'])) {
-			show_debug($_POST); // Show Post Request
-
-			$title       = $this->input->post('title');
-			$cat         = $this->input->post('cat');
-			$city        = $this->input->post('city');
-			$old_filters = $this->input->post('filter');
-
-			// Manage Old Filters
-			is($old_filters, 'array')
-				and $filters = 'value_id IN(' . implode(',', $old_filters) . ') and'
-				or $filters = '';
-
-			/** Get Properties Ids
-			 * @var array  Property's ID*/
-			$properties = $this->Filter_Product_Category_RelationsModel->all([
-				'fields'     => ['distinct(product_id)'],
-				'conditions' => "$filters category_id = $cat",
-				'datatype'   => 'json'
-			]);
-
-
-			if (is($properties, 'array'))
-				foreach ($properties as $key => $value) {
-					$properties[$key] = $value->product_id;
-				}
-			is($properties, 'array') and $product = implode(',', $properties);
-
-			// Get Property Details
-			is($properties, 'array') and $data['properties'] = $this->ProductsModel->all([
-				'conditions' => "`id` IN($product) AND `extra_field_1` = '$city' AND `title` LIKE '%$title%' AND `status` = '1'",
-				'datatype'   => 'json'
-			]);
-
-			// Add Addition Details of Property
-			is($properties, 'array') and $data['properties'] = get_properties_details($data['properties']);
-
-			/** Get Filters
-			 * @var array */
-			$filters = $this->FiltersModel->all([
-				'fields'     => ['id', 'filter_title', 'slug'],
-				'conditions' => [
-					'status'    => true,
-					'post_type' => 'property'
-				],
-				'datatype' => 'json'
-			]);
-			if (is($filters, 'array'))
-				foreach ($filters as $key => $filter) {
-					$filter_values = $this->Filter_ValuesModel->all([
-						'fields'     => ['id', 'filter_value_title'],
-						'conditions' => [
-							'filter_key_id' => $filter->id,
-							'status'        => true
-						],
-						'datatype' => 'json'
-					]);
-
-					if (is($filter_values, 'array'))
-						foreach ($filter_values as $value) {
-							$data['filters'][$filter->slug][] = $value;
-						}
-				}
-
-			$data['selected_filters'] = $old_filters;
-
-			show_debug($data['filters']);
-			show_debug($data['selected_filters']);
-			return $this->view('product-list', $data);
-		}
-		return redirect(SITE_URL);
-	}
-
-
-	/** Load Search & Filter Property Data
-	 * @param string $search */
-	function hot_deals(string $search = null)
-	{
-		is($search) and $search === 'hot-deals' and $hotDeals = "AND on_deal = '1'" or $hotDeals = '';
-		is($search) and $search === 'hot-deals' and $_POST['cat'] = '2';
-		is($search) and $search === 'hot-deals' and $_POST['city'] = 'kota';
-		is($search) and $search === 'hot-deals' and $_POST['search'] = 'sfgsdfs';
-
-		if (is($search) and !is_null($search) and is($_POST['city']) and is($_POST['cat'])) {
-			show_debug($_POST);
-
-			$title       = $this->input->post('title');
-			$cat         = $this->input->post('cat');
-			$old_filters = $this->input->post('filter');
-			$city        = $this->input->post('city');
-
-			is($old_filters, 'array')
-				and $filters = 'value_id IN(' . implode(',', $old_filters) . ') and'
-				or $filters = '';
-
-			$properties = $this->Filter_Product_Category_RelationsModel->all([
-				'fields'     => ['distinct(product_id)'],
-				'conditions' => "$filters category_id = $cat",
-				'datatype'   => 'json'
-			]);
-
-			if (is($properties, 'array'))
-				foreach ($properties as $key => $value) {
-					$properties[$key] = $value->product_id;
-				}
-			is($properties, 'array') and $product = implode(',', $properties);
-
-			is($properties, 'array') and $data['properties'] = $this->ProductsModel->all([
-				'conditions' => "`id` IN($product) AND `extra_field_1` = '$city' $hotDeals AND `title` LIKE '%$title%' AND `status` = '1'",
-				'datatype'   => 'json'
-			]);
-
-			is($properties, 'array') and $data['properties'] = get_properties_details($data['properties']);
-
-			$filters = $this->FiltersModel->all([
-				'fields'     => ['id', 'filter_title', 'slug'],
-				'conditions' => [
-					'status'    => true,
-					'post_type' => 'property'
-				],
-				'datatype' => 'json'
-			]);
-			if (is($filters, 'array'))
-				foreach ($filters as $key => $filter) {
-					$filter_values = $this->Filter_ValuesModel->all([
-						'fields'     => ['id', 'filter_value_title'],
-						'conditions' => [
-							'filter_key_id' => $filter->id,
-							'status'        => true
-						],
-						'datatype' => 'json'
-					]);
-
-					if (is($filter_values, 'array'))
-						foreach ($filter_values as $value) {
-							$data['filters'][$filter->slug][] = $value;
-						}
-				}
-			show_debug($data['filters']);
-			$data['selected_filters'] = $old_filters;
-			show_debug($data['selected_filters']);
-			return $this->view('hot_deals', $data);
-		}
-		return redirect(SITE_URL);
-	}
-
-
-	/** Load Search & Filter Property Data
-	 * @param string $search */
-	function project(string $search = null)
-	{
-		is($search) and $_POST['filter'] = [$search];
-		is($search) and $_POST['cat'] = '2';
-		is($search) and $_POST['city'] = 'kota';
-		is($search) and $_POST['search'] = 'sfgsdfs';
-
-		if (is($search) and !is_null($search) and is($_POST['city']) and is($_POST['cat'])) {
-			show_debug($_POST);
-
-			$title       = $this->input->post('title');
-			$cat         = $this->input->post('cat');
-			$old_filters = $this->input->post('filter');
-			$city        = $this->input->post('city');
-
-			is($old_filters, 'array')
-				and $filters = 'value_id IN(' . implode(',', $old_filters) . ') and'
-				or $filters = '';
-
-			$properties = $this->Filter_Product_Category_RelationsModel->all([
-				'fields'     => ['distinct(product_id)'],
-				'conditions' => "$filters category_id = $cat",
-				'datatype'   => 'json'
-			]);
-
-			if (is($properties, 'array'))
-				foreach ($properties as $key => $value) {
-					$properties[$key] = $value->product_id;
-				}
-			is($properties, 'array') and $product = implode(',', $properties);
-
-			is($properties, 'array') and $data['properties'] = $this->ProductsModel->all([
-				'conditions' => "`id` IN($product) AND `extra_field_1` = '$city' AND `title` LIKE '%$title%' AND `status` = '1'",
-				'datatype'   => 'json'
-			]);
-
-			is($properties, 'array') and $data['properties'] = get_properties_details($data['properties']);
-
-			$filters = $this->FiltersModel->all([
-				'fields'     => ['id', 'filter_title', 'slug'],
-				'conditions' => [
-					'status'    => true,
-					'post_type' => 'property'
-				],
-				'datatype' => 'json'
-			]);
-			if (is($filters, 'array'))
-				foreach ($filters as $key => $filter) {
-					$filter_values = $this->Filter_ValuesModel->all([
-						'fields'     => ['id', 'filter_value_title'],
-						'conditions' => [
-							'filter_key_id' => $filter->id,
-							'status'        => true
-						],
-						'datatype' => 'json'
-					]);
-
-					if (is($filter_values, 'array'))
-						foreach ($filter_values as $value) {
-							$data['filters'][$filter->slug][] = $value;
-						}
-				}
-			show_debug($data['filters']);
-			$data['selected_filters'] = $old_filters;
-			show_debug($data['selected_filters']);
-			return $this->view('hot_deals', $data);
-		}
-		return redirect(SITE_URL);
-	}
-
-
-	/** Load About Us Data */
-	function about_us()
-	{
-
-		$data['testimonial'] = get_data_from('testimonials');
-		$this->view('about-us', $data);
-	}
+	// 		$user_id = $this->OrdersModel->save([
+	// 			'user_id'          => $this->input->post('user_id'),
+	// 			'product_quantity'         => $this->input->post('product_quantity'),
+	// 			'total_amount'           => $this->input->post('total_amount'),
+	// 			'payment_mode'         => $this->input->post('payment_mode'),
+	// 			'payment_status'         => $this->input->post('payment_status'),
+	// 			'status'         => 1
+	// 			//'created_by'   => $_SESSION['ADMIN_ID'],
+	// 		]);
+	// 		/*echo $this->db->last_query();
+	//         die;*/
+	// 		/*echo $user_id;
+	//         print_r($_REQUEST);
+	//         die;*/
+	// 		flash_message(
+	// 			'',
+	// 			!is_null($user_id),
+	// 			'success',
+	// 			'Successful',
+	// 			'Your Response has been Submitted'
+	// 		);
+	// 		//redirect(SITE_URL);
+	// 	}
+	// }
 
 
 	/** Load Contact Us Data & Send Mail with Save Lead */
