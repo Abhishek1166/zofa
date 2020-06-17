@@ -104,6 +104,22 @@
 						</li>
 					<?php endif; ?>
 
+					<!-- new order made -->
+					<?php if (user_can('order_list')) : ?>
+						<!-- Orders -->
+						<li class="menu">
+							<a href="<?php echo SITE_URL; ?>list/ordr" aria-expanded="false" class="dropdown-toggle">
+								<div class="">
+									<?php echo ICONS['order']; ?>
+									<span>New Orders</span>
+								</div>
+							</a>
+						</li>
+					<?php endif; ?>
+
+					<!-- new order end -->
+
+
 					<?php if (user_can('review_list')) : ?>
 						<!-- Reviews -->
 						<li class="menu">

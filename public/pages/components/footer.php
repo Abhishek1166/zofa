@@ -38,7 +38,7 @@
 						</li> -->
 
 						<li>
-							<a href="<?php echo SITE_URL ?>productsgrid">productsgrid</a>
+							<a href="<?php echo SITE_URL ?>productsgrid/1">Shop</a>
 						</li>
 
 
@@ -112,6 +112,10 @@
 <script src="<?php echo SITE_URL; ?>assets/js/zofa/jquery.ion.rangeSlider.js"></script>
 <script src="<?php echo SITE_URL; ?>assets/js/zofa/jquery.isotope.pkgd.js"></script>
 <script src="<?php echo SITE_URL; ?>assets/js/zofa/main.js"></script>
+
+<!-- for modal -->
+
+
 </body>
 
 </html>

@@ -175,17 +175,32 @@ class Page extends CI_Controller
 		return $this->view('products', $data);
 	}
 
-	public function productsgrid()
+	public function productsgrid($page)
 	{
+		$limit = 2;
 		$data['products'] 	= get_data_from('products');
 		$data['Product'] 	= $this->ProductsModel->all([
 			'conditions' => [
+
 				'post_type' => 'product',
 				'status' => '1',
 			],
 			'datatype'   => 'json',
-			'paging' => ['page' => 1, 'limit' => 6]
+			'paging' => ['page' => $page, 'limit' => $limit]
 		]);
+
+		$total_produuct = $this->ProductsModel->count([
+			'conditions' => [
+				'post_type' => 'product',
+				'status' => '1'
+			]
+		]);
+
+		$total_page = round($total_produuct / $limit);
+		$data['total_page'] = $total_page;
+		$data['page'] = $page;
+
+		//die;
 
 
 

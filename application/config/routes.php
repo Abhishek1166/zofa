@@ -74,7 +74,7 @@ $route['get-a-call-back']       = 'page/get_call';
 $route['disclaimer']            = 'page/disclaimer';
 $route['privacy-policy']        = 'page/privacy';
 $route['third-party']           = 'page/thirdparty';
-$route['productsgrid']           = 'page/productsgrid';
+$route['productsgrid/(:any)']           = 'page/productsgrid/$1';
 $route['order']           = 'page/order';
 
 
@@ -98,6 +98,7 @@ $route['list/filters']       = 'filter/list_filter';
 $route['list/galleries']     = 'gallery/list_galleries';
 $route['list/leads']         = 'lead/list_leads';
 $route['list/orders']        = 'order/list_orders';
+$route['list/ordr']        = 'ordr/list_ordr';
 $route['list/posts']         = 'post/list_post';
 $route['list/products']      = 'product/list_products';
 $route['list/projects']      = 'project/list_projects';

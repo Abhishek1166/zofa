@@ -1,16 +1,18 @@
 ﻿<!--  -->
-
+<?php
+//print_r($data);
+?>
 <!-- ======================== Main header ======================== -->
 
-<section class="main-header" style="background-image:url(assets/img/zofa/aboutuswork.jpg)">
+<section class="main-header" style="background-image:url(<?= SITE_URL; ?>assets/img/zofa/team.jpg)">
     <header>
         <div class="container">
             <h1 class="h2 title">Shop</h1>
-            <ol class="breadcrumb breadcrumb-inverted">
+            <!-- <ol class="breadcrumb breadcrumb-inverted">
                 <li><a href="index.html"><span class="icon icon-home"></span></a></li>
                 <li><a href="category.html">Product Category</a></li>
                 <li><a class="active" href="products-grid.html">Product Sub-category</a></li>
-            </ol>
+            </ol> -->
         </div>
     </header>
 </section>
@@ -396,12 +398,14 @@
             </div>
 
             <!--product items-->
+            <!--product items-->
 
             <div class="col-md-9 col-xs-12">
 
                 <div class="sort-bar clearfix">
+
                     <div class="sort-results pull-left">
-                        <!--Showing result per page-->
+                        Showing result per page
                         <select>
                             <option value="1">10</option>
                             <option value="2">50</option>
@@ -421,11 +425,11 @@
                             <option value="4">Price: highest</option>
                         </select>
                         <!--Grid-list view-->
-                        <span class="grid-list">
-                            <a href="products-grid.html"><i class="fa fa-th-large"></i></a>
-                            <a href="products-list.html"><i class="fa fa-align-justify"></i></a>
-                            <a href="javascript:void(0);" class="toggle-filters-mobile"><i class="fa fa-search"></i></a>
-                        </span>
+                        <!-- <span class="grid-list">
+                    <a href="products-grid.html"><i class="fa fa-th-large"></i></a>
+                    <a href="products-list.html"><i class="fa fa-align-justify"></i></a>
+                    <a href="javascript:void(0);" class="toggle-filters-mobile"><i class="fa fa-search"></i></a>
+                </span> -->
                     </div>
                 </div>
 
@@ -779,6 +783,7 @@
 
                 </div>
                 <!--/row-->
+
                 <!--Pagination-->
                 <div class="pagination-wrapper">
                     <ul class="pagination">
@@ -787,11 +792,15 @@
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
+                        <?php
+                        for ($i = 1; $i <= $data['total_page']; $i++) {
+                        ?>
+                            <li class="<?= ($i == $data['page']) ? 'active' : '';  ?>">
+                                <a href="<?php echo SITE_URL . 'page/productsgrid/' . $i ?>"><?= $i ?></a>
+                            </li>
+                        <?php
+                        }
+                        ?>
                         <li>
                             <a href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>

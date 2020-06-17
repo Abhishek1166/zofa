@@ -9,12 +9,7 @@
     <!-- <header> -->
     <div class="container">
         <h1 class="h2 title">Products</h1>
-        <!-- <ol class="breadcrumb breadcrumb-inverted">
-            <li><a href="index.html"><span class="icon icon-home"></span></a></li>
-            <li><a href="category.html">Product Category</a></li>
-            <li><a href="products-grid.html">Product Sub-category</a></li>
-            <li><a class="active" href="product.html">Product overview</a></li>
-        </ol> -->
+
     </div>
     <!-- </header> -->
 </section>
@@ -161,8 +156,99 @@
 
                     </div>
 
-                    <br>
-                    <button type="button"><a href="order">Order</a></button>
+                    <br><br><br>
+
+                    <body>
+
+                        <div class="container">
+
+                            <!-- Trigger the modal with a button -->
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book Now</button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Place Your Order</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" value="" class="form-control" name="Firstname" placeholder="Firstname: *" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" value="" class="form-control" name="Lastname" placeholder="Lastname: *" required>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" value="" class="form-control" name="Email" placeholder="Email: *" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <input type="text" value="" class="form-control" name="Mobile" placeholder="Mobile: *" required>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <input type="hidden" value="" class="form-control" name="Product_id" placeholder="Product_id:">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-md-8">
+                                                    <div class="form-group">
+                                                        <input type="hidden" value="" class="form-control" name="Category_id" placeholder="Category_id: ">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+
+                                                    <span class="checkbox">
+                                                        <input type="checkbox" id="checkBoxId1">
+                                                        <label for="checkBoxId1">I have read and accepted the <a href="#">terms</a>, as
+                                                            well as read and understood our terms of
+                                                            <a href="#">business contidions</a></label>
+                                                    </span>
+
+                                                    <hr />
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <a href="#" class="btn btn-main btn-block">Create account</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </body>
+                    <!-- <button type="button"><a href="order">Order</a></button> -->
 
                 </div>
 
