@@ -100,7 +100,7 @@ class Ordr extends CI_Controller
         $this->load->view('ordr');
     }
 
-
+    // ------------------show order-------------------
     public function show()
     {
         flash_message(
@@ -131,7 +131,7 @@ class Ordr extends CI_Controller
         $this->load->view('template/footer');
     }
 
-
+    //--------------------edit order-------------------
     public function editordr()
     {
         empty($ordr_id) and show_404();
