@@ -84,5 +84,5 @@ const ICONS = [
 
 const RUPEE = '&#8377 ';
 
-
+ 
 /* End of file Site_constants.php */

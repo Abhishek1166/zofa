@@ -111,6 +111,37 @@ if (!function_exists('_datetime_format')) {
 	};
 }
 
+if (!function_exists('_dd')) {
+	/** Format Numaric String to Indian Currency Format
+	 * @param mixed $date
+	 * @return string|0 */
+	function _dd($data)
+	{
+		$ci = &get_instance();
+
+		echo $ci->db->last_query();
+		echo '<pre>';
+		print_r($data);
+		echo '</pre>';
+	};
+}
+
+if (!function_exists('_ddd')) {
+	/** Format Numaric String to Indian Currency Format
+	 * @param mixed $date
+	 * @return string|0 */
+	function _ddd($data)
+	{
+		$ci = &get_instance();
+
+		echo $ci->db->last_query();
+		echo '<pre>';
+		print_r($data);
+		echo '</pre>';
+		die;
+	};
+}
+
 function show_rating($rate)
 {
 	for ($x = 1; $x <= $rate; $x++) {

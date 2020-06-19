@@ -45,14 +45,7 @@
 						<li><a href=" #">Category</a></li>
 					</ul>
 				</div>
-				<div class="col-sm-4 col-md-2">
-					<h5>Recources</h5>
-					<ul>
-						<li><a href="#">Design</a></li>
-						<li><a href="#">Projects</a></li>
-						<li><a href="#">Sales</a></li>
-					</ul>
-				</div>
+
 				<div class="col-sm-4 col-md-2">
 					<h5>Our company</h5>
 					<ul>
@@ -61,7 +54,7 @@
 						</li>
 
 
-						<li><a href="#">News</a></li>
+
 
 
 						<li>

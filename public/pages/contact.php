@@ -1,4 +1,4 @@
-﻿<section class="main-header" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/contacttop.jpg)">
+<section class="main-header" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/contacttop.jpg)">
     <header>
         <div class="container text-center">
             <h2 class="h2 title">Contact</h2>

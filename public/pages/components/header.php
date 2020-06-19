@@ -15,16 +15,11 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-
     <!--Title-->
-    <title>Mobel - Furniture Website Template</title>
+    <title>Zofa - Furniture Showroom</title>
 
     <!--CSS styles-->
     <link rel="stylesheet" media="all" href="<?php echo SITE_URL; ?>assets/css/fe/zofa/bootstrap.css" />
-
-    <!--   -->
-
-
     <link rel="stylesheet" media="all" href="<?php echo SITE_URL; ?>assets/css/fe/zofa/animate.css" />
     <link rel="stylesheet" media="all" href="<?php echo SITE_URL; ?>assets/css/fe/zofa/font-awesome.css" />
     <link rel="stylesheet" media="all" href="<?php echo SITE_URL; ?>assets/css/fe/zofa/furniture-icons.css" />
@@ -37,10 +32,6 @@
     <!--Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&amp;subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-
-    <!-- botstarap for modal -->
-
-    <!--  -->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -82,9 +73,9 @@
                         <!--Language selector-->
 
                         <!--  -->
-                        <li><a href="javascript:void(0);" class="open-login"><i class="icon icon-user"></i></a></li>
+                        <!-- <li><a href="javascript:void(0);" class="open-login"><i class="icon icon-user"></i></a></li>
                         <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>
-                        <li><a href="javascript:void(0);" class="open-cart"><i class="icon icon-cart"></i> <span></span></a></li>
+                        <li><a href="javascript:void(0);" class="open-cart"><i class="icon icon-cart"></i> <span></span></a></li> -->
                     </ul>
                 </div>
                 <!--/navigation-top-->
@@ -95,7 +86,7 @@
 
                     <!-- Setup your logo here-->
 
-                    <a href="index.html" class="logo"><img src="assets/images/logo.png" alt="" /></a>
+                    <a href="zofahome.php" class="logo"><img src="assets/img/zofa/zofalogo.png" alt="" /></a>
 
                     <!-- Mobile toggle menu -->
 
@@ -112,19 +103,20 @@
                         </div>
 
                         <ul>
-                            <li><a href="zofahome">Home</a></li>
+                            <li><a href="zofahome.php">Home</a></li>
 
                             <!-- Multi-content dropdown -->
 
                             <!-- Single dropdown-->
-                            <?PHP $categories = get_data_from('categories');
+                            <?PHP
+
                             //print_r($categories);
 
-                            foreach ($categories as $category) {
+                            foreach ($nav_categories as $category) {
                             ?>
                                 <li>
 
-                                    <a href="#"><?= $category->title ?><span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
+                                    <a href="<?= SITE_URL . 'category/' . $category->slug ?>"><?= $category->title ?><span class="open-dropdown"></span></a>
                                     <!-- <div class="navbar-dropdown navbar-dropdown-single">
                                         <div class="navbar-box">
 
@@ -162,7 +154,7 @@
 
                             <li>
                                 <!-- <a href="#">Bedroom <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a> -->
-                                <div class="navbar-dropdown navbar-dropdown-single">
+                                <div class="">
                                     <div class="navbar-box">
 
                                         <!-- box-2 (without 'box-1', box-2 will be displayed as full width)-->
@@ -295,43 +287,20 @@
                                 <!--/navbar-dropdown-->
                             </li>
 
-                            <li>
-                                <a href="#">Blog <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
-                                <div class="navbar-dropdown navbar-dropdown-single">
-                                    <div class="navbar-box">
+                            <li class="<?php is_page_active('blogs') ?>">
+                                <a href="<?php echo SITE_URL ?>blogs">BLOG</a>
+                            </li>
+                            <div class="navbar-dropdown navbar-dropdown-single">
+                                <div class="navbar-box">
 
-                                        <!-- box-2 (without 'box-1', box-2 will be displayed as full width)-->
+                                    <!-- box-2 (without 'box-1', box-2 will be displayed as full width)-->
 
-                                        <div class="box-2">
-                                            <div class="box clearfix">
-                                                <ul>
-                                                    <li class="label">Shop</li>
-                                                    <li><a href="products-grid.html">Products grid</a></li>
-                                                    <li><a href="products-list.html">Products list</a></li>
-                                                    <li><a href="category.html">Products intro</a></li>
-                                                    <li><a href="products-topbar.html">Products topbar</a></li>
-                                                    <li><a href="product.html">Product overview</a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li class="label">Shop Isotope</li>
-                                                    <li><a href="products-grid-isotope.html">Products filters <span class="label label-warning">New</span></a></li>
-                                                    <li><a href="products-topbar-isotope.html">Products topbar <span class="label label-warning">New</span></a></li>
-                                                </ul>
-                                                <ul>
-                                                    <li class="label">Checkout</li>
-                                                    <li><a href="checkout-1.html">Checkout - Cart items</a></li>
-                                                    <li><a href="checkout-2.html">Checkout - Delivery</a></li>
-                                                    <li><a href="checkout-3.html">Checkout - Payment</a></li>
-                                                    <li><a href="checkout-4.html">Checkout - Receipt</a></li>
-                                                </ul>
-                                            </div>
-                                            <!--/box-->
-                                        </div>
-                                        <!--/box-2-->
-                                    </div>
-                                    <!--/navbar-box-->
+
+                                    <!--/box-2-->
                                 </div>
-                                <!--/navbar-dropdown-->
+                                <!--/navbar-box-->
+                            </div>
+                            <!--/navbar-dropdown-->
                             </li>
                         </ul>
                     </div>
@@ -352,9 +321,17 @@
                     <!-- Search results - live search -->
                     <div class="search-results">
                         <div class="search-result-items">
-                            <div class="title h4">Products <a href="#" class="btn btn-clean-dark btn-xs">View all</a></div>
+                            <!-- <div class="title h4">Products <a href="#" class="btn btn-clean-dark btn-xs">View all</a></div> -->
                             <ul>
-                                <li><a href="#"><span class="id">42563</span> <span class="name">Green corner</span> <span class="category">Sofa</span></a></li>
+                                <li class="<?php is_page_active('sofa') ?>">
+                                    <a href="<?php echo SITE_URL ?>	category">
+                                        ">
+                                        <span class=" id">42563</span>
+                                        <span class="name">Green corner</span>
+                                        <span class="category">Sofa</span></a>
+                                </li>
+
+
                                 <li><a href="#"><span class="id">42563</span> <span class="name">Laura</span> <span class="category">Armchairs</span></a></li>
                                 <li><a href="#"><span class="id">42563</span> <span class="name">Nude</span> <span class="category">Dining tables</span></a></li>
                                 <li><a href="#"><span class="id">42563</span> <span class="name">Aurora</span> <span class="category">Nightstands</span></a></li>
@@ -364,7 +341,7 @@
                         </div>
                         <!--/search-result-items-->
                         <div class="search-result-items">
-                            <div class="title h4">Blog <a href="#" class="btn btn-clean-dark btn-xs">View all</a></div>
+                            <div class="title h4">Blog2 <a href="#" class="btn btn-clean-dark btn-xs">View all</a></div>
                             <ul>
                                 <li><a href="#"><span class="id">01 Jan</span> <span class="name">Creating the Perfect Gallery Wall </span> <span class="category">Interior ideas</span></a></li>
                                 <li><a href="#"><span class="id">12 Jan</span> <span class="name">Making the Most Out of Your Kids Old Bedroom</span> <span class="category">Interior ideas</span></a></li>
@@ -560,3 +537,82 @@
             </div>
             <!--/container-->
         </nav>
+
+        <section class="main-header" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/team.jpg)">
+            <header>
+                <div class="container">
+                    <h1 class="h2 title"><?= $this->router->fetch_method(); ?></h1>
+                    <ol class="breadcrumb breadcrumb-inverted">
+                        <li><a href="index.html"><span class="icon icon-home"></span></a></li>
+                        <li><a href="#"><?= $this->router->fetch_method(); ?></a></li>
+                        <li><a class="active" href="#"><?= $this->uri->segment(2); ?></a></li>
+                    </ol>
+                </div>
+            </header>
+        </section>
+
+        <!-- ========================  Icons slider ======================== -->
+
+        <section class="owl-icons-wrapper">
+
+            <!-- === header === -->
+
+            <header class="hidden">
+                <h2>Product categories</h2>
+            </header>
+
+            <div class="container">
+
+                <div class="owl-icons">
+
+
+
+                    <!-- === icon item === -->
+                    <?php
+                    foreach ($nav_categories as $nav_category) {
+                    ?>
+                        <a href="#">
+
+                            <figure>
+                                <i class="f-icon f-icon-<?php echo $nav_category->icon; ?>"></i>
+                                <figcaption><?php echo $nav_category->title; ?></figcaption>
+                            </figure>
+                        </a>
+                    <?php
+                    }
+                    ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+                <!--/owl-icons-->
+            </div>
+            <!--/container-->
+        </section>

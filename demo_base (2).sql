@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2020 at 04:55 PM
+-- Generation Time: Jun 19, 2020 at 05:26 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -25,6 +25,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `book_order`
+--
+
+CREATE TABLE `book_order` (
+  `id` int(11) NOT NULL,
+  `first_name` varchar(150) NOT NULL,
+  `last_name` varchar(150) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `price` varchar(255) DEFAULT '0',
+  `mobile` varchar(10) NOT NULL,
+  `status` int(1) DEFAULT 0 COMMENT '3 : DELETE & Always Status be 1',
+  `product_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `created_on` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `book_order`
+--
+
+INSERT INTO `book_order` (`id`, `first_name`, `last_name`, `email`, `price`, `mobile`, `status`, `product_id`, `category_id`, `created_on`) VALUES
+(1, 'prerna', 'dubey', 'prerna@gmail.com', '0', '2147483647', 1, 10, 1, '2020-06-18 15:36:54'),
+(2, 'abhishek', 'dubey', 'abhidubey1166@gmail.com', '0', '2147483647', 3, 0, 0, '2020-06-18 19:02:13'),
+(3, 'gunjan', 'manghanani', 'gunjan@tewstech.com', '0', '2147483647', 3, 0, 0, '2020-06-18 19:13:30'),
+(9, 'kaushal', 'mehra', 'sie@tws.com', '0', '2147483647', 3, 0, 0, '2020-06-18 20:07:38'),
+(10, 'ELON', 'MUSK', 'ELON@TWS.COM', '0', '9874563218', 1, 0, 0, '2020-06-18 20:13:31'),
+(11, 'MARK', 'ZUCKERBARG', 'MARK@TWS.COM', '0', '4572369852', 1, 0, 0, '2020-06-18 20:17:12'),
+(12, 'ram', 'lakhan', 'ram@tws.com', '0', '9658741256', 1, 0, 0, '2020-06-18 20:19:31'),
+(14, 'surya', 'teja', 'surya@gmail.com', '0', '7458123698', 1, 0, 6, '2020-06-18 20:23:14'),
+(15, 'pp', 'jain', 'p.pp@tws.com', '0', '7458123659', 1, 11, 6, '2020-06-18 20:34:28'),
+(18, 'dhannalal', 'jain', 'dd@dd.com', NULL, '4215785698', 1, 11, 6, '2020-06-18 20:40:57'),
+(20, 'nidhi', 'wadhwa kasat', 'nidi@tws.com', '25000', '7458963215', 1, 11, 6, '2020-06-18 20:43:21');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -35,6 +71,7 @@ CREATE TABLE `categories` (
   `slug` varchar(255) DEFAULT NULL,
   `parent_id` bigint(20) DEFAULT NULL,
   `image` text DEFAULT NULL,
+  `icon` varchar(50) NOT NULL,
   `created_by` bigint(20) DEFAULT 1,
   `created_date` timestamp NULL DEFAULT current_timestamp(),
   `modified_by` bigint(20) DEFAULT NULL,
@@ -46,15 +83,26 @@ CREATE TABLE `categories` (
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `title`, `post_type`, `slug`, `parent_id`, `image`, `created_by`, `created_date`, `modified_by`, `modified_date`, `status`) VALUES
-(2, 'sell', 'property', 'sell', 0, 'https://base.dev/uploads/category/055fa69d4802236db91fbbd0fb1fba4f.jpeg', 1, '2020-02-21 08:39:55', 1, '2020-03-18 19:22:10', 1),
-(3, 'rent', 'property', 'rent', 0, 'https://base.dev/uploads/category/880b1f8d3e565ffbc521dde8f9b8241f.jpeg', 1, '2020-02-21 08:40:18', 1, '2020-06-12 07:56:50', 3),
-(4, 'brands', 'product', 'brands', 0, 'http://localhost/zofa/uploads/category/ce95861265a4d65825ec1324d503e27b.jpg', 1, '2020-06-12 06:49:47', 1, '2020-06-12 07:59:04', 1),
-(5, 'office', 'product', 'office', 0, NULL, 1, '2020-06-12 07:57:57', 1, '2020-06-12 07:59:16', 1),
-(6, 'outdoor', 'product', 'outdoor', 0, '', 1, '2020-06-12 07:59:35', 1, '2020-06-12 07:59:35', 1),
-(7, 'bedroom', 'product', 'bedroom', 0, '', 1, '2020-06-12 07:59:56', 1, '2020-06-12 07:59:56', 1),
-(8, 'dining', 'product', 'dining', 0, '', 1, '2020-06-12 08:00:40', 1, '2020-06-12 08:00:40', 1),
-(9, 'sofa', 'product', 'sofa', 0, '', 1, '2020-06-12 08:00:50', 1, '2020-06-12 08:00:50', 1);
+INSERT INTO `categories` (`id`, `title`, `post_type`, `slug`, `parent_id`, `image`, `icon`, `created_by`, `created_date`, `modified_by`, `modified_date`, `status`) VALUES
+(4, 'brands', 'product', 'brands', 0, 'http://localhost/zofa/uploads/category/ce95861265a4d65825ec1324d503e27b.jpg', 'armchair', 1, '2020-06-12 06:49:47', 1, '2020-06-19 13:01:47', 1),
+(5, 'office', 'product', 'office', 0, NULL, 'office', 1, '2020-06-12 07:57:57', 1, '2020-06-19 13:01:56', 1),
+(6, 'outdoor', 'product', 'outdoor', 0, '', 'bar-set', 1, '2020-06-12 07:59:35', 1, '2020-06-19 13:02:02', 1),
+(7, 'bedroom', 'product', 'bedroom', 0, '', 'bedroom', 1, '2020-06-12 07:59:56', 1, '2020-06-19 13:02:06', 1),
+(8, 'dining', 'product', 'dining', 0, '', 'dining-table', 1, '2020-06-12 08:00:40', 1, '2020-06-19 13:02:10', 1),
+(9, 'sofa', 'product', 'sofa', 0, '', 'sofa', 1, '2020-06-12 08:00:50', 1, '2020-06-19 13:02:14', 1),
+(10, 'bathroom', 'product', 'bathroom', 0, '', 'bathroom', 1, '2020-06-19 13:27:48', 1, '2020-06-19 13:47:58', 3),
+(11, 'wardrob', 'product', 'wardrob', 0, '', 'Wardrobe', 1, '2020-06-19 13:28:51', 1, '2020-06-19 13:48:09', 3),
+(12, 'media stortage', 'product', 'media-stortage', 0, '', 'media-cabinet', 1, '2020-06-19 13:29:39', 1, '2020-06-19 13:48:15', 3),
+(13, 'night stand', 'product', 'night-stand', 0, '', 'nightstand', 1, '2020-06-19 13:30:02', 1, '2020-06-19 13:48:20', 3),
+(14, 'kitchen', 'product', 'kitchen', 0, '', 'kitchen', 1, '2020-06-19 13:30:24', 1, '2020-06-19 13:48:27', 3),
+(15, 'bookcase', 'product', 'bookcase', 0, '', 'bookcase', 1, '2020-06-19 13:30:49', 1, '2020-06-19 13:48:30', 3),
+(16, 'children room', 'product', 'children-room', 0, '', 'children-room', 1, '2020-06-19 13:31:02', 1, '2020-06-19 13:48:40', 3),
+(17, 'lightning', 'product', 'lightning', 0, '', 'Lightning', 1, '2020-06-19 13:31:27', 1, '2020-06-19 13:48:43', 3),
+(18, 'varpet', 'product', 'varpet', 0, '', 'Varpet', 1, '2020-06-19 13:31:37', 1, '2020-06-19 13:48:45', 3),
+(19, 'accesories', 'product', 'accesories', 0, '', 'Accessories', 1, '2020-06-19 13:31:50', 1, '2020-06-19 13:48:48', 3),
+(20, 'barset', 'product', 'barset', 0, '', 'bar-set', 1, '2020-06-19 13:36:43', 1, '2020-06-19 13:48:57', 3),
+(21, 'tables', 'product', 'tables', 0, '', 'table', 1, '2020-06-19 13:41:41', 1, '2020-06-19 13:49:01', 3),
+(22, 'blog', 'post', 'blog', 0, '', '', 1, '2020-06-19 14:58:12', 1, '2020-06-19 15:23:14', 3);
 
 -- --------------------------------------------------------
 
@@ -189,18 +237,100 @@ INSERT INTO `filter_product_category_relations` (`id`, `key_id`, `value_id`, `pr
 (150, 9, 51, 9, 9),
 (151, 10, 48, 9, 9),
 (152, 11, 52, 9, 9),
-(153, 6, 45, 10, 9),
-(154, 7, 50, 10, 9),
-(155, 8, 5, 10, 9),
-(156, 9, 57, 10, 9),
-(157, 10, 48, 10, 9),
-(158, 11, 52, 10, 9),
 (159, 6, 45, 11, 6),
 (160, 7, 50, 11, 6),
 (161, 8, 5, 11, 6),
 (162, 9, 58, 11, 6),
 (163, 10, 48, 11, 6),
-(164, 11, 52, 11, 6);
+(164, 11, 52, 11, 6),
+(165, 6, 45, 12, 9),
+(166, 7, 50, 12, 9),
+(167, 8, 5, 12, 9),
+(168, 9, 53, 12, 9),
+(169, 10, 48, 12, 9),
+(170, 11, 52, 12, 9),
+(177, 6, 45, 13, 8),
+(178, 7, 50, 13, 8),
+(179, 9, 47, 13, 8),
+(180, 10, 48, 13, 8),
+(181, 11, 52, 13, 8),
+(182, 6, 45, 14, 8),
+(183, 7, 50, 14, 8),
+(184, 8, 5, 14, 8),
+(185, 9, 57, 14, 8),
+(186, 10, 48, 14, 8),
+(187, 11, 52, 14, 8),
+(188, 6, 45, 15, 7),
+(189, 8, 5, 15, 7),
+(190, 9, 47, 15, 7),
+(191, 10, 48, 15, 7),
+(192, 11, 52, 15, 7),
+(199, 6, 45, 16, 7),
+(200, 7, 50, 16, 7),
+(201, 9, 51, 16, 7),
+(202, 10, 48, 16, 7),
+(203, 11, 52, 16, 7),
+(204, 6, 45, 10, 9),
+(205, 7, 50, 10, 9),
+(206, 9, 57, 10, 9),
+(207, 10, 48, 10, 9),
+(208, 11, 52, 10, 9),
+(209, 6, 45, 17, 7),
+(210, 8, 5, 17, 7),
+(211, 9, 47, 17, 7),
+(212, 10, 48, 17, 7),
+(213, 11, 52, 17, 7),
+(214, 6, 45, 18, 6),
+(215, 7, 46, 18, 6),
+(216, 8, 5, 18, 6),
+(217, 9, 59, 18, 6),
+(218, 10, 48, 18, 6),
+(219, 11, 60, 18, 6),
+(220, 6, 45, 19, 6),
+(221, 7, 50, 19, 6),
+(222, 8, 5, 19, 6),
+(223, 9, 55, 19, 6),
+(224, 10, 48, 19, 6),
+(225, 11, 60, 19, 6),
+(226, 6, 45, 20, 6),
+(227, 7, 50, 20, 6),
+(228, 8, 5, 20, 6),
+(229, 9, 59, 20, 6),
+(230, 10, 48, 20, 6),
+(231, 11, 60, 20, 6),
+(238, 6, 45, 21, 5),
+(239, 7, 46, 21, 5),
+(240, 9, 53, 21, 5),
+(241, 10, 48, 21, 5),
+(242, 11, 52, 21, 5),
+(243, 6, 45, 22, 5),
+(244, 7, 50, 22, 5),
+(245, 8, 6, 22, 5),
+(246, 9, 53, 22, 5),
+(247, 10, 48, 22, 5),
+(248, 11, 52, 22, 5),
+(249, 6, 45, 23, 5),
+(250, 8, 5, 23, 5),
+(251, 9, 53, 23, 5),
+(252, 10, 48, 23, 5),
+(253, 11, 52, 23, 5),
+(254, 6, 45, 24, 4),
+(255, 7, 50, 24, 4),
+(256, 8, 5, 24, 4),
+(257, 9, 51, 24, 4),
+(258, 10, 48, 24, 4),
+(259, 11, 52, 24, 4),
+(260, 6, 45, 25, 4),
+(261, 8, 5, 25, 4),
+(262, 9, 47, 25, 4),
+(263, 10, 48, 25, 4),
+(264, 11, 52, 25, 4),
+(265, 6, 45, 26, 4),
+(266, 7, 50, 26, 4),
+(267, 8, 5, 26, 4),
+(268, 9, 57, 26, 4),
+(269, 10, 48, 26, 4),
+(270, 11, 60, 26, 4);
 
 -- --------------------------------------------------------
 
@@ -273,7 +403,9 @@ INSERT INTO `filter_values` (`id`, `filter_key_id`, `filter_value_title`, `slug`
 (55, 9, 'white', 'white', NULL, NULL, 1, 1, '2020-06-15 07:13:48', 1, '2020-06-15 07:13:48'),
 (56, 11, 'round', 'round', NULL, NULL, 1, 1, '2020-06-15 07:13:48', 1, '2020-06-15 07:13:48'),
 (57, 9, 'Red', 'red', NULL, NULL, 1, 1, '2020-06-16 05:40:44', 1, '2020-06-16 05:40:44'),
-(58, 9, 'red', 'red', NULL, NULL, 1, 1, '2020-06-17 06:17:36', 1, '2020-06-17 06:17:36');
+(58, 9, 'red', 'red', NULL, NULL, 1, 1, '2020-06-17 06:17:36', 1, '2020-06-17 06:17:36'),
+(59, 9, 'white', 'white', NULL, NULL, 1, 1, '2020-06-19 14:16:22', 1, '2020-06-19 14:16:22'),
+(60, 11, 'circular', 'circular', NULL, NULL, 1, 1, '2020-06-19 14:16:22', 1, '2020-06-19 14:16:22');
 
 -- --------------------------------------------------------
 
@@ -377,22 +509,6 @@ INSERT INTO `orders` (`id`, `order_group_id`, `user_id`, `coupon_id`, `product_i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ordr`
---
-
-CREATE TABLE `ordr` (
-  `ordr_id` int(11) NOT NULL,
-  `first_name` varchar(150) NOT NULL,
-  `last_name` varchar(150) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `mobile` int(11) NOT NULL,
-  `Product_id` int(11) NOT NULL,
-  `Category_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `posts`
 --
 
@@ -483,17 +599,32 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `post_type`, `category_id`, `extra_id`, `slug`, `srt_description`, `description`, `regular_price`, `sell_price`, `image`, `stock_quantity`, `stock_status`, `on_deal`, `is_featured`, `extra_field`, `extra_field_1`, `extra_date`, `avg_rate`, `rating_count`, `total_sale`, `offers`, `status`, `created_by`, `created_date`, `modified_by`, `modified_date`) VALUES
-(1, 'Ready to Move New Studio Flats /1BHK Flats', 'property', 2, 'RAJ/P/2017/510', 'ready-to-move-new-studio-flats-1bhk-flats', 'Ready to possession New Studio Flats For Buy at Adjoining Allen sammunat ', 'sjdkfh sd hsdf sdf ksdf dg sdjghsagjkdsf asdkj hdsf jh kedhsfkjahsdkfajkdsfhjashd ajsdvdsfv xdv', '2100000', '2100000', 'http://proplive.in/uploads/property/7a9defe8c3324201245a6732003c935f.png@http://proplive.in/uploads/property/35f259ab6cb40f85fde2ad365659e209.jpg', NULL, 0, 1, 1, '435 Sq.Ft.', 'kota', '2020-03-23 03:06:02', '0', '0', '0', '', 1, 2, '2020-03-23 04:06:02', 2, '2020-03-26 04:01:48'),
-(2, 'Demo', 'property', 2, '', 'demo', 's SDsdf', ' sdf sf sfsdf', 'on-request', 'on-request', '<p>The filetype you are attempting to upload is not allowed.</p>@<p>The filetype you are attempting to upload is not allowed.</p><p>The filetype you are attempting to upload is not allowed.</p>@<p>The filetype you are attempting to upload is not allowed.</p><p>The filetype you are attempting to upload is not allowed.</p><p>The filetype you are attempting to upload is not allowed.</p>', NULL, 0, 0, 1, '1bhk', 'kota', '2020-04-21 12:47:27', '5', '34', '0', '2 Gold Coin', 1, 1, '2020-04-20 08:03:31', 2, '2020-04-21 01:47:27'),
-(3, 'Demo Requester', 'property', 2, '', 'demo-requester', ' vbcb', 'dxfgfdgfgd', '520000', '520000', 'https://base.dev/uploads/property/e763c69dd48e53eecc91f14fe54d89b1.jpg@https://base.dev/uploads/property/3ac30cbffc64d614b5ad1161848978bd.jpg@https://base.dev/uploads/property/4b37090dee1f5a6af519c39f8f7d79c4.jpg@https://base.dev/uploads/property/0f460f83016539dd05e3ad816a76467f.jpg', NULL, 0, 0, 0, '1bhk', 'kota', '2020-05-02 01:24:02', '5', '235', '0', '', 1, 1, '2020-05-02 02:14:44', 1, '2020-05-02 02:24:02'),
+(1, 'Ready to Move New Studio Flats /1BHK Flats', 'property', 9, 'RAJ/P/2017/510', 'ready-to-move-new-studio-flats-1bhk-flats', 'Ready to possession New Studio Flats For Buy at Adjoining Allen sammunat ', 'sjdkfh sd hsdf sdf ksdf dg sdjghsagjkdsf asdkj hdsf jh kedhsfkjahsdkfajkdsfhjashd ajsdvdsfv xdv', '2100000', '2100000', 'http://proplive.in/uploads/property/7a9defe8c3324201245a6732003c935f.png@http://proplive.in/uploads/property/35f259ab6cb40f85fde2ad365659e209.jpg', NULL, 0, 1, 1, '435 Sq.Ft.', 'kota', '2020-03-23 03:06:02', '0', '0', '0', '', 1, 2, '2020-03-23 04:06:02', 2, '2020-06-19 09:16:09'),
+(2, 'Demo', 'property', 9, '', 'demo', 's SDsdf', ' sdf sf sfsdf', 'on-request', 'on-request', '<p>The filetype you are attempting to upload is not allowed.</p>@<p>The filetype you are attempting to upload is not allowed.</p><p>The filetype you are attempting to upload is not allowed.</p>@<p>The filetype you are attempting to upload is not allowed.</p><p>The filetype you are attempting to upload is not allowed.</p><p>The filetype you are attempting to upload is not allowed.</p>', NULL, 0, 0, 1, '1bhk', 'kota', '2020-04-21 12:47:27', '5', '34', '0', '2 Gold Coin', 1, 1, '2020-04-20 08:03:31', 2, '2020-06-19 09:16:09'),
+(3, 'Demo Requester', 'property', 9, '', 'demo-requester', ' vbcb', 'dxfgfdgfgd', '520000', '520000', 'https://base.dev/uploads/property/e763c69dd48e53eecc91f14fe54d89b1.jpg@https://base.dev/uploads/property/3ac30cbffc64d614b5ad1161848978bd.jpg@https://base.dev/uploads/property/4b37090dee1f5a6af519c39f8f7d79c4.jpg@https://base.dev/uploads/property/0f460f83016539dd05e3ad816a76467f.jpg', NULL, 0, 0, 0, '1bhk', 'kota', '2020-05-02 01:24:02', '5', '235', '0', '', 1, 1, '2020-05-02 02:14:44', 1, '2020-06-19 09:16:09'),
 (4, 'sofa', 'product', 9, '', 'sofa', 'sofa', 'sofa', '20000', '90000', 'http://localhost/zofa/uploads/product/b3c2c3ac67f622c6f6a71efb6ee9ff22.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', 'sofa', 1, 1, '2020-06-13 09:33:10', 1, '2020-06-15 07:26:48'),
-(5, 'Bed', 'product', 7, '', 'bed', 'Comfortable for every member', 'right choice', '25000', '50000', 'http://localhost/zofa/uploads/product/451de03d107f8739041f4ff8ac592d14.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-15 06:50:49', 1, '2020-06-15 07:26:59'),
-(6, 'Garden Chair Set', 'product', 6, '', 'garden-chair-set', 'enjoy your morning on your garden chair', 'enjoy your morning on your garden chair', '25000', '50000', 'http://localhost/zofa/uploads/product/5f0690e79403b7bfda78e10c5daf83fb.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 3, 1, '2020-06-15 07:03:50', 1, '2020-06-15 07:11:35'),
-(7, 'Study Table', 'product', 5, '', 'study-table', 'study here', 'study here', '12000', '25000', 'http://localhost/zofa/uploads/product/1a2818cfb063c0690d95e1d601a3eba3.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 3, 1, '2020-06-15 07:13:47', 1, '2020-06-15 07:25:43'),
+(5, 'Bed', 'product', 9, '', 'bed', 'Comfortable for every member', 'right choice', '25000', '50000', 'http://localhost/zofa/uploads/product/451de03d107f8739041f4ff8ac592d14.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-15 06:50:49', 1, '2020-06-19 09:16:09'),
+(6, 'Garden Chair Set', 'product', 9, '', 'garden-chair-set', 'enjoy your morning on your garden chair', 'enjoy your morning on your garden chair', '25000', '50000', 'http://localhost/zofa/uploads/product/5f0690e79403b7bfda78e10c5daf83fb.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 3, 1, '2020-06-15 07:03:50', 1, '2020-06-19 09:16:09'),
+(7, 'Study Table', 'product', 9, '', 'study-table', 'study here', 'study here', '12000', '25000', 'http://localhost/zofa/uploads/product/1a2818cfb063c0690d95e1d601a3eba3.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 3, 1, '2020-06-15 07:13:47', 1, '2020-06-19 09:16:09'),
 (8, 'demo', 'product', 9, '', 'demo-1', 'sss', 'ssss', '2000', '25000', 'http://localhost/zofa/uploads/product/9eabab55070ee885b8c7da9e4c90666e.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 3, 1, '2020-06-15 07:16:06', 1, '2020-06-15 07:26:04'),
 (9, 'pro', 'product', 9, '', 'pro', 'Comfortable for every member', 'sqsd', '20000', '55000', 'http://localhost/zofa/uploads/product/db3b9a79c6ddfea95b9f98d94425de76.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-15 07:45:01', 1, '2020-06-15 07:45:01'),
-(10, 'Red Sofa', 'product', 9, '', 'red-sofa', 'Comfortable for every member', 'Perfect sofa for us.', '20000', '50000', 'http://localhost/zofa/uploads/product/85ef5537805c365eb294c3d3fda91327.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-16 05:40:43', 1, '2020-06-16 05:40:43'),
-(11, 'lounge', 'product', 6, '', 'lounge', 'nice lounge', 'another product from zofa', '25000', '30000', 'http://localhost/zofa/uploads/product/3bad1098da6a4d710b958d9796b18f4b.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-17 06:17:36', 1, '2020-06-17 06:17:36');
+(10, 'Red Sofa', 'product', 9, '', 'red-sofa', 'Comfortable for every member', 'Perfect sofa for us.', '20000', '50000', 'http://localhost/zofa/uploads/product/85ef5537805c365eb294c3d3fda91327.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-16 05:40:43', 1, '2020-06-19 14:09:50'),
+(11, 'lounge', 'product', 8, '', 'lounge', 'nice lounge', 'another product from zofa', '25000', '30000', 'http://localhost/zofa/uploads/product/3bad1098da6a4d710b958d9796b18f4b.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-17 06:17:36', 1, '2020-06-19 09:27:42'),
+(12, 'laura', 'product', 9, '', 'laura', 'Comfortable for every member', 'must be innovative', '25000', '55000', 'http://localhost/zofa/uploads/product/fac6a8d0ffa8e8f3ab34c94cc26b018c.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 08:50:14', 1, '2020-06-19 08:50:14'),
+(13, 'dining table', 'product', 8, '', 'dining-table', 'table for dining room', 'perfect table for perfact family', '22000', '25000', 'http://localhost/zofa/uploads/product/d9677b127a88f8abc9215bcb3d091d70.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 09:49:07', 1, '2020-06-19 09:49:41'),
+(14, 'ddinh', 'product', 8, '', 'ddinh', 'Comfortable for every member', 'ugfi', '22000', '55000', 'http://localhost/zofa/uploads/product/26d062f3f1b460afd6269e502c4a7592.png', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 09:50:46', 1, '2020-06-19 09:50:46'),
+(15, 'demo bed', 'product', 7, '', 'demo-bed', 'Comfortable for every member', 'demo tag', '25000', '20000', 'http://localhost/zofa/uploads/product/b9c1ccb360a03d342a7699406ce0b799.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:07:17', 1, '2020-06-19 14:07:17'),
+(16, 'demo1 bed', 'product', 7, '', 'demo1-bed', 'Comfortable for every member', 'dd', '25000', '20000', 'http://localhost/zofa/uploads/product/40d8797560f119c523411d002d85eedf.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:08:37', 1, '2020-06-19 14:09:18'),
+(17, 'demo2 bed', 'product', 7, '', 'demo2-bed', 'Comfortable for every member', 'dd', '25000', '20000', 'http://localhost/zofa/uploads/product/bccbe6673d49413b0fcd05bf48e399c7.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:10:56', 1, '2020-06-19 14:10:56'),
+(18, 'outdoor1', 'product', 6, '', 'outdoor1', 'Comfortable for every member', 'outdoor1', '25000', '20000', 'http://localhost/zofa/uploads/product/9279f7841daf5beab8208dafdf5cf1d8.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:16:22', 1, '2020-06-19 14:16:22'),
+(19, 'outdoor2', 'product', 6, '', 'outdoor2', 'Comfortable for every member', 'outdoor1', '25000', '20000', 'http://localhost/zofa/uploads/product/9663e7db4813a6032d22df59a8369b03.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:17:32', 1, '2020-06-19 14:17:32'),
+(20, 'outdoor3', 'product', 6, '', 'outdoor3', 'Comfortable for every member', 'outdoor\r\n', '25000', '22000', 'http://localhost/zofa/uploads/product/6ea2fc180151792cf83f4576e323eb87.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:18:27', 1, '2020-06-19 14:18:27'),
+(21, 'office1', 'product', 5, '', 'office1', 'Comfortable for every member', 'office1', '55000', '50000', 'http://localhost/zofa/uploads/product/5ffa042703cae9820ee10ae827a37010.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:25:08', 1, '2020-06-19 14:27:35'),
+(22, 'office2', 'product', 5, '', 'office2', 'Comfortable for every member', 'office2', '20000', '15000', 'http://localhost/zofa/uploads/product/b15ed785a7f22cbc6bf4d1051bcc06d3.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:28:35', 1, '2020-06-19 14:28:35'),
+(23, 'office3', 'product', 5, '', 'office3', 'Comfortable for every member', 'office3', '5000', '20000', 'http://localhost/zofa/uploads/product/61d4d615f0f63a1b4adc0f32b235fb21.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:29:30', 1, '2020-06-19 14:29:30'),
+(24, 'brand1', 'product', 4, '', 'brand1', 'Comfortable for every member', 'brand1', '56000', '50000', 'http://localhost/zofa/uploads/product/50341a4c086cea58623c123d08b975da.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:33:16', 1, '2020-06-19 14:33:16'),
+(25, 'brand2', 'product', 4, '', 'brand2', 'Comfortable for every member', 'brand2', '55000', '52000', 'http://localhost/zofa/uploads/product/ee2d810864d51cc359c2294c0bae7cdf.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:34:19', 1, '2020-06-19 14:34:19'),
+(26, 'brand3', 'product', 4, '', 'brand3', 'Comfortable for every member', 'brand3', '52000', '22000', 'http://localhost/zofa/uploads/product/71223be30893ffc7da738e7c70abef23.jpg', NULL, 0, 0, 0, NULL, NULL, NULL, '0', '0', '0', '', 1, 1, '2020-06-19 14:35:22', 1, '2020-06-19 14:35:22');
 
 -- --------------------------------------------------------
 
@@ -551,8 +682,10 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `title`, `description`, `image`, `redirect_link`, `location`, `status`, `created_by`, `created_date`, `modified_by`, `modified_date`) VALUES
-(1, 'First Slide', 'Its Placeholder Slide', 'http://localhost/zofa/uploads/slider/f98ef86936e31148096f15bff5c42424.jpg', 'First Slide', NULL, 1, 2, '2020-03-23 03:47:11', 1, '2020-06-12 08:03:07'),
-(2, 'Living room', 'Its Living room', 'http://localhost/zofain/uploads/slider/9e195fccc80073de013e0c2f68ea7b34.jpg', '', NULL, 1, 2, '2020-03-23 03:52:55', 1, '2020-06-04 13:17:39');
+(1, 'Third slide', 'Third slide', 'http://localhost/zofa/uploads/slider/98140a4f1b82ef863b5c948a7ad2df98.jpg', 'First Slide', NULL, 1, 2, '2020-03-23 03:47:11', 1, '2020-06-19 11:40:45'),
+(2, 'fourth slide', 'Its Living room', 'http://localhost/zofa/uploads/slider/9650802070ab3d0633bdc1017705d503.jpg', 'Living room', NULL, 1, 2, '2020-03-23 03:52:55', 1, '2020-06-19 11:40:02'),
+(3, 'second slide', 'second slide', 'http://localhost/zofa/uploads/slider/5656a03bc013fa7ed94d91262e254f82.jpg', '', NULL, 1, 1, '2020-06-19 11:39:26', 1, '2020-06-19 11:39:26'),
+(4, 'first slide', 'first slide', 'http://localhost/zofa/uploads/slider/fa91b76679a5bae736221c3d32a4e164.jpg', 'first slide', NULL, 1, 1, '2020-06-19 11:41:27', 1, '2020-06-19 11:41:49');
 
 -- --------------------------------------------------------
 
@@ -876,6 +1009,13 @@ INSERT INTO `user_modules` (`id`, `slug`, `module_title`, `status`, `created_by`
 --
 
 --
+-- Indexes for table `book_order`
+--
+ALTER TABLE `book_order`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
@@ -926,13 +1066,6 @@ ALTER TABLE `leads`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `ordr`
---
-ALTER TABLE `ordr`
-  ADD PRIMARY KEY (`ordr_id`),
-  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `posts`
@@ -999,10 +1132,16 @@ ALTER TABLE `user_modules`
 --
 
 --
+-- AUTO_INCREMENT for table `book_order`
+--
+ALTER TABLE `book_order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -1020,13 +1159,13 @@ ALTER TABLE `filters`
 -- AUTO_INCREMENT for table `filter_product_category_relations`
 --
 ALTER TABLE `filter_product_category_relations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=271;
 
 --
 -- AUTO_INCREMENT for table `filter_values`
 --
 ALTER TABLE `filter_values`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `gallery`
@@ -1047,12 +1186,6 @@ ALTER TABLE `orders`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `ordr`
---
-ALTER TABLE `ordr`
-  MODIFY `ordr_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
@@ -1068,7 +1201,7 @@ ALTER TABLE `post_reactions`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -1080,7 +1213,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `testimonials`

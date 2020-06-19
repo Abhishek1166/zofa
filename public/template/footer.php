@@ -1,8 +1,4 @@
 </div>
-</div>
-<!--  END CONTENT AREA  -->
-
-</div>
 <!-- END MAIN CONTAINER -->
 
 <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->

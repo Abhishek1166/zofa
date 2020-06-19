@@ -1,39 +1,10 @@
-<!-- <section class="main-header" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/team.jpg)">
-    <header>
-        <div class="container">
-            <h1 class="h2 title">Shop</h1> -->
-<!-- <ol class="breadcrumb breadcrumb-inverted">
-                <li><a href="index.html"><span class="icon icon-home"></span></a></li>
-                <li><a href="category.html">Product Category</a></li>
-                <li><a class="active" href="products-grid.html">Product Sub-category</a></li>
-            </ol> -->
-<!-- </div>
-    </header>
-</section> -->
+<?php
+/* echo '<pre>';
+print_r($category);
+echo '</pre>';
+die(); */
+?>
 
-<!-- ========================  Icons slider ======================== -->
-
-
-
-<!-- === header === -->
-
-<header class="hidden">
-    <h2>Product categories</h2>
-</header>
-
-<div class="container">
-
-    <div class="owl-icons">
-
-        <!-- === icon item === -->
-
-
-
-    </div>
-    <!--/owl-icons-->
-</div>
-<!--/container-->
-</section>
 
 <!-- ======================== Products ======================== -->
 
@@ -90,8 +61,8 @@
 
                     <!-- === product-item === -->
                     <?php
-                    if (!empty($data['Product'])) {
-                        foreach ($data['Product'] as $prod) {
+                    if (!empty($data['produucts'])) {
+                        foreach ($data['produucts'] as $prod) {
                     ?>
                             <div class="col-md-4 col-xs-6">
 
@@ -115,12 +86,9 @@
 
                                                                         echo $prod->sell_price - $prod->regular_price;
                                                                         ?></span>
-
-
-                                        </span>
                                         <div class="image">
-                                            <a href="#productid1" class="">
-                                                <img src="<?php echo $prod->image; ?>" alt="" width="360" />
+                                            <!-- <a href="#productid1" class="mfp-open"> -->
+                                            <img src="<?php echo $prod->image; ?>" alt="" width="360" />
                                             </a>
                                         </div>
                                         <div class="text">

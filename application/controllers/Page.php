@@ -16,6 +16,8 @@ class Page extends CI_Controller
 			'PostsModel',
 			'PostsModel',
 			'OrdersModel',
+			'BookOrderModel',
+			'CategoriesModel',
 			'GalleryModel'
 		]);
 	}
@@ -48,23 +50,9 @@ class Page extends CI_Controller
 			and $slider = get_data_from('sliders');
 		show_debug($slider);
 
-		file_exists($path)
-			and $city = $this->ProductsModel->all([
-				'fields'     => ['distinct(extra_field_1) as city'],
-				'conditions' => [
-					'status'    => true,
-					'post_type' => 'property'
-				],
-				'order' => [
-					'by'   => 'city',
-					'type' => 'asc'
-				],
-				'datatype' => 'json'
-			])
-			or $city = '';
-		show_debug($city);
+		$nav_categories = get_data_from('categories');
 
-		file_exists($path) and $this->load->view('pages/components/header', compact('site', 'slider', 'city'));
+		file_exists($path) and $this->load->view('pages/components/header', compact('site', 'slider', 'city', 'nav_categories'));
 		file_exists($path) and $this->load->view('pages/' . $Pages, compact('data'));
 		file_exists($path) and $this->load->view('pages/components/footer', compact('site'));
 	}
@@ -88,8 +76,6 @@ class Page extends CI_Controller
 	{
 
 
-		//print_r($site);
-		// $data['Property'] = $this->ProductsModel->get_featured_property();
 		$data['Sliders'] 	= get_data_from('sliders');
 		$data['Blogs']    	= get_data_from('posts');
 		$data['ideas']    	= get_data_from('posts');
@@ -103,13 +89,6 @@ class Page extends CI_Controller
 			'datatype'   => 'json',
 			'paging' => ['page' => 1, 'limit' => 6]
 		]);
-		// $data['ideas']    	= $this->PostsModel->first([
-		// 	'conditions' => [
-		// 		'post_type' => 'interior design'
-		// 	],
-		// 	'datatype' => 'jason',
-
-		// ]);
 
 
 
@@ -124,19 +103,6 @@ class Page extends CI_Controller
 		]);
 		$data['instagram'] = $this->SettingsModel->get_option('social_instagram');
 
-
-
-		// show_debug($data['Property']);
-		// echo '<pre>';
-		// print_r($data);
-		// die;
-		// echo '<pre>';
-
-
-
-
-
-
 		return $this->view('zofahome', $data);
 		// return $this->view('footer');
 	}
@@ -150,6 +116,29 @@ class Page extends CI_Controller
 	public function products_1($id)
 	{
 
+		if ($this->input->post('submit')) {
+
+			// die('sdfsdf');
+
+			// print_r($this->input->post('Mobile'));
+			// die();
+
+			$order = $this->BookOrderModel->save([
+				'first_name'      => $this->input->post('Firstname'),
+				'last_name'          => $this->input->post('Lastname'),
+				'email'         => $this->input->post('Email'),
+				'mobile'     => $this->input->post('Mobile'),
+				'status' => true,
+				'category_id' => $this->input->post('Category_id'),
+				'product_id' => $this->input->post('Product_id'),
+				'price' => $this->input->post('Price')
+
+
+
+			]);
+		}
+
+
 		//$data['products'] 	= get_data_from('products');
 		$data['Products'] 	= $this->ProductsModel->all([
 			'conditions' => [
@@ -162,7 +151,7 @@ class Page extends CI_Controller
 
 
 		$data['single_product'] = $this->ProductsModel->first([
-			'feilds'     => ['id', 'title', 'regular_price', 'sell_price', 'image', 'srt_description', 'description',],
+			'feilds'     => ['id', 'title', 'regular_price', 'sell_price', 'image', 'srt_description', 'description', 'category_id'],
 			'conditions' => [
 				'id' => $id,
 				'status' => '1',
@@ -172,51 +161,70 @@ class Page extends CI_Controller
 		]);
 
 
-
-		if ($this->input->post('submit')) {
-
-			flash_message(
-				'products',
-				$this->input->post('Firstname')
-					and $this->input->post('Lastname')
-					and $this->input->post('Email')
-					and $this->input->post('Mobile'),
-				'unsuccess',
-				'Something Went Wrong',
-				'Look like Form Not Fill Properly, Please Fill & Try Again.'
-			);
-		}
-
-
-		flash_message(
-			'',
-			filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL),
-			'unsuccess',
-			'Something Went Wrong',
-			'Oops, You Misstyped Your E-mail Address, Please Type Valid E-mail Address.'
-		);
-		$ordr = $this->OrdrModel->save([
-			'Firstname'      => $this->input->post('first_name'),
-			'Lastname'          => $this->inout->post('last_name'),
-			'Mobile'    => $this->input->post('mobile'),
-			'Email'         => str_clean($this->input->post('email'), ['@', '.', '-', '_']),
-
-		]);
-
-		flash_message(
-			'products',
-			$product,
-			'unsuccess',
-			"Something Went Wrong"
-		);
-
 		return $this->view('products', $data);
 	}
 
+
+	public function category($slug, $page = 1)
+
+	{
+		$limit = 3;
+
+		$data['category'] 	= $this->CategoriesModel->first([
+			'feilds'     => ['icon'],
+			'conditions' => [
+				'slug' => $slug
+			],
+		]);
+		// _dd($data);
+		/*------------------all data------------------>*/
+		/* $data['category'] 	= $this->CategoriesModel->all([
+			'feilds'     => ['icon'],
+			'conditions' => [
+				'slug' => $slug
+			],
+		]); */
+		// _dd($data);
+		/*------------------all data------------------ >*/
+
+		$data['produucts'] = $this->ProductsModel->all([
+			'conditions' => [
+				'post_type' => 'product',
+				'status' => '1',
+				'category_id' => $data['category']['id'],
+			],
+			'datatype'   => 'json',
+			'paging' => ['page' => $page, 'limit' => $limit]
+		]);
+
+		$total_produuct = $this->ProductsModel->count([
+			'conditions' => [
+				'post_type' => 'product',
+				'status' => '1',
+				'category_id' => $data['category']['id'],
+			]
+		]);
+
+		// _ddd($data);
+
+		$total_page = round($total_produuct / $limit);
+		$data['total_page'] = $total_page;
+		$data['page'] = $page;
+
+		return $this->view('category_page', $data);
+	}
+
+
+
+	/*product grid (SHOP) function started*/
+
+
+
 	public function productsgrid($page)
 	{
-		$limit = 2;
-		$data['products'] 	= get_data_from('products');
+		$limit = 3;
+		//$data['products'] 	= get_data_from('products');
+
 		$data['Product'] 	= $this->ProductsModel->all([
 			'conditions' => [
 
@@ -238,12 +246,11 @@ class Page extends CI_Controller
 		$data['total_page'] = $total_page;
 		$data['page'] = $page;
 
-		//die;
-
-
-
 		return $this->view('productsgrid', $data);
 	}
+
+
+
 
 	public function order()
 	{
@@ -251,54 +258,7 @@ class Page extends CI_Controller
 
 		return $this->view('order', $data);
 	}
-	// {
-	// 	if ($this->input->post('orders')) {
 
-	// 		flash_message(
-	// 			'',
-	// 			$this->input->post('user_id') and
-	// 				$this->input->post('product_quantity') and
-	// 				$this->input->post('total_amount'),
-	// 			'unsccuess',
-	// 			'Look\'s Like Form is Empty',
-	// 			'Oops, User\'s Basic Details is Empty. Please Fill & Try Again'
-	// 		);
-	// 		$email = $this->input->post('user_id');
-	// 		$mobile = $this->input->post('product_quantity');
-	// 		$user_exists = $this->OrdersModel->first(['conditions' => "`user_id` = '$user_id' OR `product_quantity` = '$product_quantity'"]);
-
-	// 		flash_message(
-	// 			'',
-	// 			is_null($user_exists),
-	// 			'unsuccess',
-	// 			'Details are Already Exist',
-	// 			'Email or Password Already exist.'
-	// 		);
-
-	// 		$user_id = $this->OrdersModel->save([
-	// 			'user_id'          => $this->input->post('user_id'),
-	// 			'product_quantity'         => $this->input->post('product_quantity'),
-	// 			'total_amount'           => $this->input->post('total_amount'),
-	// 			'payment_mode'         => $this->input->post('payment_mode'),
-	// 			'payment_status'         => $this->input->post('payment_status'),
-	// 			'status'         => 1
-	// 			//'created_by'   => $_SESSION['ADMIN_ID'],
-	// 		]);
-	// 		/*echo $this->db->last_query();
-	//         die;*/
-	// 		/*echo $user_id;
-	//         print_r($_REQUEST);
-	//         die;*/
-	// 		flash_message(
-	// 			'',
-	// 			!is_null($user_id),
-	// 			'success',
-	// 			'Successful',
-	// 			'Your Response has been Submitted'
-	// 		);
-	// 		//redirect(SITE_URL);
-	// 	}
-	// }
 
 
 	/** Load Contact Us Data & Send Mail with Save Lead */
@@ -613,11 +573,7 @@ class Page extends CI_Controller
 		$this->view('blog', $data);
 	}
 
-	function blog(string $slug = null)
-	{
-		$data['value'] = json_decode(json_encode($this->PostsModel->first(['slug' => $slug])));
-		$this->view('single-blog', $data['value']);
-	}
+
 
 	function privacy()
 	{

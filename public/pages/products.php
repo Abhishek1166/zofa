@@ -1,18 +1,10 @@
 ﻿<!-- ========================  Main header ======================== -->
 <?php
-// echo '<pre>';
-// print_r($data['single_product']['srt_description']);
-// echo '</pre>';
-// die;
+/* echo '<pre>';
+print_r($data['single_product']);
+echo '</pre>';
+die; */
 ?>
-<section class="main-header" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/sl1.jpg)">
-    <!-- <header> -->
-    <div class="container">
-        <h1 class="h2 title">Products</h1>
-
-    </div>
-    <!-- </header> -->
-</section>
 
 <!-- ========================  Product ======================== -->
 
@@ -29,7 +21,7 @@
 
                         <!-- === product-title === -->
 
-                        <h1 class="title" data-title="Sofa">Laura <small>La Linea de Lucco</small></h1>
+                        <h1 class="title" data-title="Sofa"><?php echo $data['single_product']['title'] ?><small><?php echo $data['single_product']['srt_description'] ?></small></h1>
 
                         <div class="clearfix">
 
@@ -37,8 +29,8 @@
 
                             <div class="price">
                                 <span class="h3">
-                                    $ 1999,00
-                                    <small>$ 2999,00</small>
+                                    <?php echo $data['single_product']['regular_price'] ?>
+                                    <small><?php echo $data['single_product']['sell_price'] ?></small>
                                 </span>
                             </div>
                             <hr />
@@ -178,62 +170,79 @@
                                         <div class="modal-body">
                                             <div class="row">
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="text" value="" class="form-control" name="Firstname" placeholder="Firstname: *" required>
+
+                                                <form action="" method="post">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" value="" class="form-control" name="Firstname" placeholder="Firstname: *" required>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="text" value="" class="form-control" name="Lastname" placeholder="Lastname: *" required>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" value="" class="form-control" name="Lastname" placeholder="Lastname: *" required>
+                                                        </div>
                                                     </div>
-                                                </div>
 
 
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="text" value="" class="form-control" name="Email" placeholder="Email: *" required>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="email" value="" class="form-control" name="Email" placeholder="Email: *" required>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input type="text" value="" class="form-control" name="Mobile" placeholder="Mobile: *" required>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="tel" class="form-control" name="Mobile" placeholder="Mobile: *" required>
+                                                        </div>
                                                     </div>
-                                                </div>
 
 
 
-                                                <div class="col-md-8">
-                                                    <div class="form-group">
-                                                        <input type="hidden" value="" class="form-control" name="Product_id" placeholder="Product_id:">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <input type="hidden" value="<?= $data['single_product']['id'] ?>" class="form-control" name="Product_id" placeholder="Product_id:">
+                                                        </div>
                                                     </div>
-                                                </div>
 
-
-                                                <div class="col-md-8">
-                                                    <div class="form-group">
-                                                        <input type="hidden" value="" class="form-control" name="Category_id" placeholder="Category_id: ">
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <input type="hidden" value="" class="form-control" name="status" placeholder="status:">
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-md-12">
 
-                                                    <span class="checkbox">
-                                                        <input type="checkbox" id="checkBoxId1">
-                                                        <label for="checkBoxId1">I have read and accepted the <a href="#">terms</a>, as
-                                                            well as read and understood our terms of
-                                                            <a href="#">business contidions</a></label>
-                                                    </span>
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <input type="hidden" value="<?= $data['single_product']['category_id'] ?>" class="form-control" name="Category_id" placeholder="Category_id: ">
+                                                        </div>
+                                                    </div>
 
-                                                    <hr />
-                                                </div>
 
-                                                <div class="col-md-12">
-                                                    <a href="#" class="btn btn-main btn-block">Create account</a>
-                                                </div>
+
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <input type="hidden" value="<?= $data['single_product']['regular_price'] ?>" class="form-control" name="Price" placeholder="Price: ">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+
+                                                        <span class="checkbox">
+                                                            <input type="checkbox" id="checkBoxId1">
+                                                            <label for="checkBoxId1">I have read and accepted the <a href="#">terms</a>, as
+                                                                well as read and understood our terms of
+                                                                <a href="#">business contidions</a></label>
+                                                        </span>
+
+                                                        <hr />
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <button name="submit" value="submit" class="btn btn-main btn-block">Create account</button>
+                                                    </div>
+                                                </form>
 
                                             </div>
                                         </div>
