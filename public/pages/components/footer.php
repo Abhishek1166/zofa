@@ -38,11 +38,11 @@
 						</li> -->
 
 						<li>
-							<a href="<?php echo SITE_URL ?>productsgrid/1">Shop</a>
+							<a href="<?php echo SITE_URL ?>shop/1">Shop</a>
 						</li>
 
 
-						<li><a href=" #">Category</a></li>
+						<!-- <li><a href=" #">Category</a></li> -->
 					</ul>
 				</div>
 
@@ -77,8 +77,8 @@
 
 		<div class="footer-social">
 			<div class="row">
-				<div class="col-sm-6">
-					<a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"><i class="fa fa-download"></i> Download Mobel</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
+				<div class="col-sm-6">Design & Developed by
+					<a href="https://www.twstechnology.com/" target="_blank"> TWSTechnologies</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
 				</div>
 				<div class="col-sm-6 links">
 					<ul>

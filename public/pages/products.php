@@ -21,7 +21,7 @@ die; */
 
                         <!-- === product-title === -->
 
-                        <h1 class="title" data-title="Sofa"><?php echo $data['single_product']['title'] ?><small><?php echo $data['single_product']['srt_description'] ?></small></h1>
+                        <h1 class="title" data-title="<?php echo $data['single_product']['title'] ?>"><?php echo $data['single_product']['title'] ?><small><?php echo $data['single_product']['srt_description'] ?></small></h1>
 
                         <div class="clearfix">
 
@@ -29,8 +29,8 @@ die; */
 
                             <div class="price">
                                 <span class="h3">
-                                    <?php echo $data['single_product']['regular_price'] ?>
-                                    <small><?php echo $data['single_product']['sell_price'] ?></small>
+                                    <i class="fa fa-rupee"></i> <?php echo $data['single_product']['sell_price'] ?>
+                                    <small><?php echo $data['single_product']['regular_price'] ?></small>
                                 </span>
                             </div>
                             <hr />
@@ -56,8 +56,6 @@ die; */
                                 <span><i class="fa fa-check-square-o"></i> In stock</span>
                                 <span class="hidden"><i class="fa fa-truck"></i> Out of stock</span>
                             </div>
-
-                            <hr />
 
                             <!-- <div class="info-box info-box-addto added">
                                 <span><strong>Favourites</strong></span>
@@ -148,111 +146,104 @@ die; */
 
                     </div>
 
-                    <br><br><br>
+
 
                     <body>
 
-                        <div class="container">
+                        <div class="container ">
+                            <div class="row">
+                                <!-- Trigger the modal with a button -->
+                                <br>
+                                <button type="button" class="btn btn-info btn-lg " data-toggle="modal" data-target="#myModal">Book Now</button>
 
-                            <!-- Trigger the modal with a button -->
-                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book Now</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog">
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal" role="dialog">
-                                <div class="modal-dialog">
-
-                                    <!-- Modal content-->
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Place Your Order</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="row">
-
-
-                                                <form action="" method="post">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input type="text" value="" class="form-control" name="Firstname" placeholder="Firstname: *" required>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input type="text" value="" class="form-control" name="Lastname" placeholder="Lastname: *" required>
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input type="email" value="" class="form-control" name="Email" placeholder="Email: *" required>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <input type="tel" class="form-control" name="Mobile" placeholder="Mobile: *" required>
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <div class="col-md-8">
-                                                        <div class="form-group">
-                                                            <input type="hidden" value="<?= $data['single_product']['id'] ?>" class="form-control" name="Product_id" placeholder="Product_id:">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-8">
-                                                        <div class="form-group">
-                                                            <input type="hidden" value="" class="form-control" name="status" placeholder="status:">
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="col-md-8">
-                                                        <div class="form-group">
-                                                            <input type="hidden" value="<?= $data['single_product']['category_id'] ?>" class="form-control" name="Category_id" placeholder="Category_id: ">
-                                                        </div>
-                                                    </div>
-
-
-
-                                                    <div class="col-md-8">
-                                                        <div class="form-group">
-                                                            <input type="hidden" value="<?= $data['single_product']['regular_price'] ?>" class="form-control" name="Price" placeholder="Price: ">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-12">
-
-                                                        <span class="checkbox">
-                                                            <input type="checkbox" id="checkBoxId1">
-                                                            <label for="checkBoxId1">I have read and accepted the <a href="#">terms</a>, as
-                                                                well as read and understood our terms of
-                                                                <a href="#">business contidions</a></label>
-                                                        </span>
-
-                                                        <hr />
-                                                    </div>
-
-                                                    <div class="col-md-12">
-                                                        <button name="submit" value="submit" class="btn btn-main btn-block">Create account</button>
-                                                    </div>
-                                                </form>
-
+                                        <!-- Modal content-->
+                                        <div class="modal-content" style="margin-top:180px">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Place Your Order</h4>
                                             </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
+                                            <div class="modal-body">
+                                                <div class="row">
 
+
+                                                    <form action="" method="post">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <input type="text" value="" class="form-control" name="Firstname" placeholder="Firstname: *" required>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <input type="text" value="" class="form-control" name="Lastname" placeholder="Lastname: *" required>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <input type="email" value="" class="form-control" name="Email" placeholder="Email: *" required>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <input type="tel" class="form-control" name="Mobile" placeholder="Mobile: *" required>
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="hidden" value="<?= $data['single_product']['id'] ?>" class="form-control" name="Product_id" placeholder="Product_id:">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="hidden" value="" class="form-control" name="status" placeholder="status:">
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="hidden" value="<?= $data['single_product']['category_id'] ?>" class="form-control" name="Category_id" placeholder="Category_id: ">
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <div class="col-md-8">
+                                                            <div class="form-group">
+                                                                <input type="hidden" value="<?= $data['single_product']['regular_price'] ?>" class="form-control" name="Price" placeholder="Price: ">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                            <button name="submit" value="submit" class="btn btn-main btn-block">Create account</button>
+                                                        </div>
+                                                        <div class="col-md-6"><button type="button" class="btn btn-main btn-block" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                            </div>
+                                            <!-- <div class="modal-footer">
+
+                                        </div> -->
+                                        </div>
+
+                                    </div>
                                 </div>
                             </div>
+
 
                         </div>
 
@@ -309,12 +300,12 @@ die; */
                             <span>Specification</span>
                         </a>
                     </li>
-                    <li role="presentation">
+                    <!-- <li role="presentation">
                         <a href="#rating" aria-controls="rating" role="tab" data-toggle="tab">
                             <i class="icon icon-thumbs-up"></i>
                             <span>Rating</span>
                         </a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <!-- === tab-panes === -->

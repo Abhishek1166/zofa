@@ -76,9 +76,18 @@ class Page extends CI_Controller
 	{
 
 
+
 		$data['Sliders'] 	= get_data_from('sliders');
 		$data['Blogs']    	= get_data_from('posts');
-		$data['ideas']    	= get_data_from('posts');
+		$data['ideas']    	=
+			$this->PostsModel->all([
+				'conditions' => [
+					'post_type' => 'interior design',
+					'status' => '1',
+				],
+				'datatype'   => 'json',
+
+			]);
 
 
 		$data['Product'] 	= $this->ProductsModel->all([
@@ -136,6 +145,10 @@ class Page extends CI_Controller
 
 
 			]);
+			$msg = "Thank you for your enquiry our executive will contact you soon";
+			$msg2 = "You have recived a enquiry from  " . $this->input->post('Firstname') . " Mobile No." . $this->input->post('Mobile');
+			shootMsg($msg, $this->input->post('Mobile'));
+			shootMsg($msg2, $this->SettingsModel->get_option('site_mobile'));
 		}
 
 
@@ -220,7 +233,7 @@ class Page extends CI_Controller
 
 
 
-	public function productsgrid($page)
+	public function shop($page)
 	{
 		$limit = 3;
 		//$data['products'] 	= get_data_from('products');
@@ -368,6 +381,7 @@ class Page extends CI_Controller
 			'site_mail'    => $this->SettingsModel->get_option('site_mail'),
 			'site_address' => $this->SettingsModel->get_option('site_address'),
 			'site_map'     => $this->SettingsModel->get_option('site_map'),
+			'site_logo'     => $this->SettingsModel->get_option('site_logo'),
 		];
 
 		return $this->view('contact', $data);
@@ -572,6 +586,20 @@ class Page extends CI_Controller
 		show_debug($data['Blogs']);
 		$this->view('blog', $data);
 	}
+
+
+
+	/* singleblog start */
+
+	function single_blog(string $slug = null)
+	{
+		$data['value'] = json_decode(json_encode($this->PostsModel->first(['slug' => $slug])));
+
+
+		$this->view('single_blog', $data);
+	}
+
+	/* senflr blog end */
 
 
 

@@ -85,12 +85,10 @@
                 <div class="navigation navigation-main">
 
                     <!-- Setup your logo here-->
-
-                    <a href="zofahome.php" class="logo"><img src="assets/img/zofa/zofalogo.png" alt="" /></a>
-
+                    <a href="<?php echo SITE_URL ?>zofahome" class="logo"><img src="<?= $site['site_logo'] ?>"" alt="" /></a>
                     <!-- Mobile toggle menu -->
 
-                    <a href="#" class="open-menu"><i class="icon icon-menu"></i></a>
+                    <a href=" #" class="open-menu"><i class="icon icon-menu"></i></a>
 
                     <!-- Convertible menu (mobile/desktop)-->
 
@@ -103,7 +101,7 @@
                         </div>
 
                         <ul>
-                            <li><a href="zofahome.php">Home</a></li>
+                            <li><a href="<?php echo SITE_URL ?>zofahome">Home</a></li>
 
                             <!-- Multi-content dropdown -->
 
@@ -538,81 +536,60 @@
             <!--/container-->
         </nav>
 
-        <section class="main-header" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/team.jpg)">
-            <header>
-                <div class="container">
-                    <h1 class="h2 title"><?= $this->router->fetch_method(); ?></h1>
-                    <ol class="breadcrumb breadcrumb-inverted">
-                        <li><a href="index.html"><span class="icon icon-home"></span></a></li>
-                        <li><a href="#"><?= $this->router->fetch_method(); ?></a></li>
-                        <li><a class="active" href="#"><?= $this->uri->segment(2); ?></a></li>
-                    </ol>
-                </div>
-            </header>
-        </section>
+        <?php
+        if (($this->router->fetch_method() != 'zofahome')) { ?>
 
-        <!-- ========================  Icons slider ======================== -->
+            <section class="main-header <?= ($this->router->fetch_method() == 'single_blog') ? "main-header-blog" : ""; ?>" style="background-image:url(http://www.elathemes.com/themes/mobel/assets/images/gallery-2.jpg)">
+                <header>
+                    <div class="container <?= ($this->router->fetch_method() == 'single_blog') ? "text-center" : ""; ?>">
+                        <h1 class="h2 title"><?= $this->router->fetch_method(); ?></h1>
+                        <ol class="breadcrumb breadcrumb-inverted">
+                            <li><a href="<?php echo SITE_URL ?>zofahome"><span class="icon icon-home"></span></a></li>
+                            <li><a href="#"><?= $this->router->fetch_method(); ?></a></li>
+                            <li><a class="active" href="#"><?= $this->uri->segment(2); ?></a></li>
+                        </ol>
+                    </div>
+                </header>
+            </section>
 
-        <section class="owl-icons-wrapper">
+            <!-- ========================  Icons slider ======================== -->
+            <?php
+            if ($this->router->fetch_method() != 'single_blog') { ?>
+                <section class="owl-icons-wrapper">
 
-            <!-- === header === -->
+                    <!-- === header === -->
 
-            <header class="hidden">
-                <h2>Product categories</h2>
-            </header>
+                    <header class="hidden">
+                        <h2>Product categories DGDFGDFGDF</h2>
+                    </header>
 
-            <div class="container">
+                    <div class="container ">
 
-                <div class="owl-icons">
-
-
-
-                    <!-- === icon item === -->
-                    <?php
-                    foreach ($nav_categories as $nav_category) {
-                    ?>
-                        <a href="#">
-
-                            <figure>
-                                <i class="f-icon f-icon-<?php echo $nav_category->icon; ?>"></i>
-                                <figcaption><?php echo $nav_category->title; ?></figcaption>
-                            </figure>
-                        </a>
-                    <?php
-                    }
-                    ?>
+                        <div class="owl-icons">
 
 
 
+                            <!-- === icon item === -->
+                            <?php
 
+                            foreach ($nav_categories as $nav_category) {
+                            ?>
+                                <a href="<?= SITE_URL . "category/" . $nav_category->slug ?>">
 
+                                    <figure>
+                                        <i class="f-icon f-icon-<?php echo $nav_category->icon; ?>"></i>
+                                        <figcaption><?php echo $nav_category->title; ?></figcaption>
+                                    </figure>
+                                </a>
+                            <?php
 
+                            }
+                            ?>
+                        </div>
+                        <!--/owl-icons-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-                <!--/owl-icons-->
-            </div>
-            <!--/container-->
-        </section>
+                    </div>
+                    <!--/container-->
+                </section>
+            <?php } ?>
+        <?php } ?>

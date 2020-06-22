@@ -1,9 +1,9 @@
 <!-- ========================  Header content ======================== -->
 <?php
-// echo '<pre>';
-// print_r($data['Product']);
-// echo '</pre>';
-// die;
+/* echo '<pre>';
+print_r($data['Product']);
+echo '</pre>';
+die; */
 ?>
 <section class="header-content">
 
@@ -17,14 +17,14 @@
                 <div class="item" style="background-image:url(<?= $Sliders->image ?>)">
                     <div class="box">
                         <div class="container">
-                            <h2 class="title animated h1" data-animation="fadeInDown">Modern furniture theme</h2>
+                            <h2 class="title animated h1" data-animation="fadeInDown">Zofa Modern furniture showroom </h2>
                             <div class="animated" data-animation="fadeInUp">
-                                Modern & powerfull template. <br /> Clean design & reponsive
-                                layout. Google fonts integration
+                                Modern & powerfull furniture. <br /> Attractive design & Mordern
+                                layout. At resonable price.
                             </div>
-                            <div class="animated" data-animation="fadeInUp">
+                            <!-- <div class="animated" data-animation="fadeInUp">
                                 <a href="https://www.twstechnology.com/" target="_blank" class="btn btn-main"><i class="icon icon-cart"></i> Buy this template</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -51,176 +51,23 @@
         <div class="owl-icons">
 
             <!-- === icon item === -->
+            <?php
 
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-sofa"></i>
-                    <figcaption>Sofa</figcaption>
-                </figure>
-            </a>
+            foreach ($nav_categories as $nav_category) {
+            ?>
 
-            <!-- === icon item === -->
 
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-armchair"></i>
-                    <figcaption>Armchairs</figcaption>
-                </figure>
-            </a>
+                <!-- === icon item === -->
 
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-chair"></i>
-                    <figcaption>Chairs</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-dining-table"></i>
-                    <figcaption>Dining tables</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-media-cabinet"></i>
-                    <figcaption>Media storage</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-table"></i>
-                    <figcaption>Tables</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-bookcase"></i>
-                    <figcaption>Bookcase</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-bedroom"></i>
-                    <figcaption>Bedroom</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-nightstand"></i>
-                    <figcaption>Nightstand</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-children-room"></i>
-                    <figcaption>Children room</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-kitchen"></i>
-                    <figcaption>Kitchen</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-bathroom"></i>
-                    <figcaption>Bathroom</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-wardrobe"></i>
-                    <figcaption>Wardrobe</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-shoe-cabinet"></i>
-                    <figcaption>Shoe cabinet</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-office"></i>
-                    <figcaption>Office</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-bar-set"></i>
-                    <figcaption>Bar sets</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-lightning"></i>
-                    <figcaption>Lightning</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-carpet"></i>
-                    <figcaption>Varpet</figcaption>
-                </figure>
-            </a>
-
-            <!-- === icon item === -->
-
-            <a href="#">
-                <figure>
-                    <i class="f-icon f-icon-accessories"></i>
-                    <figcaption>Accessories</figcaption>
-                </figure>
-            </a>
-
+                <a href="#">
+                    <figure>
+                        <i class="f-icon f-icon-<?php echo $nav_category->icon; ?>"></i>
+                        <figcaption><?php echo $nav_category->title; ?></figcaption>
+                    </figure>
+                </a>
+            <?php
+            }
+            ?>
         </div>
         <!--/owl-icons-->
     </div>
@@ -253,8 +100,25 @@
             if (!empty($data['Product'])) {
                 foreach ($data['Product'] as $prod) {
             ?>
+            <div class="col-md-4 col-xs-6">
+                        <article>
+                            <div class="figure-block">
+                                <div class="image">
+                                    <a href="<?php echo SITE_URL . 'products1/' . $prod->id ?>">
+                                        <img src="<?php echo $prod->image; ?>" alt="" width="360" />
+                                    </a>
+                                </div>
+                                <div class="text">
+                                    <h2 class="title h4"><a href="<?php echo SITE_URL . 'products1/' . $prod->id ?>"><?php echo $prod->title; ?></a></h2>
+                                    <i class="fa fa-rupee"></i></i><sub><?php echo $prod->sell_price; ?></sub>
+                                    <srike><sup><?php echo $prod->regular_price; ?></sup></srike>
+                                    <!--<span class="description clearfix"><?php //echo $prod->short_description; ?></span> -->
+                                </div>
+                            </div>
+                        </article>
+                    </div>
 
-                    <div class="col-md-4 col-xs-6">
+                    <!-- <div class="col-md-4 col-xs-6">
                         <article>
                             <div class="info">
                                 <span class="add-favorite">
@@ -265,8 +129,8 @@
                                     <a href=<?php echo SITE_URL . 'products1/' . $prod->id ?>><i class="icon icon-eye"></i></a>
                                 </span>
                             </div>
-                            <div class="btn btn-add">
-                                <i class="icon icon-cart"></i>
+                            <div class="">
+
                             </div>
                             <div class="figure-grid">
                                 <div class="image">
@@ -275,14 +139,14 @@
                                     </a>
                                 </div>
                                 <div class="text">
-                                    <h2 class="title h4"><a href="product.html">Laura</a></h2>
-                                    <sub>$ 3999,-</sub>
-                                    <sup>$ 3499,-</sup>
-                                    <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                                    <h2 class="title h4"><?php echo $prod->title; ?></a></h2>
+                                    <sub><?php echo $prod->sell_price; ?></sub>
+                                    <sup><?php echo $prod->regular_price; ?></sup>
+                                    <span class="description clearfix"><?php echo $prod->short_description; ?></span>
                                 </div>
                             </div>
                         </article>
-                    </div>
+                    </div> -->
 
             <?php
                 }
@@ -296,7 +160,7 @@
         <!-- === button more === -->
 
         <div class="wrapper-more">
-            <a href="products-grid.html" class="btn btn-main">View store</a>
+            <a href="<?php echo SITE_URL ?>productsgrid/1" class="btn btn-main">View store</a>
         </div>
 
         <!-- ========================  Product info popup - quick view ======================== -->
@@ -401,13 +265,13 @@
 
 <!-- ========================  Stretcher widget ======================== -->
 
-<section class="stretcher-wrapper">
+<!-- <section class="stretcher-wrapper"> -->
 
-    <!-- === stretcher header === -->
+<!-- === stretcher header === -->
 
-    <header class="hidden">
-        <!--remove class 'hidden'' to show section header -->
-        <div class="container">
+<!-- <header class="hidden"> -->
+<!--remove class 'hidden'' to show section header -->
+<!-- <div class="container">
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 text-center">
                     <h1 class="h2 title">Popular categories</h1>
@@ -420,91 +284,91 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
 
-    <!-- === stretcher === -->
+<!-- === stretcher === -->
 
-    <ul class="stretcher">
+<!-- <ul class="stretcher"> -->
 
-        <!-- === stretcher item === -->
+<!-- === stretcher item === -->
 
-        <li class="stretcher-item" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/mfp1.jpg);">
-            <!--logo-item-->
-            <div class="stretcher-logo">
+<!-- <li class="stretcher-item" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/mfp1.jpg);"> -->
+<!--logo-item-->
+<!-- <div class="stretcher-logo">
                 <div class="text">
                     <span class="f-icon f-icon-bedroom"></span>
                     <span class="text-intro">Bedroom</span>
                 </div>
-            </div>
-            <!--main text-->
-            <figure>
+            </div> -->
+<!--main text-->
+<!-- <figure>
                 <h4>Modern furnishing projects</h4>
                 <figcaption>New furnishing ideas</figcaption>
-            </figure>
-            <!--anchor-->
-            <a href="#">Anchor link</a>
-        </li>
+            </figure> -->
+<!--anchor-->
+<!-- <a href="#">Anchor link</a>
+        </li> -->
 
-        <!-- === stretcher item === -->
+<!-- === stretcher item === -->
 
-        <li class="stretcher-item" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/mfp2.jpg);">
-            <!--logo-item-->
-            <div class="stretcher-logo">
+<!-- <li class="stretcher-item" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/mfp2.jpg);"> -->
+<!--logo-item-->
+<!-- <div class="stretcher-logo">
                 <div class="text">
                     <span class="f-icon f-icon-sofa"></span>
                     <span class="text-intro">Living room</span>
                 </div>
-            </div>
-            <!--main text-->
-            <figure>
+            </div> -->
+<!--main text-->
+<!-- <figure>
                 <h4>Furnishing and complements</h4>
                 <figcaption>Discover the design table collection</figcaption>
-            </figure>
-            <!--anchor-->
-            <a href="#">Anchor link</a>
-        </li>
+            </figure> -->
+<!--anchor-->
+<!-- <a href="#">Anchor link</a>
+        </li> -->
 
-        <!-- === stretcher item === -->
+<!-- === stretcher item === -->
 
-        <li class="stretcher-item" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/mfp3.jpg);">
-            <!--logo-item-->
-            <div class="stretcher-logo">
+<!-- <li class="stretcher-item" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/mfp3.jpg);"> -->
+<!--logo-item-->
+<!-- <div class="stretcher-logo">
                 <div class="text">
                     <span class="f-icon f-icon-office"></span>
                     <span class="text-intro">Office</span>
                 </div>
-            </div>
-            <!--main text-->
-            <figure>
+            </div> -->
+<!--main text-->
+<!-- <figure>
                 <h4>Which is Best for Your Home</h4>
                 <figcaption>Wardrobes vs Walk-In Closets</figcaption>
-            </figure>
-            <!--anchor-->
-            <a href="#">Anchor link</a>
-        </li>
+            </figure> -->
+<!--anchor-->
+<!-- <a href="#">Anchor link</a>
+        </li> -->
 
-        <!-- === stretcher item === -->
+<!-- === stretcher item === -->
 
-        <li class="stretcher-item" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/mfp4.jpg);">
-            <!--logo-item-->
-            <div class="stretcher-logo">
+<!-- <li class="stretcher-item" style="background-image:url(<?php echo SITE_URL; ?>assets/img/zofa/mfp4.jpg);"> -->
+<!--logo-item-->
+<!-- <div class="stretcher-logo">
                 <div class="text">
                     <span class="f-icon f-icon-bathroom"></span>
                     <span class="text-intro">Bathroom</span>
                 </div>
-            </div>
-            <!--main text-->
-            <figure>
+            </div> -->
+<!--main text-->
+<!-- <figure>
                 <h4>Keeping Things Minimal</h4>
                 <figcaption>Creating Your Very Own Bathroom</figcaption>
-            </figure>
-            <!--anchor-->
-            <a href="#">Anchor link</a>
-        </li>
+            </figure> -->
+<!--anchor-->
+<!-- <a href="#">Anchor link</a>
+</li> -->
 
-        <!-- === stretcher item more=== -->
+<!-- === stretcher item more=== -->
 
-        <li class="stretcher-item more">
+<!-- <li class="stretcher-item more">
             <div class="more-icon">
                 <span data-title-show="Show more" data-title-hide="+"></span>
             </div>
@@ -512,11 +376,11 @@
         </li>
 
     </ul>
-</section>
+</section> -->
 
 <!-- ========================  Blog Block ======================== -->
 
-<section class="blog blog-block">
+<section class="blog blog-block" style="background-color:#fff !important;">
 
     <div class="container">
 
@@ -540,89 +404,61 @@
 
             <?php
 
-            // if (!empty($data["ideas"])) {
-            //     foreach ($data['ideas'] as $idea) {
-            //     }
-            // }
+            if (!empty($data["ideas"])) {
+                foreach ($data['ideas'] as $idea) {
             ?>
 
 
+<div class="col-sm-4">
+                        <article>
+                            <a href="#">
+                                <div class="image">
+                                    <img src="<?= $idea->post_image ?>" alt="" />
+                                </div>
+                                <div class="entry entry-block">
+                                    <div class="date">28 Mart 2017</div>
+                                    <div class="title">
+                                        <h2 class="h3"><?= $idea->title ?> </h2>
+                                    </div>
+                                    <div class="description">
+                                        <p><?= $idea->description ?></p>
+                                    </div>
+                                </div>
+                                <div class="show-more">
+                                    <span class="btn btn-main btn-block">Read more</span>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                    
+                    <!--<div class="col-sm-4">
+                        <article>
+                            <a href="#">
+                                <div class="image">
+                                    <img src="<?= $idea->post_image ?>" alt="" />
+                                </div>
+                                <div class="entry entry-block">
+                                    <div class="date">28 Mart 2017</div>
+                                    <div class="title">
+                                        <h2 class="h3"><?= $idea->title ?> </h2>
+                                    </div>
+                                    <div class="description">
+                                        <p>
+                                            <?= $idea->description ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="show-more">
+                                    <span class="btn btn-main btn-block">Read more</span>
+                                </div>
+                            </a>
+                        </article>
+                    </div> -->
+            <?php
+                }
+            }
+            ?>
 
-            <div class="col-sm-4">
-                <article>
-                    <a href="#">
-                        <div class="image">
-                            <img src="<?php echo SITE_URL; ?>assets/img/zofa/idea1.jpg" alt="" />
-                        </div>
-                        <div class="entry entry-block">
-                            <div class="date">28 Mart 2017</div>
-                            <div class="title">
-                                <h2 class="h3">Creating the Perfect Gallery Wall </h2>
-                            </div>
-                            <div class="description">
-                                <p>
-                                    You’ve finally reached this point in your life- you’ve bought your first home, moved
-                                    into your very own apartment, moved out of the dorm room or you’re finally downsizing
-                                    after all of your kids have left the nest.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="show-more">
-                            <span class="btn btn-main btn-block">Read more</span>
-                        </div>
-                    </a>
-                </article>
-            </div>
-            <div class="col-sm-4">
-                <article>
-                    <a href="#">
-                        <div class="image">
-                            <img src="<?php echo SITE_URL; ?>assets/img/zofa/idea1.jpg" alt="" />
-                        </div>
-                        <div class="entry entry-block">
-                            <div class="date">28 Mar 2017</div>
-                            <div class="title">
-                                <h2 class="h3">Creating the Perfect Gallery Wall </h2>
-                            </div>
-                            <div class="description">
-                                <p>
-                                    You’ve finally reached this point in your life- you’ve bought your first home, moved
-                                    into your very own apartment, moved out of the dorm room or you’re finally downsizing
-                                    after all of your kids have left the nest.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="show-more">
-                            <span class="btn btn-main btn-block">Read more</span>
-                        </div>
-                    </a>
-                </article>
-            </div>
-            <div class="col-sm-4">
-                <article>
-                    <a href="#">
-                        <div class="image">
-                            <img src="<?php echo SITE_URL; ?>assets/img/zofa/idea1.jpg" alt="" />
-                        </div>
-                        <div class="entry entry-block">
-                            <div class="date">28 Mart 2017</div>
-                            <div class="title">
-                                <h2 class="h3">Creating the Perfect Gallery Wall </h2>
-                            </div>
-                            <div class="description">
-                                <p>
-                                    You’ve finally reached this point in your life- you’ve bought your first home, moved
-                                    into your very own apartment, moved out of the dorm room or you’re finally downsizing
-                                    after all of your kids have left the nest.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="show-more">
-                            <span class="btn btn-main btn-block">Read more</span>
-                        </div>
-                    </a>
-                </article>
-            </div>
 
 
         </div>
@@ -630,7 +466,7 @@
         <!-- === button more === -->
 
         <div class="wrapper-more">
-            <a href="ideas.html" class="btn btn-main">View all posts</a>
+            <!-- <a href="ideas.html" class="btn btn-main">View all posts</a> -->
         </div>
 
     </div>
@@ -648,7 +484,7 @@
                     We believe in creativity as one of the major forces of progress. With this idea, we traveled throughout Italy to find exceptional
                     artisans and bring their unique handcrafted objects to connoisseurs everywhere.
                 </p>
-                <p><a href="about.html" class="btn btn-clean">Read full story</a></p>
+                <p><a href="#" class="btn btn-clean">Read full story</a></p>
             </div>
         </div>
     </div>
@@ -683,7 +519,7 @@
             ?>
                     <div class="col-sm-4">
                         <article>
-                            <a href="#">
+                            <a href="<?php echo SITE_URL ?>blogs">
                                 <div class="image" style="background-image:url(<?= $blog->post_image ?>)">
                                     <!-- <img src="<?= $blog->post_image ?>" alt="" /> -->
                                 </div>
@@ -713,7 +549,7 @@
         <!-- === button more === -->
 
         <div class="wrapper-more">
-            <a href="blog-grid.html" class="btn btn-main">View all posts</a>
+            <a href="<?php echo SITE_URL ?>blogs" class="btn btn-main">View all posts</a>
         </div>
 
     </div>
@@ -732,7 +568,7 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-offset-2 col-+md-8 text-center">
+                <div class="col-md-offset-2 col-md-8 text-center">
                     <h2 class="h2 title">Follow us <i class="fa fa-instagram fa-2x"></i> Instagram </h2>
                     <div class="text">
                         <p>

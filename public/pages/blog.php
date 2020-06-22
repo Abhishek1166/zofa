@@ -98,9 +98,9 @@
 					if (!empty($data['Blogs'])) {
 						foreach ($data['Blogs'] as $blog) {
 					?>
-							<div class="col-sm-6">
+							<div class="col-sm-4">
 								<article>
-									<a href="article.html">
+									<a href="<?php echo SITE_URL ?>blog/<?php echo $blog->slug ?>">
 										<div class="image" style="background-image:url(<?= $blog->post_image ?>)">
 											<img src="<?= $blog->post_image ?>" alt="" />
 										</div>

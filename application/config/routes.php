@@ -62,7 +62,7 @@ $route['zofahome'] = 'page/zofahome';
 $route['search/property']       = 'page/search/$1';
 $route['hot-deals']             = 'page/hot_deals/hot-deals';
 $route['project/(:any)']        = 'page/project/$1';
-// $route['blog/(:any)']           = 'page/blog/$1';
+$route['blog/(:any)']           = 'page/single_blog/$1';
 $route['property/(:any)']       = 'page/property/$1';
 $route['about-us']              = 'page/about_us';
 $route['products1/(:any)']      = 'page/products_1/$1';
@@ -74,8 +74,9 @@ $route['get-a-call-back']       = 'page/get_call';
 $route['disclaimer']            = 'page/disclaimer';
 $route['privacy-policy']        = 'page/privacy';
 $route['third-party']           = 'page/thirdparty';
-$route['productsgrid/(:any)']   = 'page/productsgrid/$1';
+$route['shop/(:any)']   = 'page/shop/$1';
 $route['category/(:any)']   = 'page/category/$1';
+// $route['singleblog/(:any)']   = 'page/singleblog/$1';
 $route['order']           = 'page/order';
 
 

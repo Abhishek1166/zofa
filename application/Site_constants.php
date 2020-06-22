@@ -1,5 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed');
 
+// echo $_SERVER['HTTP_HOST'];
+
 /** Check `ErrorMsg.php` Exists */
 file_exists(APPPATH . 'third_party/errorMsg.php') or exit("<center style='color: #3a4161'><h1 style='margin: 25% 0%;font-family: serif; font-size: 40px'>`ErrorMsg.php` Not Exists.</h1></center>");
 
@@ -27,13 +29,13 @@ file_exists(APPPATH . '../temp/') or mkdir(APPPATH . '../temp/', 0777);
 
 defined('SESS_PATH') or define('SESS_PATH', APPPATH . '../temp/');
 
-if ($_SERVER['HTTP_HOST'] === 'base.dev') {
+if ($_SERVER['HTTP_HOST'] === 'www.twstechnology.com') {
 
 	define("DB_HOST", 'localhost');
-	define("DB_USER", 'root');
-	define("DB_PASS", 'root');
-	define("DB_NAME", 'base_dev');
-} elseif ($_SERVER['HTTP_HOST'] === 'localhost') {
+	define("DB_USER", 'twstetmh_zofa');
+	define("DB_PASS", 'zofa$123');
+	define("DB_NAME", 'twstetmh_zofa');
+} elseif ($_SERVER['HTTP_HOST'] === 'www.twstechnology.com/zofa/zofahome') {
 
 	define("DB_HOST", 'localhost');
 	define("DB_USER", 'root');
@@ -84,5 +86,5 @@ const ICONS = [
 
 const RUPEE = '&#8377 ';
 
- 
+
 /* End of file Site_constants.php */
