@@ -1,7 +1,7 @@
 <!-- ========================  Header content ======================== -->
 <?php
 /* echo '<pre>';
-print_r($data['Product']);
+print_r($data['Sliders']);
 echo '</pre>';
 die; */
 ?>
@@ -17,10 +17,9 @@ die; */
                 <div class="item" style="background-image:url(<?= $Sliders->image ?>)">
                     <div class="box">
                         <div class="container">
-                            <h2 class="title animated h1" data-animation="fadeInDown">Zofa Modern furniture showroom </h2>
+                            <h2 class="title animated h1" data-animation="fadeInDown"><?= $Sliders->title ?></h2>
                             <div class="animated" data-animation="fadeInUp">
-                                Modern & powerfull furniture. <br /> Attractive design & Mordern
-                                layout. At resonable price.
+                                <?= $Sliders->description ?>
                             </div>
                             <!-- <div class="animated" data-animation="fadeInUp">
                                 <a href="https://www.twstechnology.com/" target="_blank" class="btn btn-main"><i class="icon icon-cart"></i> Buy this template</a>
@@ -59,7 +58,7 @@ die; */
 
                 <!-- === icon item === -->
 
-                <a href="#">
+                <a href="<?= SITE_URL . "category/" . $nav_category->slug ?>">
                     <figure>
                         <i class="f-icon f-icon-<?php echo $nav_category->icon; ?>"></i>
                         <figcaption><?php echo $nav_category->title; ?></figcaption>
@@ -100,7 +99,7 @@ die; */
             if (!empty($data['Product'])) {
                 foreach ($data['Product'] as $prod) {
             ?>
-            <div class="col-md-4 col-xs-6">
+                    <div class="col-md-4 col-xs-6">
                         <article>
                             <div class="figure-block">
                                 <div class="image">
@@ -112,7 +111,8 @@ die; */
                                     <h2 class="title h4"><a href="<?php echo SITE_URL . 'products1/' . $prod->id ?>"><?php echo $prod->title; ?></a></h2>
                                     <i class="fa fa-rupee"></i></i><sub><?php echo $prod->sell_price; ?></sub>
                                     <srike><sup><?php echo $prod->regular_price; ?></sup></srike>
-                                    <!--<span class="description clearfix"><?php //echo $prod->short_description; ?></span> -->
+                                    <!--<span class="description clearfix"><?php //echo $prod->short_description; 
+                                                                            ?></span> -->
                                 </div>
                             </div>
                         </article>
@@ -160,7 +160,7 @@ die; */
         <!-- === button more === -->
 
         <div class="wrapper-more">
-            <a href="<?php echo SITE_URL ?>productsgrid/1" class="btn btn-main">View store</a>
+            <a href="<?php echo SITE_URL ?>shop/1" class="btn btn-main">View store</a>
         </div>
 
         <!-- ========================  Product info popup - quick view ======================== -->
@@ -409,14 +409,14 @@ die; */
             ?>
 
 
-<div class="col-sm-4">
+                    <div class="col-sm-4">
                         <article>
                             <a href="#">
                                 <div class="image">
                                     <img src="<?= $idea->post_image ?>" alt="" />
                                 </div>
                                 <div class="entry entry-block">
-                                    <div class="date">28 Mart 2017</div>
+                                    <div class="date"><?php echo strtoupper(date('M', strtotime($idea->created_date))); ?>&nbsp;<strong><?php echo date('d', strtotime($idea->created_date)) ?></strong>&nbsp;<span><?php echo date('o', strtotime($idea->created_date)) ?></span></div>
                                     <div class="title">
                                         <h2 class="h3"><?= $idea->title ?> </h2>
                                     </div>
@@ -425,12 +425,12 @@ die; */
                                     </div>
                                 </div>
                                 <div class="show-more">
-                                    <span class="btn btn-main btn-block">Read more</span>
+                                    <!-- <span class="btn btn-main btn-block">Read more</span> -->
                                 </div>
                             </a>
                         </article>
                     </div>
-                    
+
                     <!--<div class="col-sm-4">
                         <article>
                             <a href="#">

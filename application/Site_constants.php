@@ -36,7 +36,13 @@ if ($_SERVER['HTTP_HOST'] === 'www.twstechnology.com') {
 	define("DB_PASS", 'zofa$123');
 	define("DB_NAME", 'twstetmh_zofa');
 } elseif ($_SERVER['HTTP_HOST'] === 'www.twstechnology.com/zofa/zofahome') {
-
+	/* changes */
+	define("DB_HOST", 'localhost');
+	define("DB_USER", 'root');
+	define("DB_PASS", '');
+	define("DB_NAME", 'demo_base');
+} elseif ($_SERVER['HTTP_HOST'] === 'localhost') {
+	/* changes */
 	define("DB_HOST", 'localhost');
 	define("DB_USER", 'root');
 	define("DB_PASS", '');

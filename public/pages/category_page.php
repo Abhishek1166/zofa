@@ -1,6 +1,6 @@
 <?php
 /* echo '<pre>';
-print_r($category);
+print_r($prod);
 echo '</pre>';
 die(); */
 ?>
@@ -65,19 +65,17 @@ die(); */
 
                         foreach ($data['produucts'] as $prod) {
                     ?>
-                    
-                    <div class="col-md-12">
+
+                            <div class="col-md-12">
                                 <article>
                                     <div class="info">
-                                        <span class="add-favorite">
-                                            <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                                        </span>
+
                                         <span>
                                             <a href="<?php echo SITE_URL . 'products1/' . $prod->id ?>" class="" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
                                         </span>
                                     </div>
-                                    <div class="btn btn-add">
-                                        <i class="icon icon-cart"></i>
+                                    <div class="">
+
                                     </div>
                                     <div class="figure-list">
                                         <div class="image">
@@ -89,12 +87,12 @@ die(); */
                                             <h2 class="title h4"><a href="<?php echo SITE_URL . 'products1/' . $prod->id ?>"><?php echo $prod->title; ?></a></h2>
                                             ₹<sub><?php echo $prod->sell_price; ?></sub>
                                             <sup><?php echo $prod->regular_price; ?></sup>
-                                            <span class="description clearfix">Gubergren amet dolor ea diam takimata consetetur facilisis blandit et aliquyam lorem ea duo labore diam sit et consetetur nulla</span>
+                                            <span class="description clearfix"><?php echo $prod->srt_description; ?></span>
                                         </div>
                                     </div>
                                 </article>
                             </div>
-                            
+
                             <!--<div class="col-md-4 col-xs-6">
 
 
@@ -109,7 +107,7 @@ die(); */
                                     </div>
                                     <div class="">
                                         <!-- <i class="icon icon-cart"></i> -->
-                                    <!--</div>
+                            <!--</div>
 
                                     <div class="figure-grid">
 
@@ -119,7 +117,7 @@ die(); */
                                                                         ?></span>
                                         <div class="image">
                                             <!-- <a href="#productid1" class="mfp-open"> -->
-                                            <!--<img src="<?php echo $prod->image; ?>" alt="" width="360" />
+                            <!--<img src="<?php echo $prod->image; ?>" alt="" width="360" />
                                             </a>
                                         </div>
                                         <div class="text">

@@ -158,7 +158,7 @@
                                     </div>
                                 </div>
 
-                                <!-- comment description -->
+                                 comment description -->
 
                             <!-- <div class="comment-desc">
                                     <p>
@@ -234,7 +234,7 @@
 
                 <!--  -->
                 <!--/comment-add-->
-        </div> -->
+        </div>
         <!--/comments-->
 
     </div>
